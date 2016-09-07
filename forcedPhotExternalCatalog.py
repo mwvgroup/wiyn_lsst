@@ -41,7 +41,7 @@ def load_external_catalog_info(coord_file):
     return info
 
 class ForcedExternalCatalogMeasurementTask(measBase.ForcedMeasurementTask):
-    def attachTransformedFootprints(self, sources, extCat, exposure, refWcs):
+    def attachTransformedFootprints(self, sources, refCat, exposure, expWcs):
         """Default implementation for attaching Footprints to blank sources prior to measurement
         Footprints for forced photometry must be in the pixel coordinate system of the image being
         measured, while we want to use RA, Dec position from an external catalog.
@@ -53,8 +53,6 @@ class ForcedExternalCatalogMeasurementTask(measBase.ForcedMeasurementTask):
         See the documentation for run() for information about the relationships between run(),
         generateMeasCat(), and attachTransformedFootprints().
         """
-        exposureWcs = exposure.getWcs()
-        region = exposure.getBBox(lsst.afw.image.PARENT)
         for srcRecord, refRecord in zip(sources, refCat):
 
             # Add footprints
@@ -68,7 +66,7 @@ class ForcedExternalCatalogMeasurementTask(measBase.ForcedMeasurementTask):
 
             # coord = afwCoord.IcrsCoord(afwGeom.Point2D(row['RA'], row['Dec']), degrees)
             coord = refRecord.getCoord()
-            fpCenter = afwGeom.Point2I(refWcs.skyToPixel(coord))
+            fpCenter = afwGeom.Point2I(expWcs.skyToPixel(coord))
             footprint = afwDetection.Footprint(fpCenter, footprint_radius)
             srcRecord.setFootprint(footprint)
 
@@ -111,7 +109,6 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
 
         info = load_external_catalog_info(coord_file)
 
-        wcs = exposure.getWcs()
         footprint_radius = 5  # pixels
 
         src_cat = afwTable.SourceCatalog(newSchema)
@@ -130,16 +127,16 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
 
         butler = dataRef.getButler()
         exposure = butler.get("calexp", dataId=dataRef.dataId)
-        refWcs = exposure.getWcs()
+        expWcs = exposure.getWcs()
 
         refCat = self.create_source_catalog_from_external_catalog(dataRef, coord_file)
 
-        measCat = self.measurement.generateMeasCat(exposure, refCat, refWcs)
+        measCat = self.measurement.generateMeasCat(exposure, refCat, expWcs)
 
         # self.log.info("Performing forced measurement on science image %s" % scienceExpRef.dataId)
 
-        self.measurement.attachTransformedFootprints(measCat, refCat, exposure, refWcs)
-        self.measurement.run(measCat, exposure, refCat, refWcs)
+        self.measurement.attachTransformedFootprints(measCat, refCat, exposure, expWcs)
+        self.measurement.run(measCat, exposure, refCat, expWcs)
 
         self.writeOutput(dataRef, measCat)
 
