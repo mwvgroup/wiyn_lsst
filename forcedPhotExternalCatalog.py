@@ -133,7 +133,7 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
 
         measCat = self.measurement.generateMeasCat(exposure, refCat, expWcs)
 
-        # self.log.info("Performing forced measurement on science image %s" % scienceExpRef.dataId)
+        self.log.info("Performing forced measurement on science image %s" % dataRef.dataId)
 
         self.measurement.attachTransformedFootprints(measCat, refCat, exposure, expWcs)
         self.measurement.run(measCat, exposure, refCat, expWcs)
