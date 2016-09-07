@@ -53,6 +53,8 @@ class ForcedExternalCatalogMeasurementTask(measBase.ForcedMeasurementTask):
         See the documentation for run() for information about the relationships between run(),
         generateMeasCat(), and attachTransformedFootprints().
         """
+        footprint_radius = 5  # pixels
+
         for srcRecord, refRecord in zip(sources, refCat):
 
             # Add footprints
@@ -108,8 +110,6 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
         newSchema = mapper.getOutputSchema()
 
         info = load_external_catalog_info(coord_file)
-
-        footprint_radius = 5  # pixels
 
         src_cat = afwTable.SourceCatalog(newSchema)
         for row in info:
