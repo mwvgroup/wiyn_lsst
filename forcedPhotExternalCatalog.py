@@ -4,7 +4,6 @@ from __future__ import print_function, division
 
 import lsst
 import lsst.meas.base as measBase
-import lsst.afw.coord as afwCoord
 import lsst.afw.detection as afwDetection
 import lsst.afw.geom as afwGeom
 import lsst.afw.table as afwTable
@@ -40,6 +39,7 @@ def load_external_catalog_info(coord_file):
     info = Table.read(coord_file, format='ascii.csv', names=('Name', 'RA', 'Dec'))
     return info
 
+
 class ForcedExternalCatalogMeasurementTask(measBase.ForcedMeasurementTask):
     def attachTransformedFootprints(self, sources, refCat, exposure, expWcs):
         """Default implementation for attaching Footprints to blank sources prior to measurement
@@ -60,7 +60,7 @@ class ForcedExternalCatalogMeasurementTask(measBase.ForcedMeasurementTask):
             # Add footprints
             #  See https://community.lsst.org/t/how-do-i-do-forced-photometry-on-a-set-of-ra-dec/1074/9
             # From TallJimbo (Jim Bosch)
-            # "There's a Footprint constructor that takes an integer position and a radius, 
+            # "There's a Footprint constructor that takes an integer position and a radius,
             #  so I think something like this should work:"
             # coord = lsst.afw.coord.IcrsCoord(lsst.afw.geom.Point2D(ra, dec), lsst.afw.geom.degrees)
             # fpCenter = lsst.afw.geom.Point2I(wcs.skyToPixel(coord))
