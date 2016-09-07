@@ -41,13 +41,12 @@ def load_external_catalog_info(coord_file):
     return info
 
 class ForcedExternalCatalogMeasurementTask(measBase.ForcedMeasurementTask):
-    def attachTransformedFootprints(self, sources, refCat, exposure, refWcs):
+    def attachTransformedFootprints(self, sources, extCat, exposure, refWcs):
         """Default implementation for attaching Footprints to blank sources prior to measurement
         Footprints for forced photometry must be in the pixel coordinate system of the image being
-        measured, while the actual detections may start out in a different coordinate system.
-        This default implementation transforms the Footprints from the reference catalog from the
-        refWcs to the exposure's Wcs, which downgrades HeavyFootprints into regular Footprints,
-        destroying deblend information.
+        measured, while we want to use RA, Dec position from an external catalog.
+        This implementation takes RA, Dec from an external catalog, a fixed radius,
+        and creates and sets footprints in the exposure's pixel system.
         Note that ForcedPhotImageTask delegates to this method in its own attachFootprints method.
         attachFootprints can then be overridden by its subclasses to define how their Footprints
         should be generated.
@@ -57,7 +56,21 @@ class ForcedExternalCatalogMeasurementTask(measBase.ForcedMeasurementTask):
         exposureWcs = exposure.getWcs()
         region = exposure.getBBox(lsst.afw.image.PARENT)
         for srcRecord, refRecord in zip(sources, refCat):
-            srcRecord.setFootprint(refRecord.getFootprint().transform(refWcs, exposureWcs, region))
+
+            # Add footprints
+            #  See https://community.lsst.org/t/how-do-i-do-forced-photometry-on-a-set-of-ra-dec/1074/9
+            # From TallJimbo (Jim Bosch)
+            # "There's a Footprint constructor that takes an integer position and a radius, 
+            #  so I think something like this should work:"
+            # coord = lsst.afw.coord.IcrsCoord(lsst.afw.geom.Point2D(ra, dec), lsst.afw.geom.degrees)
+            # fpCenter = lsst.afw.geom.Point2I(wcs.skyToPixel(coord))
+            # footprint = lsst.afw.detection.Footprint(fpCenter, radius)
+
+            # coord = afwCoord.IcrsCoord(afwGeom.Point2D(row['RA'], row['Dec']), degrees)
+            coord = refRecord.getCoord()
+            fpCenter = afwGeom.Point2I(refWcs.skyToPixel(coord))
+            footprint = afwDetection.Footprint(fpCenter, footprint_radius)
+            srcRecord.setFootprint(footprint)
 
 
 class ForcedPhotExternalCatalogConfig(lsst.pex.config.Config):
@@ -89,7 +102,7 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
         self.makeSubtask("measurement", refSchema=self.refSchema)
         self.dataPrefix = ""
 
-    def create_source_catalog_from_external_catalog(self, dataRef, coord_file, exposure, dataset='src', debug=True):
+    def create_source_catalog_from_external_catalog(self, dataRef, coord_file, dataset='src', debug=True):
         butler = dataRef.getButler()
         schema = butler.get(dataset + "_schema", immediate=True).schema
         mapper = afwTable.SchemaMapper(schema)
@@ -107,20 +120,6 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
             record.set('coord_ra', Angle(row['RA']*degrees))
             record.set('coord_dec', Angle(row['Dec']*degrees))
 
-            # Add footprints
-            #  See https://community.lsst.org/t/how-do-i-do-forced-photometry-on-a-set-of-ra-dec/1074/9
-            # From TallJimbo (Jim Bosch)
-            # "There's a Footprint constructor that takes an integer position and a radius, 
-            #  so I think something like this should work:"
-            # coord = lsst.afw.coord.IcrsCoord(lsst.afw.geom.Point2D(ra, dec), lsst.afw.geom.degrees)
-            # fpCenter = lsst.afw.geom.Point2I(wcs.skyToPixel(coord))
-            # footprint = lsst.afw.detection.Footprint(fpCenter, radius)
-
-            coord = afwCoord.IcrsCoord(afwGeom.Point2D(row['RA'], row['Dec']), degrees)
-            fpCenter = afwGeom.Point2I(wcs.skyToPixel(coord))
-            footprint = afwDetection.Footprint(fpCenter, footprint_radius)
-            record.set('footprint', footprint)
-
         if debug:
             print(src_cat['coord_ra'], src_cat['coord_dec'])
         return(src_cat)
@@ -133,7 +132,7 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
         exposure = butler.get("calexp", dataId=dataRef.dataId)
         refWcs = exposure.getWcs()
 
-        refCat = self.create_source_catalog_from_external_catalog(dataRef, coord_file, exposure)
+        refCat = self.create_source_catalog_from_external_catalog(dataRef, coord_file)
 
         measCat = self.measurement.generateMeasCat(exposure, refCat, refWcs)
 
