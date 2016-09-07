@@ -77,7 +77,7 @@ class ForcedPhotExternalCatalogConfig(lsst.pex.config.Config):
     """Config class for forced measurement driver task."""
 
     measurement = lsst.pex.config.ConfigurableField(
-        target=measBase.ForcedMeasurementTask,
+        target=ForcedExternalCatalogMeasurementTask,
         doc="subtask to do forced measurement")
 
     def setDefaults(self):
