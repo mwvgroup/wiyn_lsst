@@ -44,9 +44,9 @@ def test():
 
     scienceImage = os.path.join(repo_dir, 'calex', science_image)
     templateImage = os.path.join(repo_dir, 'calex', template_image)
-    conv_file = convname_from_diffname(os.path.basename(diff_file))
     diff_file = diffname_from_inputs(os.path.basename(science_file),
                                      os.path.basename(template_file))
+    conv_file = convname_from_diffname(os.path.basename(diff_file))
     subtractFiles(science_file, template_file, diff_file, conv_file)
 
 
