@@ -33,19 +33,29 @@ def assemble_catalogs_into_lightcurve(science_fileroots, repo_dir):
     """Return Table with measurements."""
     butler = dafPersist.Butler(repo_dir)
 
-    names = ('filter', 'objectId', 'coord_ra', 'coord_dec', 'parentObjectId',
-             'base_RaDecCentroid_x', 'base_RaDecCentroid_y', 'base_PsfFlux_flux', 'base_PsfFlux_fluxSigma')
-    names_to_copy = [n for n in names if n != 'filter']
-    dtype = (str, long, float, float, long, float, float, float, float)
+    names_to_copy = ['objectId', 'coord_ra', 'coord_dec', 'parentObjectId',
+                     'base_RaDecCentroid_x', 'base_RaDecCentroid_y',
+                     'base_PsfFlux_flux', 'base_PsfFlux_fluxSigma']
+    names_to_generate = ['filter', 'mjd']
+
+    names = names_to_generate + names_to_copy
+    dtype = (str, float, long, float, float, long, float, float, float, float)
     table = Table(names=names, dtype=dtype)
 
     for f, fileroots in science_fileroots.items():
         for fileroot in fileroots:
+            dataId = {'fileroot': fileroot}
+            # Can grab filter, mjd from 'calexp_mc' call on fileroot
+            md = butler.get('calexp_md', dataId=dataId, immediate=True)
+            mjd = md.get('MJD-OBS')
+            # md.get('FILTER')  # But that's not being set right now so we'll keep using f
+
             this_measurement = extract_forced_photometry(butler, fileroot)
             # 'this_measurement' is a table, but we're only extracting the first entry from each column
-            cols_to_copy = {n: this_measurement[n][0] for n in names_to_copy}
-            cols_to_copy['filter'] = f
-            table.add_row(cols_to_copy)
+            cols_for_new_row = {n: this_measurement[n][0] for n in names_to_copy}
+            cols_for_new_row['filter'] = f
+            cols_for_new_row['mjd'] = mjd
+            table.add_row(cols_for_new_row)
 
     return table
 
