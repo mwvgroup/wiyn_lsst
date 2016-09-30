@@ -25,7 +25,8 @@ def run_forced_photometry(science_fileroot, coord_file, repo_dir, verbose=True):
 def extract_forced_photometry(butler, fileroot):
     """Return the data from the forced photometry."""
     dataset = 'forced_src'
-    return butler.get(dataset, dataId={'fileroot': fileroot})
+    catalog = butler.get(dataset, dataId={'fileroot': fileroot})
+    return catalog
 
 
 def assemble_catalogs_into_lightcurve(science_fileroots, repo_dir):
