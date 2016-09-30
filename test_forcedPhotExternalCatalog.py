@@ -46,6 +46,8 @@ def assemble_catalogs_into_lightcurve(science_fileroots, repo_dir):
             cols_to_copy['filter'] = f
             table.add_row(cols_to_copy)
 
+    return table
+
 
 def test_assemble_catalogs_into_lightcurves():
     """Needs to have a run already existing to work."""
