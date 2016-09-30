@@ -103,5 +103,5 @@ if __name__ == "__main__":
                 lightcurve_fileroots_for_sn[f].append(science_fileroot)
                 run_forced_photometry(science_file, coord_file, repo_dir)
 
-        sn_lc = assemble_catalogs_into_lightcurve(lightcurve_fileroots_for_sn)
+        sn_lc = assemble_catalogs_into_lightcurve(lightcurve_fileroots_for_sn, repo_dir)
         sn_lc.write(out_file)
