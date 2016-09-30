@@ -13,7 +13,9 @@ def run_forced_photometry(science_file, template_file, coord_file, repo_dir):
             '--logdest', 'wiyn_imagePhotometry.log',
             '--clobber-config', '--clobber-versions',
            ]
-    forcedPhotExternalCatalog.parseAndRun(args=args)
+    if verbose:
+        print(args)
+    ForcedPhotExternalCatalogTask.parseAndRun(args=args)
 
 
 if __name__ == "__main__":

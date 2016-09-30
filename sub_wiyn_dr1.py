@@ -57,7 +57,7 @@ def filename_to_fileroot(filename):
     return fileroot
 
 
-def run_repo_based_subtraction(science_file, template_file, repo_dir):
+def run_repo_based_subtraction(science_file, template_file, repo_dir, verbose=True):
     """Run a subtraction using the Butler"""
     science_fileroot = filename_to_fileroot(science_file)
     template_fileroot = filename_to_fileroot(template_file)
