@@ -4,13 +4,13 @@ import os
 from sub_wiyn_dr1 import sn_with_dr1_templates, repo_dir, find_science_images, filename_to_fileroot
 import forcedPhotExternalCatalog
 
-def run_forced_photometry(science_file, template_file, coord_file, repo_dir):
+
+def run_forced_photometry(science_fileroot, coord_file, repo_dir, verbose=True):
     science_fileroot = filename_to_fileroot(science_file)
     args = [repo_dir,
-            '--id', 'fileroot="{}"'.format(science_fileroot),
-            '--coord_file', '"{}"'.format(coord_file),
-            '--output "{}"', repo_dir,
-            '--logdest', 'wiyn_imagePhotometry.log',
+            '--id', 'fileroot={}'.format(science_fileroot),
+            '--coord_file', '{}'.format(coord_file),
+            '--output', '{}'.format(repo_dir),
             '--clobber-config', '--clobber-versions',
            ]
     if verbose:
