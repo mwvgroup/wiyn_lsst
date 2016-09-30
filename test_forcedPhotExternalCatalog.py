@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 import os
 
+from forcedPhotExternalCatalog import ForcedPhotExternalCatalogTask
 from sub_wiyn_dr1 import sn_with_dr1_templates, repo_dir, find_science_images, filename_to_fileroot
-import forcedPhotExternalCatalog
 
 
 def run_forced_photometry(science_fileroot, coord_file, repo_dir, verbose=True):
