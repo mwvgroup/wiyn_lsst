@@ -51,7 +51,7 @@ def test():
 
 
 def filename_to_fileroot(filename):
-    fileroot = os.path.basename(science_file)
+    fileroot = os.path.basename(filename)
     fileroot = fileroot.replace('.lsst.fits', '')
     fileroot = fileroot.replace('.fits', '')
     return fileroot
