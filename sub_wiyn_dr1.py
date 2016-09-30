@@ -42,8 +42,8 @@ def test():
     template_image = 'PS1-12bwh_A_J_20121130.fits'
     out_image = 'PS1-12bwh_A_J_20121028_20121130.diff.fits'
 
-    scienceImage = os.path.join(repo_dir, 'calex', science_image)
-    templateImage = os.path.join(repo_dir, 'calex', template_image)
+    scienceImage = os.path.join(repo_dir, 'calexp', science_image)
+    templateImage = os.path.join(repo_dir, 'calexp', template_image)
     diff_file = diffname_from_inputs(os.path.basename(science_file),
                                      os.path.basename(template_file))
     conv_file = convname_from_diffname(os.path.basename(diff_file))
@@ -96,11 +96,10 @@ if __name__ == "__main__":
     # or use the repo-based Butler interface
     repo_based = True
 
-    for name, sn in sn_with_dr1_templates.items():
+    for name, templates in sn_with_dr1_templates.items():
         print("Processing {}".format(name))
-#        for f in sn.keys():
-        for f in 'H':
-            template_file = os.path.join(repo_dir, 'calexp', sn[f])
+        for f in templates.keys():
+            template_file = os.path.join(repo_dir, 'calexp', templates[f])
             for science_file in find_science_images(name, f, repo_dir):
                 if science_file == template_file:
                     continue
