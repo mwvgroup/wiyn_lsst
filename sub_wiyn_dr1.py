@@ -20,6 +20,8 @@ sn_with_dr1_templates = {
      'PTF11qpc':                   {'H': 'PTF11qpc_A_H_20120402.fits'}, 
     }
 
+repo_dir = os.path.join(os.getenv('HOME'), 'tmp', 'test_dr1')
+
 def find_and_generate_lsst_files(sn):
     """Find the files for a given SN, generate LSST-style fits versions."""
     dr1_dir = os.path.join(os.getenv('DR1BASE'), 'stacks')
@@ -48,11 +50,51 @@ def test():
     subtractFiles(science_file, template_file, diff_file, conv_file)
 
 
+def filename_to_fileroot(filename):
+    fileroot = os.path.basename(science_file)
+    fileroot = fileroot.replace('.lsst.fits', '')
+    fileroot = fileroot.replace('.fits', '')
+    return fileroot
+
+
+def run_repo_based_subtraction(science_file, template_file, repo_dir):
+    """Run a subtraction using the Butler"""
+    science_fileroot = filename_to_fileroot(science_file)
+    template_fileroot = filename_to_fileroot(template_file)
+    args = [repo_dir,
+            '--id', 'fileroot={}'.format(science_fileroot),
+            '--templateId', 'fileroot={}'.format(template_fileroot),
+            '--output', repo_dir,
+            '--configfile', 'diffimconfig.py',
+            '--logdest', 'wiyn_imageDifference.log',
+            '--clobber-config', '--clobber-versions',
+           ]
+    from lsst.pipe.tasks.imageDifference import ImageDifferenceTask
+
+    if verbose:
+        print("Running ImageDifferenceTask.parseAndrun with args:")
+        print(args)
+    ImageDifferenceTask.parseAndRun(args=args)
+
+
+def run_file_based_subtraction(science_file, template_file):
+    """Run a subtraction just based on file names, write output to POSIX file system."""
+    diff_file = diffname_from_inputs(science_file, template_file)
+    conv_file = convname_from_diffname(diff_file)
+    print("subtractFiles({}, {}, {}, {})".format(science_file, template_file, diff_file, conv_file))
+    try:
+        subtractFiles(science_file, template_file, diff_file, conv_file)
+    except Exception as e:
+        print(e)
+
+
 if __name__ == "__main__":
 #    for sn in sn_with_dr1_templates:
 #        find_and_generate_lsst_files(sn)
 
-    repo_dir = os.path.join(os.getenv('HOME'), 'tmp', 'test_dr1')
+    # Do we run subtraction directly from files
+    # or use the repo-based Butler interface
+    repo_based = True
 
     for name, sn in sn_with_dr1_templates.items():
         print("Processing {}".format(name))
@@ -62,11 +104,8 @@ if __name__ == "__main__":
             for science_file in find_science_images(name, f, repo_dir):
                 if science_file == template_file:
                     continue
-                diff_file = diffname_from_inputs(science_file, template_file)
-                conv_file = convname_from_diffname(diff_file)
-                print("subtractFiles({}, {}, {}, {})".format(science_file, template_file, diff_file, conv_file))
-                try:
-                    subtractFiles(science_file, template_file, diff_file, conv_file)
-                except Exception as e:
-                    print(e)
+                if repo_based:
+                    run_repo_based_subtraction(science_file, template_file, repo_dir)
+                else:
+                    run_file_based_subtraction(science_file, template_file)
 
