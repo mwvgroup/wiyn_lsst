@@ -91,9 +91,9 @@ if __name__ == "__main__":
         out_file = '{}_lc.fits'.format(name)
 
         print("Processing photometry for {}".format(name))
-#        for f in sn.keys():
         lightcurve_fileroots_for_sn = {}
-        for f in 'H':
+        for f in sn.keys():
+#        for f in 'H':
             lightcurve_fileroots_for_sn[f] = []
             template_file = os.path.join(repo_dir, 'calexp', sn[f])
             for science_file in find_science_images(name, f, repo_dir):
