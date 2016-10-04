@@ -37,7 +37,7 @@ def find_science_images(sn, f, repo_dir):
     return sn_files
 
 
-def test():
+def test_subtractFiles():
     science_image = 'PS1-12bwh_A_J_20121028.fits'
     template_image = 'PS1-12bwh_A_J_20121130.fits'
     out_image = 'PS1-12bwh_A_J_20121028_20121130.diff.fits'
