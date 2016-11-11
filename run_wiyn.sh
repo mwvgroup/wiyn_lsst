@@ -1,3 +1,5 @@
+source ~/.bashrc.lsst
+
 #    --id filename='PS1-12bwh_A_J_20121028.lsst.fits' \
 WIYN=${HOME}/tmp
 REPO=${WIYN}/test_dr1
@@ -27,7 +29,7 @@ for fullfile in `ls ${REPO}/raw`; do
             calibrate.doApCorr=False \
         --clobber-config \
         --clobber-version \
-        --logdest ${sn_file}_processCcd.log
+#        --logdest ${sn_file}_processCcd.log
     #        isr.noise=100 isr.addNoise=True \
     #    --debug \
     #        calibrate.detection.thresholdType='pixel_stdev' \
