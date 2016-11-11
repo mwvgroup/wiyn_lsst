@@ -15,5 +15,3 @@ python wiynAssembleExp.py ${DR1BASE}/stacks/*[0-9].fits
 # for sn in PSNJ07250042\+2347030 LSQ12fuk PTF11pbp PTF11qzq PTF11mty SN2011iu SN2011gy PTF11owc SN2011ho PTF11qpc; do
 #    python wiynAssembleExp.py ${DR1BASE}/stacks/${sn}_*[0-9].fits
 # done
-
-ingestFiles.py ${REPO} ${DR1BASE}/stacks/*.lsst.fits
