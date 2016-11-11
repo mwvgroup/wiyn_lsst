@@ -16,6 +16,7 @@ class TaskRunnerWithArgs(pipeBase.ButlerInitializedTaskRunner):
     @staticmethod
     def getTargetList(parsedCmd, **kwargs):
         return pipeBase.TaskRunner.getTargetList(parsedCmd,
+                                                 dataset=parsedCmd.dataset,
                                                  coord_file=parsedCmd.coord_file,
                                                  **kwargs)
 
@@ -97,10 +98,9 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
         super(lsst.pipe.base.CmdLineTask, self).__init__(**kwargs)
 
         # We need an example output table from measurement to load.
-        dataset = 'src'
-        self.refSchema = butler.get(dataset + "_schema", immediate=True).schema
+        example_dataset = 'src'
+        self.refSchema = butler.get(example_dataset + "_schema", immediate=True).schema
         self.makeSubtask("measurement", refSchema=self.refSchema)
-        self.dataPrefix = ""
 
     def create_source_catalog_from_external_catalog(self, dataRef, coord_file, dataset='src', debug=True):
         butler = dataRef.getButler()
@@ -121,22 +121,30 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
             print(src_cat['coord_ra'], src_cat['coord_dec'])
         return(src_cat)
 
-    def run(self, dataRef, coord_file=None):
+    def run(self, dataRef, coord_file=None, dataset=None):
         """ Perform forced photometry on the dataRef exposure at the locations in coord_file.
         """
 
         butler = dataRef.getButler()
-        exposure = butler.get("calexp", dataId=dataRef.dataId)
+        exposure = butler.get(self.dataset, dataId=dataRef.dataId)
         expWcs = exposure.getWcs()
 
         refCat = self.create_source_catalog_from_external_catalog(dataRef, coord_file)
 
         measCat = self.measurement.generateMeasCat(exposure, refCat, expWcs)
 
-        self.log.info("Performing forced measurement on science image %s" % dataRef.dataId)
+        self.log.info("Performing forced measurement on %s science image %s" % (dataset, dataRef.dataId))
 
         self.measurement.attachTransformedFootprints(measCat, refCat, exposure, expWcs)
         self.measurement.run(measCat, exposure, refCat, expWcs)
+
+        self.dataset = dataset
+        if self.dataset == "diff":
+            self.dataPrefix = "deepDiff_"
+        elif self.dataset == "calexp":
+            self.dataPrefix = ""
+        else:
+            self.dataPrefix = ""
 
         self.writeOutput(dataRef, measCat)
 
@@ -154,6 +162,7 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
 
         # Can I make an argument which is a dataset type?
         parser.add_id_argument("--id", "src", help="data ID of the image")
+        parser.add_argument("--dataset", help="dataset to perform forced photometry on: 'calexp', 'deepDiff'")
         parser.add_argument("--coord_file",
                             help="File with coordinates to photometry. " +
                             "Each line should be Name,RA,Dec with RA, Dec as decimal degrees.")

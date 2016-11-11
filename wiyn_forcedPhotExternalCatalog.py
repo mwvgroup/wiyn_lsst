@@ -9,10 +9,11 @@ from forcedPhotExternalCatalog import ForcedPhotExternalCatalogTask
 from sub_wiyn_dr1 import sn_with_dr1_templates, repo_dir, find_science_images, filename_to_fileroot
 
 
-def run_forced_photometry(science_fileroot, coord_file, repo_dir, verbose=True):
+def run_forced_photometry(science_fileroot, coord_file, repo_dir, dataset='calexp', verbose=True):
     science_fileroot = filename_to_fileroot(science_file)
     args = [repo_dir,
             '--id', 'fileroot={}'.format(science_fileroot),
+            '--dataset', '{}'.format(dataset),
             '--coord_file', '{}'.format(coord_file),
             '--output', '{}'.format(repo_dir),
             '--clobber-config', '--clobber-versions',
