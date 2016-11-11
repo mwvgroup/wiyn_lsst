@@ -11,7 +11,7 @@ sn_with_dr1_templates = {
      'PSNJ07250042+2347030':       {'J': 'PSNJ07250042+2347030_A_J_20131213.fits', 'H': 'PSNJ07250042+2347030_A_H_20131213.fits'},
      'LSQ12fuk':                   {'J': 'LSQ12fuk_A_J_20131019.fits', 'H': 'LSQ12fuk_A_H_20131019.fits'},
      'SN2011hb':                   {'J': 'SN2011hb_A_J_20131020.fits', 'H': 'SN2011hb_A_H_20131020.fits'},
-     'PTF11qzq':                   {'J': 'PTF11qzq_A_J_20130925.fits', 'H': 'PTF11qzq_A_H_20121007.fits'}, 
+#     'PTF11qzq':                   {'J': 'PTF11qzq_A_J_20130925.fits', 'H': 'PTF11qzq_A_H_20121007.fits'},
      'PTF11mty':                   {'J': 'PTF11mty_A_J_20121007.fits', 'H': 'PTF11mty_A_H_20120925.fits'}, 
      'SN2011iu':                   {'J': 'SN2011iu_A_J_20121001.fits', 'H': 'SN2011iu_A_H_20120925.fits'},
      'SN2011gy':                   {'J': 'SN2011gy_A_J_20121028.fits', 'H': 'SN2011gy_A_H_20121028.fits'},
