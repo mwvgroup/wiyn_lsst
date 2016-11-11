@@ -12,7 +12,7 @@ from lsst.afw.geom import Angle, degrees
 
 
 class TaskRunnerWithArgs(pipeBase.ButlerInitializedTaskRunner):
-    """Overwrite default TaskRunner to pass 'coord_file' in the kwargs dict to 'run'"""
+    """Overwrite default TaskRunner to pass 'dataset' and 'coord_file' in the kwargs dict to 'run'"""
     @staticmethod
     def getTargetList(parsedCmd, **kwargs):
         return pipeBase.TaskRunner.getTargetList(parsedCmd,
@@ -125,6 +125,14 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
         """ Perform forced photometry on the dataRef exposure at the locations in coord_file.
         """
 
+        self.dataset = dataset
+        if self.dataset == "diff":
+            self.dataPrefix = "deepDiff_"
+        elif self.dataset == "calexp":
+            self.dataPrefix = ""
+        else:
+            self.dataPrefix = ""
+
         butler = dataRef.getButler()
         exposure = butler.get(self.dataset, dataId=dataRef.dataId)
         expWcs = exposure.getWcs()
@@ -137,14 +145,6 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
 
         self.measurement.attachTransformedFootprints(measCat, refCat, exposure, expWcs)
         self.measurement.run(measCat, exposure, refCat, expWcs)
-
-        self.dataset = dataset
-        if self.dataset == "diff":
-            self.dataPrefix = "deepDiff_"
-        elif self.dataset == "calexp":
-            self.dataPrefix = ""
-        else:
-            self.dataPrefix = ""
 
         self.writeOutput(dataRef, measCat)
 
@@ -162,7 +162,8 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
 
         # Can I make an argument which is a dataset type?
         parser.add_id_argument("--id", "src", help="data ID of the image")
-        parser.add_argument("--dataset", help="dataset to perform forced photometry on: 'calexp', 'deepDiff'")
+        parser.add_argument("--dataset", default="calexp",
+                            help="dataset to perform forced photometry on: 'calexp', 'deepDiff'")
         parser.add_argument("--coord_file",
                             help="File with coordinates to photometry. " +
                             "Each line should be Name,RA,Dec with RA, Dec as decimal degrees.")

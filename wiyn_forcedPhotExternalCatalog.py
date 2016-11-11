@@ -90,19 +90,20 @@ if __name__ == "__main__":
     for name, sn in sn_with_dr1_templates.items():
         coord_file = '{}_ra_dec.txt'.format(name)
         out_file = '{}_lc.fits'.format(name)
+        dataset = 'calexp'
 
         print("Processing photometry for {}".format(name))
         lightcurve_fileroots_for_sn = {}
         for f in sn.keys():
 #        for f in 'H':
             lightcurve_fileroots_for_sn[f] = []
-            template_file = os.path.join(repo_dir, 'calexp', sn[f])
+            template_file = os.path.join(repo_dir, sn[f])
             for science_file in find_science_images(name, f, repo_dir):
                 if science_file == template_file:
                     continue
                 science_fileroot = filename_to_fileroot(science_file)
                 lightcurve_fileroots_for_sn[f].append(science_fileroot)
-                run_forced_photometry(science_file, coord_file, repo_dir)
+                run_forced_photometry(science_file, coord_file, repo_dir, dataset=dataset)
 
         sn_lc = assemble_catalogs_into_lightcurve(lightcurve_fileroots_for_sn, repo_dir)
         sn_lc.write(out_file, overwrite=True)
