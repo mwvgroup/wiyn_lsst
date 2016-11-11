@@ -1,3 +1,5 @@
+# These are just the Weyant14 SNe:
+# To generate coordinates for more supernovae, change this list.
 for sn in SN2011gy SN2012fm PSNJ07250042+2347030 LSQ12fuk SN2011hb PTF11qzq PTF11mty SN2011iu PTF11owc SN2011ho PTF11qpc; do
     echo "Name,RA,Dec" > ${sn}_ra_dec.txt;
     echo ${sn} | awk '{printf "%s,", $1}' >> ${sn}_ra_dec.txt;
