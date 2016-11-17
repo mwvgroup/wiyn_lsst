@@ -128,6 +128,8 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
         self.dataset = dataset
         if self.dataset == "diff":
             self.dataPrefix = "deepDiff_"
+        elif self.dataset[:8] == "deepDiff":
+            self.dataPrefix = "deepDiff_"
         elif self.dataset == "calexp":
             self.dataPrefix = ""
         else:
@@ -150,11 +152,11 @@ class ForcedPhotExternalCatalogTask(pipeBase.CmdLineTask):
 
     def writeOutput(self, dataRef, sources):
         """!Write forced source table
-        @param dataRef  Data reference from butler; the forced_src dataset (with self.dataPrefix included)
+        @param dataRef  Data reference from butler; the forcedRaDec_src dataset (with self.dataPrefix included)
                         is all that will be modified.
         @param sources  SourceCatalog to save
         """
-        dataRef.put(sources, self.dataPrefix + "forced_src")
+        dataRef.put(sources, self.dataPrefix + "forcedRaDec_src")
 
     @classmethod
     def _makeArgumentParser(cls):
