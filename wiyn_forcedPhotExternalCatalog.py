@@ -13,7 +13,7 @@ import lsst.afw.image.utils as afwImageUtils
 import lsst.daf.persistence as dafPersist
 
 from forcedPhotExternalCatalog import ForcedPhotExternalCatalogTask
-from sub_wiyn_dr1 import sn_with_dr1_templates, repo_dir, find_science_images, find_science_dataIds, filename_to_fileroot
+from sub_wiyn_dr1 import sn_with_dr1_templates, repo_dir, find_science_images, filename_to_fileroot
 
 
 def run_forced_photometry(dataId, coord_file, repo_dir, dataset='calexp',
