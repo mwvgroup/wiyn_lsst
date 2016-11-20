@@ -119,10 +119,11 @@ def test_find_science_images(name='Test1', verbose=True):
 
 
 def make_catalogs(lightcurve_visits_for_sn, repo_dir, dataset='calexp'):
-    for source_num, (name, info) in enumerate(lightcurve_visits_for_sn.items()):
+    this_row = 0
+    for name, info in lightcurve_visits_for_sn.items():
         try:
             out_file = '{}_{}_lc.fits'.format(name, dataset)
-            sn_lc = assemble_catalogs_into_lightcurve(info, repo_dir, source_num, dataset=dataset)
+            sn_lc = assemble_catalogs_into_lightcurve(info, repo_dir, this_row, dataset=dataset)
             sn_lc.write(out_file, overwrite=True)
         except Exception as e:
             print(e)
