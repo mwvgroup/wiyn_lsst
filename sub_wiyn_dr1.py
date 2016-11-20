@@ -66,7 +66,6 @@ def run_repo_based_subtraction(science_file, template_file, repo_dir, verbose=Tr
             '--templateId', 'fileroot={}'.format(template_fileroot),
             '--output', repo_dir,
             '--configfile', 'diffimconfig.py',
-            '--logdest', 'wiyn_imageDifference.log',
             '--clobber-config', '--clobber-versions',
            ]
     from lsst.pipe.tasks.imageDifference import ImageDifferenceTask
