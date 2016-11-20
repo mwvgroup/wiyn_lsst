@@ -60,7 +60,7 @@ def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
         prefix = 'deepDiff_'
     else:
         prefix = ''
-    forced_dataset = prefix+'forcedRaDec_src'
+    forced_dataset = prefix+'forced_src'
     if debug:
         print("FORCED_DATASET: ", forced_dataset)
 
