@@ -18,17 +18,9 @@ for fullfile in `ls ${REPO}/raw`; do
     processCcd.py ${REPO} \
         --id filename=${sn_file} \
         --output ${REPO} \
-        --config \
-            isr.isBackgroundSubtracted=True \
-            charImage.doApCorr=False \
-            charImage.repair.interp.modelPsf.defaultFwhm=5 \
-            charImage.repair.cosmicray.nCrPixelMax=10000 \
-            charImage.installSimplePsf.width=31 \
-            charImage.installSimplePsf.fwhm=11 \
-            charImage.detection.thresholdType='pixel_stdev' \
-            calibrate.doApCorr=False \
+        -C run_wiyn.config \
         --clobber-config \
-        --clobber-version \
+        --clobber-version 
 #        --logdest ${sn_file}_processCcd.log
     #        isr.noise=100 isr.addNoise=True \
     #    --debug \
