@@ -18,7 +18,7 @@ for fullfile in `ls ${REPO}/raw`; do
     processCcd.py ${REPO} \
         --id filename=${sn_file} \
         --output ${REPO} \
-        -C run_wiyn.config \
+        -C processCcd.config \
         --clobber-config \
         --clobber-version 
 #        --logdest ${sn_file}_processCcd.log
