@@ -10,7 +10,10 @@ Requires the definition of the environment variable DR1BASE and the existence of
 `sh run_wiyn.sh`
 4. Run subtractions
 `python sub_wiyn_dr1.py`
-5. Generate coordinate files for forced photometry
+5. Make coord files
 `sh make_coord_files.sh`
 6. Run lightcurves on subtractions
 `python wiyn_forcedPhotExternalCatalog.py`
+
+Notes:
+1. Coord files are used in assemble catalogs, but not run_forced_photometry_per_object. should make consistent.
