@@ -31,8 +31,10 @@ def find_and_generate_lsst_files(sn):
         makeLsstNamesAndFile(f) 
 
 
-def find_science_images(sn, f, repo_dir):
-    sn_search_regex = os.path.join(repo_dir, 'calexp', "{}_[ABC]_{}_*[0-9].fits".format(sn, f))
+def find_science_images(sn, f, repo_dir, dataset='calexp', verbose=False):
+    sn_search_regex = os.path.join(repo_dir, dataset, "{}_[ABC]_{}_*[0-9].fits".format(sn, f))
+    if verbose:
+        print("Searching for: ", sn_search_regex)
     sn_files = glob.glob(sn_search_regex)
     return sn_files
 
@@ -66,7 +68,6 @@ def run_repo_based_subtraction(science_file, template_file, repo_dir, verbose=Tr
             '--templateId', 'fileroot={}'.format(template_fileroot),
             '--output', repo_dir,
             '--configfile', 'diffimconfig.py',
-            '--logdest', 'wiyn_imageDifference.log',
             '--clobber-config', '--clobber-versions',
            ]
     from lsst.pipe.tasks.imageDifference import ImageDifferenceTask

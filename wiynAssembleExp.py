@@ -16,8 +16,12 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
 
     gain=3.4 # WIYN WHIRC Data Reduction Guide
 
+    imdir, imbasename = os.path.dirname(imfile), os.path.basename(imfile)
+    tmp_imfile = os.path.join(imdir, "tmp_"+imbasename)
+    os.system("cp {} {}".format(imfile, tmp_imfile))
+    os.system("sethead EXPID=0 {}".format(tmp_imfile))
     #Exposures should keep your header keys
-    exp  = afwImage.ExposureF(imfile)
+    exp  = afwImage.ExposureF(tmp_imfile)
     im   = exp.getMaskedImage().getImage()
     imArr   = im.getArray()
     var  = exp.getMaskedImage().getVariance()
@@ -25,6 +29,7 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
     mask = exp.getMaskedImage().getMask()
     maskArr = mask.getArray()
 
+    os.system("rm {}".format(tmp_imfile))
     # Calculate the variance based on the background level / second
     # stored in the coadd, which is the background level of
     # the first individual images included in the coadd
