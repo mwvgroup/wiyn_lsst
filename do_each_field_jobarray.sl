@@ -9,7 +9,7 @@
 #SBATCH -C haswell
 #SBATCH --array=0-81
 
-SLURM_ARRAY_TASK_ID=1
+export OMP_NUM_THREADS=4
 
 # module swap pgi gcc
 
