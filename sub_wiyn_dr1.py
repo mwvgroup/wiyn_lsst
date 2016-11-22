@@ -1,5 +1,6 @@
 import glob
 import os
+import sys
 
 from wiynSubtractExp import convname_from_diffname, diffname_from_inputs, subtractFiles
 from wiynAssembleExp import makeLsstNamesAndFile
@@ -32,7 +33,17 @@ def find_and_generate_lsst_files(sn):
 
 
 def find_science_images(sn, f, repo_dir, dataset='calexp', verbose=False):
-    sn_search_regex = os.path.join(repo_dir, dataset, "{}_[ABC]_{}_*[0-9].fits".format(sn, f))
+    if dataset == 'deepDiff_differenceExp':
+        search_dataset = 'diff'
+        suffix = ''
+    elif dataset == 'calexp':
+        search_dataset = dataset
+        suffix = '.fits'
+    else:
+        search_dataset = dataset
+        suffix = ''
+
+    sn_search_regex = os.path.join(repo_dir, search_dataset, "{}_[ABC]_{}_*[0-9]{}".format(sn, f, suffix))
     if verbose:
         print("Searching for: ", sn_search_regex)
     sn_files = glob.glob(sn_search_regex)
@@ -97,6 +108,7 @@ if __name__ == "__main__":
     # or use the repo-based Butler interface
     repo_based = True
 
+    repo_dir = sys.argv[1]
     for name, templates in sn_with_dr1_templates.items():
         print("Processing {}".format(name))
         for f in templates.keys():

@@ -32,6 +32,37 @@ def run_forced_photometry(dataId, coord_file, repo_dir, dataset='calexp',
     ForcedPhotExternalCatalogTask.parseAndRun(args=args)
 
 
+def extract_photometry(butler, dataId, forced_dataset, filt, source_row, names_to_copy):
+    # Can grab filter, mjd from 'calexp_md' call on visit
+    md = butler.get('calexp_md', dataId=dataId, immediate=True)
+    mjd = md.get('MJD-OBS')
+#        filt = md.get('FILTER')  # But that's not being set right now so we'll keep using f
+
+    this_measurement = butler.get(forced_dataset, dataId)
+    # 'this_measurement' is a table, but we're only extracting the first entry from each column
+    cols_for_new_row = {n: this_measurement[n][source_row] for n in names_to_copy}
+#        cols_for_new_row['filter'] = dataId['filter']
+    cols_for_new_row['filter'] = filt
+    cols_for_new_row['mjd'] = mjd
+
+    # Calibrate to magnitudes
+    # The calibration information for the calexp
+    # should still apply to the difference image
+    calib = afwImage.Calib(md)
+    with afwImageUtils.CalibNoThrow():
+        cols_for_new_row['base_PsfFlux_mag'], cols_for_new_row['base_PsfFlux_magSigma'] = \
+            calib.getMagnitude(cols_for_new_row['base_PsfFlux_flux'],
+                               cols_for_new_row['base_PsfFlux_fluxSigma'])
+    flux_mag_0, flux_magSigma_0 = calib.getFluxMag0()
+    flux_mag_25 = 10**(-0.4*25) * flux_mag_0
+    flux_norm = 1/flux_mag_25
+    cols_for_new_row['base_PsfFlux_flux_zp25'] = \
+        flux_norm * cols_for_new_row['base_PsfFlux_flux']
+    cols_for_new_row['base_PsfFlux_fluxSigma_zp25'] = \
+        flux_norm * cols_for_new_row['base_PsfFlux_fluxSigma']
+    return cols_for_new_row
+
+
 def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0, dataset='calexp',
                                       debug=False):
     """Return Table with measurements."""
@@ -66,34 +97,12 @@ def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
 
     for f, dataIds in dataIds_by_filter.items():
         for dataId in dataIds:
-            # Can grab filter, mjd from 'calexp_md' call on visit
-            md = butler.get('calexp_md', dataId=dataId, immediate=True)
-            mjd = md.get('MJD-OBS')
-    #        filt = md.get('FILTER')  # But that's not being set right now so we'll keep using f
-
-            this_measurement = butler.get(forced_dataset, dataId)
-            # 'this_measurement' is a table, but we're only extracting the first entry from each column
-            cols_for_new_row = {n: this_measurement[n][source_row] for n in names_to_copy}
-    #        cols_for_new_row['filter'] = dataId['filter']
-            cols_for_new_row['filter'] = f
-            cols_for_new_row['mjd'] = mjd
-
-            # Calibrate to magnitudes
-            # The calibration information for the calexp
-            # should still apply to the difference image
-            calib = afwImage.Calib(md)
-            with afwImageUtils.CalibNoThrow():
-                cols_for_new_row['base_PsfFlux_mag'], cols_for_new_row['base_PsfFlux_magSigma'] = \
-                    calib.getMagnitude(cols_for_new_row['base_PsfFlux_flux'],
-                                       cols_for_new_row['base_PsfFlux_fluxSigma'])
-            flux_mag_0, flux_magSigma_0 = calib.getFluxMag0()
-            flux_mag_25 = 10**(-0.4*25) * flux_mag_0
-            flux_norm = 1/flux_mag_25
-            cols_for_new_row['base_PsfFlux_flux_zp25'] = \
-                flux_norm * cols_for_new_row['base_PsfFlux_flux']
-            cols_for_new_row['base_PsfFlux_fluxSigma_zp25'] = \
-                flux_norm * cols_for_new_row['base_PsfFlux_fluxSigma']
-
+            try:
+                cols_for_new_row = extract_photometry(butler, dataId, forced_dataset, f, source_row, names_to_copy)
+            except Exception as e:
+                print(e)
+                print("Unabled to extracted forced photometry from {}".format(dataId))
+                continue
             table.add_row(cols_for_new_row)
 
     return table
@@ -205,9 +214,15 @@ def run_photometry_for_objects(transient_objects, repo_dir, dataset='calexp',
             if debug:
                 print("DATA IDS: ", dataIds)
             for dataId in dataIds:
-                lightcurve_visits_for_sn[f].append(dataId)
                 if run_phot:
-                    run_forced_photometry(dataId, coord_file, repo_dir, dataset=dataset)
+                    try:
+                        run_forced_photometry(dataId, coord_file, repo_dir, dataset=dataset)
+                    except Exception as e:
+                        print(e)
+                        print("run-forced_photometry failed for {}".format(dataId))
+                        continue
+                lightcurve_visits_for_sn[f].append(dataId)
+
         lightcurve_visits[name] = lightcurve_visits_for_sn
 
     return lightcurve_visits
