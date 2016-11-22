@@ -3,7 +3,7 @@
 #SBATCH -p shared  
 #SBATCH -n 4
 #SBATCH --mem=8GB
-#SBATCH -t 02:00:00     
+#SBATCH -t 04:00:00     
 #SBATCH -J wiynrun_project
 #SBATCH -L project
 #SBATCH -C haswell
