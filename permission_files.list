@@ -1,0 +1,18 @@
+~wmwv/.bashrc.lsst
+~wmwv/.bashrc.wiyn
+~wmwv/lsst/obs_file
+/global/homes/w/wmwv/lsst/obs_file/bin/ingestFiles.py
+/global/project/projectdirs/lsst/wmwv/test/DR1_images_rc3
+/global/project/projectdirs/lsst/wmwv/test/DR1_images_rc3/stacks
+/global/homes/w/wmwv/local/lsst/
+/global/homes/w/wmwv/local/lsst/obs_lsstSim
+/global/homes/w/wmwv/local/lsst/meas_base
+/global/homes/w/wmwv/local/lsst/meas_base/ups/meas_base.table
+~wmwv/local/bin
+~/local/lsst/obs_file/python/lsst/obs/file
+~/local/lsst/obs_file/python/lsst/obs/file/fileMapper.py
+~/local/lsst/obs_file/python/lsst/obs/file/*.py
+/global/homes/w/wmwv/local/lsst/obs_file/policy/FileMapper.paf
+
+
+chmod -R go+r ~/local/lsst
