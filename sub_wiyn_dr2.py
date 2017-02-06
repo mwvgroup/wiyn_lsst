@@ -11,13 +11,12 @@ with open('template_dictionary.txt','r') as inf:
     sn_with_dr2_templates = ast.literal_eval(inf.read())
 
 
-repo_dir = os.path.join(os.getenv('SCRATCH'), 'tmp', 'test_dr2')
-#'HOME'), 'tmp', 'test_dr1')
+repo_dir = os.path.join(os.getenv('DR2BASE'), 'tmp', 'test_dr2')
 
 def find_and_generate_lsst_files(sn):
     """Find the files for a given SN, generate LSST-style fits versions."""
-    dr1_dir = os.path.join(os.getenv('DR2BASE'), 'stacks')
-    sn_search_regex = os.path.join(dr1_dir, "{}_*[0-9].fits".format(sn))
+    dr_dir = os.path.join(os.getenv('DR2BASE'), 'stacks')
+    sn_search_regex = os.path.join(dr_dir, "{}_*[0-9].fits".format(sn))
     files = glob.glob(sn_search_regex)
     for f in files:
         makeLsstNamesAndFile(f) 
