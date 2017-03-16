@@ -11,7 +11,8 @@ with open('template_dictionary.txt','r') as inf:
     sn_with_dr2_templates = ast.literal_eval(inf.read())
 
 
-repo_dir = os.path.join(os.getenv('HOME'), 'tmp', 'test_dr1')
+repo_dir = os.path.join(os.getenv('SCRATCH'), 'tmp', 'test_dr2')
+#'HOME'), 'tmp', 'test_dr1')
 
 def find_and_generate_lsst_files(sn):
     """Find the files for a given SN, generate LSST-style fits versions."""
@@ -99,7 +100,7 @@ if __name__ == "__main__":
     repo_based = True
 
     repo_dir = sys.argv[1]
-    for name, templates in sn_with_drs_templates.items():
+    for name, templates in sn_with_dr2_templates.items():
         print("Processing {}".format(name))
         for f in templates.keys():
             template_file = os.path.join(repo_dir, 'calexp', templates[f])
