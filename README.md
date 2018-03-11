@@ -30,3 +30,8 @@ The slightly more efficient job spreads out the processing of the processCcd ste
 `sbatch run_subtractions.sl`
 5. Run lightcurves
 `sbatch run_forced_photometry.sl`
+Want to run LSST DM Stack on NERSC. The install from Twinkles is here:
+
+https://github.com/mwvgroup/wiyn_lsst.git
+
+The git issue discussing this install is https://github.com/DarkEnergyScienceCollaboration/Twinkles/issues/242.
