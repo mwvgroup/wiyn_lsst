@@ -1,7 +1,7 @@
 source ~wmwv/.bashrc.lsst
 
 setup lsst_apps
-setup -k -r ~wmwv/lsst/obs_file
+setup -k -r ~wmwv/local/lsst/obs_wiyn
 
 # Don't include .expmap.fits or previous .lsst.fits files
 #  Just the image stacks themselves, which end in YYYYMMDD.fits

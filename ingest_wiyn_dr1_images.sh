@@ -1,7 +1,7 @@
 source ~/.bashrc.wiyn
 
 setup lsst_apps
-setup -k -r /global/homes/w/wmwv/local/lsst/obs_file
+setup -k -r ~wmwv/local/lsst/obs_wiyn
 
 TMP=${DR1BASE}/tmp
 REPO=${TMP}/test_dr1
