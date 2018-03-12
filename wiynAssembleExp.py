@@ -12,7 +12,7 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
     import lsst.afw.image as afwImage
     from astropy.io import fits
     import numpy as np
-    import lsst.ip.isr.isr as isr
+    from lsst.ip.isr.isrFunctions import saturationCorrection
 
     gain=3.4 # WIYN WHIRC Data Reduction Guide
 
@@ -67,7 +67,7 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
     if interpolateNans:
         SAT_LEVEL=100000
         imArr[np.logical_not(np.isfinite(imArr))] = 2*SAT_LEVEL
-        isr.saturationCorrection(exp.getMaskedImage(), saturation=SAT_LEVEL, fwhm=2, growFootprints=False)
+        saturationCorrection(exp.getMaskedImage(), saturation=SAT_LEVEL, fwhm=2, growFootprints=False)
 #    import lsst.afw.display.ds9 as ds9
 #    ds9.mtv(exp, title="Foo")
 
