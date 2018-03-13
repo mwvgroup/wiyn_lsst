@@ -5,6 +5,8 @@ def makeLsstNamesAndFile(imfile, **kwargs):
     imbase = imfile.strip(".fits")
     expfile = "{}.expmap.fits".format(imbase)
     lsstfile = "{}.lsst.fits".format(imbase)
+    if os.path.exists(lsstfile):
+        return
     makeLsstFile(imfile, expfile, lsstfile, **kwargs)
 
 
