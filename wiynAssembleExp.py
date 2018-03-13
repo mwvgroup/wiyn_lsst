@@ -19,7 +19,10 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
     imdir, imbasename = os.path.dirname(imfile), os.path.basename(imfile)
     tmp_imfile = os.path.join(imdir, "tmp_"+imbasename)
     os.system("cp {} {}".format(imfile, tmp_imfile))
-    os.system("sethead EXPID=0 {}".format(tmp_imfile))
+#    os.system("sethead EXPID=0 {}".format(tmp_imfile))
+    with fits.open(tmp_imfile, mode='update') as hdu:
+	    hdu[0].header['EXPID'] = 0
+	    hdu.flush()
     #Exposures should keep your header keys
     exp  = afwImage.ExposureF(tmp_imfile)
     im   = exp.getMaskedImage().getImage()
