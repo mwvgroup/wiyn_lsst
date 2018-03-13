@@ -26,8 +26,14 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False, debug=True):
     os.system("cp {} {}".format(imfile, tmp_imfile))
 #    os.system("sethead EXPID=0 {}".format(tmp_imfile))
     with fits.open(tmp_imfile, mode='update') as hdu:
-	    hdu[0].header['EXPID'] = 0
-	    hdu.flush()
+        # Some DTTITLE keywords were written with trailing quotes:
+        # 'Type Ia Supernovae in the Near-Infrared: A Three-Year Survey toward''
+        # AST chokes on these presumably invalid entries.
+        dttitle = hdu[0].header['DTTITLE']
+        hdu[0].header['DTTITLE'] = dttitle.rstrip("'")
+
+        hdu[0].header['EXPID'] = 0
+        hdu.flush()
     #Exposures should keep your header keys
     exp  = afwImage.ExposureF(tmp_imfile)
     im   = exp.getMaskedImage().getImage()
