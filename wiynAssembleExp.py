@@ -47,7 +47,7 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False, debug=True):
     # Calculate the variance based on the background level / second
     # stored in the coadd, which is the background level of
     # the first individual images included in the coadd
-    # The coadd was created as an average 
+    # The coadd was created as an average
     #   so is noramlized to the count level of one input image.
     expTimeArr = afwImage.ImageF(expfile).getArray()
     exphead = fits.getheader(expfile)
@@ -65,13 +65,13 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False, debug=True):
     idx=range(int(0.2*len(maskArr[0,:])),int(0.8*len(maskArr[0,:])))
 
     photonArr = gain * \
-      (imArr+background_per_image) * (expTimeArr/exptime_per_image) 
+      (imArr+background_per_image) * (expTimeArr/exptime_per_image)
     ## Variance in ADU for the accumulated counts
     ##  (i.e., that has not been re-scaled to have the same normalization across the image)
-    varArr[:,:] = photonArr / gain**2  
+    varArr[:,:] = photonArr / gain**2
     ## Variance in ADU for the normalized image
     varArr /= (expTimeArr/exptime_per_image)**2
-    varArr[np.logical_not(np.isfinite(imArr))] = np.inf 
+    varArr[np.logical_not(np.isfinite(imArr))] = np.inf
 
     # Reject all of the locations with less than 20% of the effective exposure time
     idxs = np.where(expTimeArr < 0.2* fullexptime)
@@ -122,4 +122,4 @@ if __name__=="__main__":
     files = sys.argv[1:]
     for f in files:
         makeLsstNamesAndFile(f, interpolateNans=interpolateNans)
- 
+
