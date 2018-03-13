@@ -1,4 +1,4 @@
-from __future__ import division
+from __future__ import division, print_function
 
 def makeLsstNamesAndFile(imfile, **kwargs):
     """Wrapper around makeLsstFile.  Formats names of expmap and output files."""
@@ -10,11 +10,14 @@ def makeLsstNamesAndFile(imfile, **kwargs):
     makeLsstFile(imfile, expfile, lsstfile, **kwargs)
 
 
-def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
+def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False, debug=True):
     import lsst.afw.image as afwImage
     from astropy.io import fits
     import numpy as np
     from lsst.ip.isr.isrFunctions import saturationCorrection
+
+    if debug:
+        print("Generating:\n%s\n  from\n%s\n%s" % (lsstfile, imfile, expfile))
 
     gain=3.4 # WIYN WHIRC Data Reduction Guide
 
@@ -50,7 +53,9 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
     background_per_second = background_per_image/exptime_per_image
 
     fullexptime = np.percentile(expTimeArr,99)
-    print (background_per_second, fullexptime, exptime_per_image)
+    if debug:
+        print("(Background counts/sec, fullexptime, exptime_per_image)")
+        print(background_per_second, fullexptime, exptime_per_image)
     idx=range(int(0.2*len(maskArr[0,:])),int(0.8*len(maskArr[0,:])))
 
     photonArr = gain * \
