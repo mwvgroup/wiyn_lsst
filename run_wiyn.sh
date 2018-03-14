@@ -13,4 +13,5 @@ REPO=${WIYN}/test_dr1
 #    @science_ids_dr2.list \
 processCcd.py "${REPO}" \
     --id field='SN2013cb' seq=A filter=H night=20130519 expnum=210 \
-    --output "${REPO}"
+    --output "${REPO}" \
+    --clobber-version
