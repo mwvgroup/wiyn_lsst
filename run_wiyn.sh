@@ -14,4 +14,9 @@ REPO=${WIYN}/test_dr1
 processCcd.py "${REPO}" \
     --id field='SN2013cb' seq=A filter=H night=20130519 expnum=210 \
     --output "${REPO}" \
-    --clobber-version
+    -c charImage.ref_match.matcher.maxOffsetPix=800 \
+    -c charImage.ref_match.matcher.maxRotationDeg=0 \
+    -c charImage.ref_match.matcher.allowedNonperpDeg=0 \
+    --clobber-config \
+    --clobber-version \
+    --loglevel DEBUG
