@@ -9,11 +9,10 @@ makeDiscreteSkyMap.py "${REPO}" --output "${REPO}" \
     --clobber-versions
 
 makeCoaddTempExp.py "${REPO}" --output "${REPO}" \
-    --selectId filter=H --id filter=H tract=0 patch=0,0^0,1^0,0^1,1 \
+    --selectId filter=H --id field='LSQ13cwp' filter=H tract=0 patch=0,0^0,1^1,0^1,1 \
     --config doApplyUberCal=False \
     --clobber-versions
 
 assembleCoadd.py "${REPO}" --output "${REPO}" \
-    --select ID filter=H \
-    --selectId filter=H --id filter=H tract=0 patch=0,0^0,1^0,0^1,1 \
+    --selectId filter=H --id field='LSQ13cwp' filter=H tract=0 patch=0,0^0,1^1,0^1,1 \
     --clobber-versions
