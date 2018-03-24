@@ -1,0 +1,41 @@
+HTM reference catalogs from 2MASS
+based on testdata_jointcal/hsc/ref_cats/gaia example
+
+1. Create a 'master_schema.fits' that shows the structure
+For the gaia catalog that's
+
+```
+In [4]: fits.info(f)
+Filename: /Users/wmwv/lsstsw/stack/DarwinX86/testdata_jointcal/master-g9b8753233a+1/hsc/ref_cats/gaia/master_schema.fits
+No.    Name      Ver    Type      Cards   Dimensions   Format
+  0  PRIMARY       1 PrimaryHDU       6   ()
+  1                1 BinTableHDU     36   0R x 6C   [1K, 1D, 1D, 1K, 1D, 1J]
+  2                1 BinTableHDU     40   0R x 7C   [1J, 1J, 1J, 1J, 1J, 64A, 64A]
+
+In [8]: d
+Out[8]:
+FITS_rec([],
+         dtype=(numpy.record, [('id', '>i8'), ('coord_ra', '>f8'), ('coord_dec', '>f8'), ('parent', '>i8'), ('phot_g_mean_mag_flux', '>f8'), ('footprint', '>i4')]))
+```
+
+If we read in an actual catalog with data, we get:
+```
+In [9]: d = fits.getdata(f, 1)
+
+In [10]: e = fits.getdata(f, 2)
+
+In [11]: d
+Out[11]:
+FITS_rec([],
+         dtype=(numpy.record, [('id', '>i8'), ('coord_ra', '>f8'), ('coord_dec', '>f8'), ('parent', '>i8'), ('phot_g_mean_mag_flux', '>f8'), ('footprint', '>i4')]))
+
+In [12]: e
+Out[12]:
+FITS_rec([],
+         dtype=(numpy.record, [('id', '>i4'), ('cat.archive', '>i4'), ('cat.persistable', '>i4'), ('row0', '>i4'), ('nrows', '>i4'), ('name', 'S64'), ('module', 'S64')]))
+```
+
+So let's see if I can just write out a FITS file like that.
+
+Input
+
