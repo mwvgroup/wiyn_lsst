@@ -13,6 +13,15 @@ makeCoaddTempExp.py "${REPO}" --output "${REPO}" \
     --config doApplyUberCal=False \
     --clobber-versions
 
+makeCoaddTempExp.py "${REPO}" --output "${REPO}" \
+    --selectId filter=J --id field='LSQ13cwp' filter=J tract=0 patch=0,0^0,1^1,0^1,1 \
+    --config doApplyUberCal=False \
+    --clobber-versions
+
 assembleCoadd.py "${REPO}" --output "${REPO}" \
     --selectId filter=H --id field='LSQ13cwp' filter=H tract=0 patch=0,0^0,1^1,0^1,1 \
+    --clobber-versions
+
+assembleCoadd.py "${REPO}" --output "${REPO}" \
+    --selectId filter=J --id field='LSQ13cwp' filter=J tract=0 patch=0,0^0,1^1,0^1,1 \
     --clobber-versions
