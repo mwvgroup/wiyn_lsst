@@ -81,6 +81,13 @@ def convert_to_output_data(data):
     return out_table
 
 
+def write_master_schema(out_table):
+    # This is silly.  Should directly copy metadata.
+    master_schema = out_table.copy()
+    master_schema.remove_rows(slice(0, len(master_schema)))
+    master_schema.write('master_schema.fits', overwrite=True)
+
+
 def write_out_data(out_table):
     # [Divide in HTM]
     # Write out
@@ -92,6 +99,7 @@ def test_example_catalog():
     data = read_in_data(test_file)
     out_data = convert_to_output_data(data)
     write_out_data(out_data)
+    write_master_schema(out_data)
 
 
 if __name__ == "__main__":
