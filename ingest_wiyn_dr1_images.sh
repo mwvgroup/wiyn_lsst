@@ -8,6 +8,8 @@ REPO="${TMP}"/test_dr1
 mkdir -p "${REPO}"
 echo "lsst.obs.wiyn.WhircMapper" > "${REPO}"/_mapper
 
+ln -s "${DR1BASE}"/ref_cats "${REPO}"/ref_cats
+
 ingestImages.py "${REPO}" "${DR1BASE}"/stacks/*.lsst.fits --mode link \
     --configfile "${OBS_WIYN_DIR}"/config/ingestStack.py
 
