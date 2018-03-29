@@ -8,6 +8,8 @@ import numpy as np
 from astropy.io import fits
 from astropy.table import Table
 
+import esutil
+
 import lsst.afw.geom
 import lsst.afw.table as afwTable
 
@@ -126,12 +128,30 @@ def write_out_data(out_table, debug=False):
 #    out_table.write('test_out.fits'), overwrite=True)
 
 
+def shard_data(data, depth=7):
+    """Divide input AstroPy table into list of tables by HTM shards
+
+    Parameters
+    --
+    data : AstroPy table
+
+    Returns
+    --
+    [shard1, shard2, ...]  List of AstroPy tables divided by HTM shard.
+    """
+    return [data]
+
+
 def test_example_catalog():
     test_file = get_test_file()
     data = read_in_data(test_file)
-    out_data = convert_to_output_data(data, debug=True)
-    write_out_data(out_data)
-    write_master_schema(out_data)
+    sharded_data = shard_data(data)
+
+    write_master_schema(sharded_data[0])
+
+    for sd in sharded_data:
+        out_data = convert_to_output_data(sd, debug=True)
+        write_out_data(out_data)
 
 
 if __name__ == "__main__":
