@@ -119,7 +119,40 @@ def make_source_catalog_from_astropy_table(out_table, debug=False):
     return out_cat
 
 
-def convert_to_output_data(data, debug=False):
+def convert_2mass_to_output_data(data, debug=False):
+    """Convert from 2MASS catalog -> afw Table Source catalog
+
+    Parameters
+    --
+    data : astropy.table.Table
+
+    Return
+    --
+    out_table : afw Source table.
+
+    """
+    in_table = Table(data)
+
+    # Reformat
+    filt = 'H'
+    translate = {'coord_ra': 'RA', 'coord_dec': 'DEC'}
+
+    reverse_translate = {v: k for k, v in translate.items()}
+
+    values = [v for v in translate.values()]
+    # out_data =
+
+    out_table = in_table[ref_cat_entries]
+
+    for new_name, old_name in translate.items():
+        out_table.rename_column(old_name, new_name)
+
+    out_cat = make_source_catalog_from_astropy_table(out_table, debug=debug)
+
+    return out_cat
+
+
+def convert_dr1_to_output_data(data, debug=False):
     """Convert from DR1 FITS -> afw Table Source catalog
 
     Return
@@ -199,13 +232,14 @@ def shard_data(data, depth=7, debug=False):
 
 def test_example_catalog(debug=False):
     test_file = get_test_file()
-    data = read_in_data(test_file)
+    # data = read_in_data(test_file)
+    data = read_in_text_data('2MASS_LSQ13cwp.txt')
     shard_ids, sharded_data = shard_data(data, debug=debug)
 
     write_master_schema(sharded_data[0])
 
     for id, sd in zip(shard_ids, sharded_data):
-        out_data = convert_to_output_data(sd, debug=debug)
+        out_data = convert_2mass_to_output_data(sd, debug=debug)
         write_out_data(out_data, id=id)
 
 
