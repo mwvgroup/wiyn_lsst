@@ -133,9 +133,9 @@ def make_source_catalog_from_astropy_table(out_table, debug=False):
     filtMagSigma = '%s_mag_sigma' % filt
     filtFlux = '%s_flux' % filt
     filtFluxSigma = '%s_fluxSigma' % filt
-    for i, row in enumerate(out_table):
+    for row in out_table:
         record = out_cat.addNew()
-        record.setId(int(i))  # Use this enumerator instead of the 2MASS ID string
+        record.setId(twomass_int_id(row['2MASSID']))
         record.setRa(float(row['coord_ra']) * lsst.afw.geom.degrees)
         record.setDec(float(row['coord_dec']) * lsst.afw.geom.degrees)
         record.set(filtFlux, float(row[filtMag]))
