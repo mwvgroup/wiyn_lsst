@@ -306,4 +306,4 @@ def process_dr1_2mass_cat_to_html(dr1base=DR1BASE, debug=False):
 
 if __name__ == "__main__":
     debug = True
-    test_example_catalog(debug=debug)
+    process_dr1_2mass_cat_to_html(debug=debug)
