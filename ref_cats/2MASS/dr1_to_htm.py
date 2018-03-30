@@ -26,6 +26,31 @@ def get_test_file(dr1base=DR1BASE):
     return test_file
 
 
+def read_in_text_data(filename, debug=False):
+    """Read in CSV file of catalog
+
+    #RA DEC 2MASSID Jmag eJmag Hmag eHmag Kmag eKmag
+    060.877901;-02.709703;04033069-0242349 ;13.922; 0.028;13.449; 0.032;13.303; 0.038
+    060.921678;-02.695895;04034120-0241452 ;14.831; 0.035;14.174; 0.037;13.975; 0.054
+    060.903753;-02.706162;04033690-0242221 ;15.905; 0.082;15.553; 0.114;15.226; 0.152
+    """
+    colnames = ('RA', 'DEC', '2MASSID',
+                'Jmag', 'eJmag', 'Hmag', 'eHmag', 'Kmag', 'eKmag')
+    data = Table.read(filename, format='csv', delimiter=';', data_start=1, names=colnames)
+    if debug:
+        print(data)
+
+    # Rename mag columns
+    filters = ('J', 'H', 'K')
+    for f in filters:
+        old_mag, old_mag_err = '%smag' % f, 'e%smag' %f
+        new_mag, new_mag_err = '%s_mag' % f, '%s_mag_sigma' %f
+        data.rename_column(old_mag, new_mag)
+        data.rename_column(old_mag_err, new_mag_err)
+
+    return data
+
+
 def read_in_data(test_file, remove_last_row=True):
     """Read in test_file as a binary table FITS file.
 
