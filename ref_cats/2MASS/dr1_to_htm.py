@@ -258,9 +258,6 @@ def shard_data(data, depth=7, debug=False):
     if debug:
         print('IDS: ', ids)
         print('UNIQ_IDS: ', uniq_ids)
-    # Keep the simple case simple
-    if uniq_ids == 1:
-        return [data]
 
     data_list = []
     for id in uniq_ids:
