@@ -11,9 +11,11 @@ from astropy.table import Table
 import esutil
 
 import lsst.afw.geom
+from lsst.afw.image import fluxFromABMag, fluxErrFromABMagErr
 import lsst.afw.table as afwTable
 
 DR1BASE = os.getenv('DR1BASE')
+
 
 def get_test_file(dr1base=DR1BASE):
     """Return a sample photometry catalog from SweetSpot DR1 processing"""
@@ -115,6 +117,17 @@ def twomass_int_id(str_id):
     return int(id_str)
 
 
+def vegaToABMag(vega_mag, filt):
+    """Convert Vega magnitude to AB Magnitude for given filter.
+
+    Supported filters are 'J', 'H', 'Ks'
+      http://www.astronomy.ohio-state.edu/~martini/usefuldata.html
+    Blanton and Roweis, 2007, AJ, 133, 734.
+      http://adsabs.harvard.edu/abs/2007AJ....133..734B
+    """
+    mAB_minus_mVega = {'J': 0.91, 'H': 1.39, 'Ks': 1.85}
+    return vega_mag + mAB_minus_mVega[filt]
+
 
 def make_source_catalog_from_astropy_table(out_table, debug=False):
     """Return an AFW SourceCatalog from an Astropy Table
@@ -138,8 +151,9 @@ def make_source_catalog_from_astropy_table(out_table, debug=False):
         record.setId(twomass_int_id(row['2MASSID']))
         record.setRa(float(row['coord_ra']) * lsst.afw.geom.degrees)
         record.setDec(float(row['coord_dec']) * lsst.afw.geom.degrees)
-        record.set(filtFlux, float(row[filtMag]))
-        record.set(filtFluxSigma, float(row[filtMagSigma]))
+        abMag = vegaToABMag(row[filtMag], filt)  # error remains unchanged
+        record.set(filtFlux, fluxFromABMag(abMag))
+        record.set(filtFluxSigma, fluxErrFromABMagErr(row[filtMagSigma], abMag))
 
     return out_cat
 
