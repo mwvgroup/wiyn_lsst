@@ -39,3 +39,83 @@ So let's see if I can just write out a FITS file like that.
 
 Input
 
+---
+2018-03-29
+15:19 PDT
+
+Made some decent progress formatting an AFW SourceCatalog table.
+The requirements for the catalog are:
+
+loadReferenceObjects.py
+```
+    Reference object catalogs are instances of lsst.afw.table.SimpleCatalog with the following schema
+    (other fields may also be present):
+    - coord: position of star on sky (an lsst.afw.coord.IcrsCoord)
+    - centroid: position of star on an exposure, if relevant (an lsst.afw.Point2D)
+    - hasCentroid: is centroid usable?
+    - *referenceFilterName*_flux: brightness in the specified reference catalog filter (Jy)
+        Note: the function lsst.afw.image.abMagFromFlux will convert flux in Jy to AB Magnitude.
+    - *referenceFilterName*_fluxSigma (optional): brightness standard deviation (Jy);
+        omitted if no data is available; possibly nan if data is available for some objects but not others
+    - camFlux: brightness in default camera filter (Jy); omitted if defaultFilter not specified
+    - camFluxSigma: brightness standard deviation for default camera filter;
+        omitted if defaultFilter not specified or standard deviation not available that filter
+    - *cameraFilterName*_camFlux: brightness in specified camera filter (Jy)
+    - *cameraFilterName*_camFluxSigma (optional): brightness standard deviation
+        in specified camera filter (Jy); omitted if no data is available;
+        possibly nan if data is available for some objects but not others
+    - photometric (optional): is the object usable for photometric calibration?
+    - resolved (optional): is the object spatially resolved?
+    - variable (optional): does the object have variable brightness?
+
+```
+
+The indexing scheme is used to figure out which "shard", which I'm pretty
+sure corresponds to the filename of the FITS file.
+
+loadIndexedReferenceObjects.py
+```
+    id_list, boundary_mask = self.indexer.get_pixel_ids(ctrCoord, radius)
+    shards = self.get_shards(id_list)
+```
+
+The Indexer is set as an `IndexerRegistry`, which is defined in `lsst.meas.algorithms.indexerRegistry`
+
+```
+from lsst.pex.config import Config, makeRegistry, Field
+from .htmIndexer import HtmIndexer
+
+IndexerRegistry = makeRegistry(
+    """Registry of indexing algorithms
+    """
+)
+
+
+class HtmIndexerConfig(Config):
+    depth = Field(
+        doc = """Depth of the HTM tree to make.  Default is depth=7 which gives
+              ~ 0.3 sq. deg. per trixel.""",
+        dtype = int,
+        default = 7,
+    )
+
+
+def makeHtmIndexer(config):
+    """Make an HtmIndexer
+    """
+    return HtmIndexer(depth=config.depth)
+
+
+makeHtmIndexer.ConfigClass = HtmIndexerConfig
+IndexerRegistry.register("HTM", makeHtmIndexer)
+```
+
+This all uses Erin Sheldon's `esutil` to do the HTM caclulations.
+
+To calculate the pixel of a given RA, Dec, at a given HTM depth
+
+import esutil
+h = esutil.htm.HTM(depth=7)
+h.lookup_id?
+lookup_id(ra, dec)
+
