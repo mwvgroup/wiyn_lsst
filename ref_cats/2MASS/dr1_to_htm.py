@@ -142,7 +142,7 @@ def write_out_data(out_table, debug=False):
 #    out_table.write('test_out.fits'), overwrite=True)
 
 
-def shard_data(data, depth=7):
+def shard_data(data, depth=7, debug=False):
     """Divide input AstroPy table into list of tables by HTM shards
 
     Parameters
@@ -153,20 +153,40 @@ def shard_data(data, depth=7):
     --
     [shard1, shard2, ...]  List of AstroPy tables divided by HTM shard.
     """
-    return [data]
+    h = esutil.htm.HTM(depth=7)
+    # Implicitly Assume ICRS:  HTM doesn't directly care, it's just doing
+    # spherical geometry.  But we're assuming here that we're using the same
+    # RA, Dec convention that will be used in the LSST code , which is ICRS.
+    ids = h.lookup_id(data['RA'], data['Dec'])
+    uniq_ids = np.unique(ids)
+    if debug:
+        print('IDS: ', ids)
+        print('UNIQ_IDS: ', uniq_ids)
+    # Keep the simple case simple
+    if uniq_ids == 1:
+        return [data]
+
+    data_list = []
+    for id in uniq_ids:
+        w, = np.where(ids == id)
+        these_data = data[w]
+        data_list.append(these_data)
+
+    return data_list
 
 
-def test_example_catalog():
+def test_example_catalog(debug=False):
     test_file = get_test_file()
     data = read_in_data(test_file)
-    sharded_data = shard_data(data)
+    sharded_data = shard_data(data, debug=debug)
 
     write_master_schema(sharded_data[0])
 
     for sd in sharded_data:
-        out_data = convert_to_output_data(sd, debug=True)
+        out_data = convert_to_output_data(sd, debug=debug)
         write_out_data(out_data)
 
 
 if __name__ == "__main__":
-    test_example_catalog()
+    debug = True
+    test_example_catalog(debug=debug)
