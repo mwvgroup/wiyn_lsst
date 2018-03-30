@@ -40,14 +40,6 @@ def read_in_text_data(filename, debug=False):
     if debug:
         print(data)
 
-    # Rename mag columns
-    filters = ('J', 'H', 'K')
-    for f in filters:
-        old_mag, old_mag_err = '%smag' % f, 'e%smag' %f
-        new_mag, new_mag_err = '%s_mag' % f, '%s_mag_sigma' %f
-        data.rename_column(old_mag, new_mag)
-        data.rename_column(old_mag_err, new_mag_err)
-
     return data
 
 
@@ -131,18 +123,15 @@ def convert_2mass_to_output_data(data, debug=False):
     out_table : afw Source table.
 
     """
-    in_table = Table(data)
+    out_table = data.copy()
 
-    # Reformat
-    filt = 'H'
     translate = {'coord_ra': 'RA', 'coord_dec': 'DEC'}
-
-    reverse_translate = {v: k for k, v in translate.items()}
-
-    values = [v for v in translate.values()]
-    # out_data =
-
-    out_table = in_table[ref_cat_entries]
+    filters = ('J', 'H', 'K')
+    for f in filters:
+        old_mag, old_mag_err = '%smag' % f, 'e%smag' %f
+        new_mag, new_mag_err = '%s_mag' % f, '%s_mag_sigma' %f
+        translate[new_mag] = old_mag
+        translate[new_mag_err] = old_mag_err
 
     for new_name, old_name in translate.items():
         out_table.rename_column(old_name, new_name)
