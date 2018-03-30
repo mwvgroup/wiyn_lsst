@@ -26,9 +26,23 @@ def get_test_file(dr1base=DR1BASE):
     return test_file
 
 
-def read_in_data(test_file):
-    """Read in test_file as a binary table FITS file."""
-    return fits.getdata(test_file)
+def read_in_data(test_file, remove_last_row=True):
+    """Read in test_file as a binary table FITS file.
+
+    Parameters
+    --
+    test_file : Full path of input catalog name
+    remove_last_row : Remove the last row of the catalog.
+        The DR1 catalogs have the SN as the last row of the forced photometry
+        We don't want this for the calibration catalogs so by default
+        we remove this line.
+    """
+    data = fits.getdata(test_file)
+    # Remove last row, which is the SN
+    if remove_last_row:
+        data = data[:-1]
+
+    return data
 
 
 def makeMinimalSchema(filt=None, debug=False):
