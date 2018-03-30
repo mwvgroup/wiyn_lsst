@@ -135,11 +135,8 @@ def write_master_schema(out_table, debug=False):
     master_schema.writeFits('master_schema.fits')
 
 
-def write_out_data(out_table, debug=False):
-    # [Divide in HTM]
-    # Write out
-    out_table.writeFits('test_out.fits')
-#    out_table.write('test_out.fits'), overwrite=True)
+def write_out_data(out_table, id=0, debug=False):
+    out_table.writeFits('%06d.fits' % id)
 
 
 def shard_data(data, depth=7, debug=False):
@@ -172,19 +169,19 @@ def shard_data(data, depth=7, debug=False):
         these_data = data[w]
         data_list.append(these_data)
 
-    return data_list
+    return uniq_ids, data_list
 
 
 def test_example_catalog(debug=False):
     test_file = get_test_file()
     data = read_in_data(test_file)
-    sharded_data = shard_data(data, debug=debug)
+    shard_ids, sharded_data = shard_data(data, debug=debug)
 
     write_master_schema(sharded_data[0])
 
-    for sd in sharded_data:
+    for id, sd in zip(shard_ids, sharded_data):
         out_data = convert_to_output_data(sd, debug=debug)
-        write_out_data(out_data)
+        write_out_data(out_data, id=id)
 
 
 if __name__ == "__main__":
