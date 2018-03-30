@@ -289,6 +289,24 @@ def convert_cat_to_htm(filename, debug=False):
         write_out_data(out_data, id=id)
 
 
+def get_2mass_catalog_files(dr1base=DR1BASE):
+    """Return the full filenames of files in DR1BASE/2MASS_catalogs"""
+    return glob.glob(os.path.join(dr1base, "2MASS_catalogs", "*.txt"))
+
+
+def process_dr1_2mass_cat_to_html(dr1base=DR1BASE, debug=False):
+    """Iterate through the 80 DR1 fields
+
+    74 SNeIa + 6 Persson standard star fields
+
+    Assume that no shard covers two separate fields
+    so that we can just iterate through fields and generate the shards for each.
+    """
+    catalog_files = get_2mass_catalog_files(dr1base=DR1BASE)
+    for cf in catalog_files:
+        convert_cat_to_htm(cf, debug=debug)
+
+
 if __name__ == "__main__":
     debug = True
     test_example_catalog(debug=debug)
