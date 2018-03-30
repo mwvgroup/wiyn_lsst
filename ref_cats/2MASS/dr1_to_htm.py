@@ -201,7 +201,7 @@ def shard_data(data, depth=7, debug=False):
     # Implicitly Assume ICRS:  HTM doesn't directly care, it's just doing
     # spherical geometry.  But we're assuming here that we're using the same
     # RA, Dec convention that will be used in the LSST code , which is ICRS.
-    ids = h.lookup_id(data['RA'], data['Dec'])
+    ids = h.lookup_id(data['RA'], data['DEC'])
     uniq_ids = np.unique(ids)
     if debug:
         print('IDS: ', ids)
