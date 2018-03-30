@@ -83,6 +83,39 @@ def makeMinimalSchema(filt=None, debug=False):
     return schema
 
 
+def twomass_int_id(str_id):
+    """Compute a pure integer representation of 2MASS ID
+
+    Map '-', '+' to 0, 1
+
+    >>> compute_2mass_int_id('04033069-0242349')
+    403306900242349
+    >>> compute_2mass_int_id('2MASS04033069-0242349')
+    403306900242349
+    >>> compute_2mass_int_id('2MASS04033069+0242349')
+    403306910242349
+    """
+    ra_length = 8
+    dec_length = 7
+    id_length = ra_length + 1 + dec_length
+    # Do lookup from back to work whether or not there's a prefix of
+    # '2MASS' or '2MASS '
+    ra_str = str_id[-id_length:-(1 + dec_length)]
+    sign_str = str_id[-(1+dec_length):-dec_length]
+    dec_str = str_id[-dec_length:]
+    # Keep as string for composition later
+    if sign_str == '-':
+        sign_str_as_int = '0'
+    elif sign_str == '+':
+        sign_str_as_int = '1'
+    else:
+        print('BAD CONFUSING THINGS WITH PARSING of 2MASS ID:', str_id)
+
+    id_str = ra_str + sign_str_as_int + dec_str
+    return int(id_str)
+
+
+
 def make_source_catalog_from_astropy_table(out_table, debug=False):
     """Return an AFW SourceCatalog from an Astropy Table
 
