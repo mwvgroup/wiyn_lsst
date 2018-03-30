@@ -17,7 +17,12 @@ import lsst.afw.table as afwTable
 DR1BASE = os.getenv('DR1BASE')
 
 
-def get_test_file(dr1base=DR1BASE):
+def get_2mass_test_file(dr1base=DR1BASE):
+    """Return a sample photometry catalog from SweetSpot DR1 processing"""
+    return "2MASS_LSQ13cwp.txt"
+
+
+def get_dr1_test_file(dr1base=DR1BASE):
     """Return a sample photometry catalog from SweetSpot DR1 processing"""
     in_cat_dir = os.path.join(dr1base, 'catalogs')
     path_regex = os.path.join(in_cat_dir, 'LSQ13cwp*')
@@ -267,9 +272,14 @@ def shard_data(data, depth=7, debug=False):
 
 
 def test_example_catalog(debug=False):
-    test_file = get_test_file()
-    # data = read_in_data(test_file)
-    data = read_in_text_data('2MASS_LSQ13cwp.txt')
+    test_file = get_2mass_test_file()
+    convert_cat_to_htm(test_file, debug=debug)
+
+
+def convert_cat_to_htm(filename, debug=False):
+    """Convert the catalog given by filename into an HTM-sharded AFW catalog.
+    """
+    data = read_in_text_data(filename)
     shard_ids, sharded_data = shard_data(data, debug=debug)
 
     write_master_schema(sharded_data[0])
