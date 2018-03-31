@@ -69,20 +69,23 @@ def read_in_data(test_file, remove_last_row=True):
     return data
 
 
-def makeMinimalSchema(filt=None, debug=False):
+def makeMinimalSchema(filters=None, debug=False):
     """Make a minimal schema """
 
     schema = afwTable.SourceTable.makeMinimalSchema()
-    schema.addField(
-        field="%s_flux" % filt,
-        type=np.float64,
-        doc="%s flux" % filt,
-    )
-    schema.addField(
-        field="%s_fluxSigma" % filt,
-        type=np.float64,
-        doc="%s flux uncertainty" % filt,
-    )
+
+    for filt in filters:
+        schema.addField(
+            field="%s_flux" % filt,
+            type=np.float64,
+            doc="%s flux" % filt,
+        )
+        schema.addField(
+            field="%s_fluxSigma" % filt,
+            type=np.float64,
+            doc="%s flux uncertainty" % filt,
+        )
+
     if debug:
         print(schema)
 
@@ -124,12 +127,12 @@ def twomass_int_id(str_id):
 def vegaToABMag(vega_mag, filt):
     """Convert Vega magnitude to AB Magnitude for given filter.
 
-    Supported filters are 'J', 'H', 'Ks'
+    Supported filters are 'J', 'H', 'K'
       http://www.astronomy.ohio-state.edu/~martini/usefuldata.html
     Blanton and Roweis, 2007, AJ, 133, 734.
       http://adsabs.harvard.edu/abs/2007AJ....133..734B
     """
-    mAB_minus_mVega = {'J': 0.91, 'H': 1.39, 'Ks': 1.85}
+    mAB_minus_mVega = {'J': 0.91, 'H': 1.39, 'K': 1.85}
     return vega_mag + mAB_minus_mVega[filt]
 
 
@@ -139,25 +142,23 @@ def make_source_catalog_from_astropy_table(out_table, debug=False):
     Written with extensive reference to
     https://github.com/lsst/meas_astrom/blob/master/convertToFitsTable.py
     """
-    filt = 'H'
-    schema = makeMinimalSchema(filt=filt, debug=debug)
+    filters = ('J', 'H', 'K')
+    schema = makeMinimalSchema(filters=filters, debug=debug)
     out_cat = afwTable.SourceCatalog(schema)
 
-#    psfFluxKey = schema.getKey('psfFlux')
-#    psfFluxKeySigma = schema.getKey('psfFluxSigma')
-    filt = 'H'
-    filtMag = '%s_mag' % filt
-    filtMagSigma = '%s_mag_sigma' % filt
-    filtFlux = '%s_flux' % filt
-    filtFluxSigma = '%s_fluxSigma' % filt
     for row in out_table:
         record = out_cat.addNew()
         record.setId(twomass_int_id(row['2MASSID']))
         record.setRa(float(row['coord_ra']) * lsst.afw.geom.degrees)
         record.setDec(float(row['coord_dec']) * lsst.afw.geom.degrees)
-        abMag = vegaToABMag(row[filtMag], filt)  # error remains unchanged
-        record.set(filtFlux, fluxFromABMag(abMag))
-        record.set(filtFluxSigma, fluxErrFromABMagErr(row[filtMagSigma], abMag))
+        for filt in filters:
+            filtMag = '%s_mag' % filt
+            filtMagSigma = '%s_mag_sigma' % filt
+            filtFlux = '%s_flux' % filt
+            filtFluxSigma = '%s_fluxSigma' % filt
+            abMag = vegaToABMag(row[filtMag], filt)  # error remains unchanged
+            record.set(filtFlux, fluxFromABMag(abMag))
+            record.set(filtFluxSigma, fluxErrFromABMagErr(row[filtMagSigma], abMag))
 
     return out_cat
 
@@ -226,8 +227,8 @@ def convert_dr1_to_output_data(data, debug=False):
 
 
 def write_master_schema(out_table, debug=False):
-    filt = 'H'
-    schema = makeMinimalSchema(filt=filt, debug=debug)
+    filters = ('J', 'H', 'K')
+    schema = makeMinimalSchema(filters=filters, debug=debug)
     master_schema = afwTable.SourceCatalog(schema)
 
     master_schema.writeFits('master_schema.fits')
