@@ -24,10 +24,8 @@ processCcd.py "${REPO}" \
     --id field='LSQ13cwp' seq=A filter=J night=20131120 expnum=425 \
     --id field='LSQ13cwp' seq=A filter=J night=20131209 expnum=335 \
     --id field='LSQ13cwp' seq=A filter=J night=20131213 expnum=299 \
+    --configfile config/processCcd.py \
     --output "${REPO}" \
-    -c charImage.ref_match.matcher.maxOffsetPix=800 \
-    -c charImage.ref_match.matcher.maxRotationDeg=0 \
-    -c charImage.ref_match.matcher.allowedNonperpDeg=0 \
     --clobber-config \
     --clobber-version
 

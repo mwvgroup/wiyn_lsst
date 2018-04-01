@@ -1,0 +1,121 @@
+HTM reference catalogs from 2MASS
+based on testdata_jointcal/hsc/ref_cats/gaia example
+
+1. Create a 'master_schema.fits' that shows the structure
+For the gaia catalog that's
+
+```
+In [4]: fits.info(f)
+Filename: /Users/wmwv/lsstsw/stack/DarwinX86/testdata_jointcal/master-g9b8753233a+1/hsc/ref_cats/gaia/master_schema.fits
+No.    Name      Ver    Type      Cards   Dimensions   Format
+  0  PRIMARY       1 PrimaryHDU       6   ()
+  1                1 BinTableHDU     36   0R x 6C   [1K, 1D, 1D, 1K, 1D, 1J]
+  2                1 BinTableHDU     40   0R x 7C   [1J, 1J, 1J, 1J, 1J, 64A, 64A]
+
+In [8]: d
+Out[8]:
+FITS_rec([],
+         dtype=(numpy.record, [('id', '>i8'), ('coord_ra', '>f8'), ('coord_dec', '>f8'), ('parent', '>i8'), ('phot_g_mean_mag_flux', '>f8'), ('footprint', '>i4')]))
+```
+
+If we read in an actual catalog with data, we get:
+```
+In [9]: d = fits.getdata(f, 1)
+
+In [10]: e = fits.getdata(f, 2)
+
+In [11]: d
+Out[11]:
+FITS_rec([],
+         dtype=(numpy.record, [('id', '>i8'), ('coord_ra', '>f8'), ('coord_dec', '>f8'), ('parent', '>i8'), ('phot_g_mean_mag_flux', '>f8'), ('footprint', '>i4')]))
+
+In [12]: e
+Out[12]:
+FITS_rec([],
+         dtype=(numpy.record, [('id', '>i4'), ('cat.archive', '>i4'), ('cat.persistable', '>i4'), ('row0', '>i4'), ('nrows', '>i4'), ('name', 'S64'), ('module', 'S64')]))
+```
+
+So let's see if I can just write out a FITS file like that.
+
+Input
+
+---
+2018-03-29
+15:19 PDT
+
+Made some decent progress formatting an AFW SourceCatalog table.
+The requirements for the catalog are:
+
+loadReferenceObjects.py
+```
+    Reference object catalogs are instances of lsst.afw.table.SimpleCatalog with the following schema
+    (other fields may also be present):
+    - coord: position of star on sky (an lsst.afw.coord.IcrsCoord)
+    - centroid: position of star on an exposure, if relevant (an lsst.afw.Point2D)
+    - hasCentroid: is centroid usable?
+    - *referenceFilterName*_flux: brightness in the specified reference catalog filter (Jy)
+        Note: the function lsst.afw.image.abMagFromFlux will convert flux in Jy to AB Magnitude.
+    - *referenceFilterName*_fluxSigma (optional): brightness standard deviation (Jy);
+        omitted if no data is available; possibly nan if data is available for some objects but not others
+    - camFlux: brightness in default camera filter (Jy); omitted if defaultFilter not specified
+    - camFluxSigma: brightness standard deviation for default camera filter;
+        omitted if defaultFilter not specified or standard deviation not available that filter
+    - *cameraFilterName*_camFlux: brightness in specified camera filter (Jy)
+    - *cameraFilterName*_camFluxSigma (optional): brightness standard deviation
+        in specified camera filter (Jy); omitted if no data is available;
+        possibly nan if data is available for some objects but not others
+    - photometric (optional): is the object usable for photometric calibration?
+    - resolved (optional): is the object spatially resolved?
+    - variable (optional): does the object have variable brightness?
+
+```
+
+The indexing scheme is used to figure out which "shard", which I'm pretty
+sure corresponds to the filename of the FITS file.
+
+loadIndexedReferenceObjects.py
+```
+    id_list, boundary_mask = self.indexer.get_pixel_ids(ctrCoord, radius)
+    shards = self.get_shards(id_list)
+```
+
+The Indexer is set as an `IndexerRegistry`, which is defined in `lsst.meas.algorithms.indexerRegistry`
+
+```
+from lsst.pex.config import Config, makeRegistry, Field
+from .htmIndexer import HtmIndexer
+
+IndexerRegistry = makeRegistry(
+    """Registry of indexing algorithms
+    """
+)
+
+
+class HtmIndexerConfig(Config):
+    depth = Field(
+        doc = """Depth of the HTM tree to make.  Default is depth=7 which gives
+              ~ 0.3 sq. deg. per trixel.""",
+        dtype = int,
+        default = 7,
+    )
+
+
+def makeHtmIndexer(config):
+    """Make an HtmIndexer
+    """
+    return HtmIndexer(depth=config.depth)
+
+
+makeHtmIndexer.ConfigClass = HtmIndexerConfig
+IndexerRegistry.register("HTM", makeHtmIndexer)
+```
+
+This all uses Erin Sheldon's `esutil` to do the HTM caclulations.
+
+To calculate the pixel of a given RA, Dec, at a given HTM depth
+
+import esutil
+h = esutil.htm.HTM(depth=7)
+h.lookup_id?
+lookup_id(ra, dec)
+
