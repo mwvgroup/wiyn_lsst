@@ -1,25 +1,39 @@
-from __future__ import division
+from __future__ import division, print_function
 
 def makeLsstNamesAndFile(imfile, **kwargs):
     """Wrapper around makeLsstFile.  Formats names of expmap and output files."""
     imbase = imfile.strip(".fits")
     expfile = "{}.expmap.fits".format(imbase)
     lsstfile = "{}.lsst.fits".format(imbase)
+    if os.path.exists(lsstfile):
+        return
     makeLsstFile(imfile, expfile, lsstfile, **kwargs)
 
 
-def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
+def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False, debug=True):
     import lsst.afw.image as afwImage
     from astropy.io import fits
     import numpy as np
-    import lsst.ip.isr.isr as isr
+    from lsst.ip.isr.isrFunctions import saturationCorrection
+
+    if debug:
+        print("Generating:\n%s\n  from\n%s\n%s" % (lsstfile, imfile, expfile))
 
     gain=3.4 # WIYN WHIRC Data Reduction Guide
 
     imdir, imbasename = os.path.dirname(imfile), os.path.basename(imfile)
     tmp_imfile = os.path.join(imdir, "tmp_"+imbasename)
     os.system("cp {} {}".format(imfile, tmp_imfile))
-    os.system("sethead EXPID=0 {}".format(tmp_imfile))
+#    os.system("sethead EXPID=0 {}".format(tmp_imfile))
+    with fits.open(tmp_imfile, mode='update') as hdu:
+        # Some DTTITLE keywords were written with trailing quotes:
+        # 'Type Ia Supernovae in the Near-Infrared: A Three-Year Survey toward''
+        # AST chokes on these presumably invalid entries.
+        dttitle = hdu[0].header['DTTITLE']
+        hdu[0].header['DTTITLE'] = dttitle.rstrip("'")
+
+        hdu[0].header['EXPID'] = 0
+        hdu.flush()
     #Exposures should keep your header keys
     exp  = afwImage.ExposureF(tmp_imfile)
     im   = exp.getMaskedImage().getImage()
@@ -33,7 +47,7 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
     # Calculate the variance based on the background level / second
     # stored in the coadd, which is the background level of
     # the first individual images included in the coadd
-    # The coadd was created as an average 
+    # The coadd was created as an average
     #   so is noramlized to the count level of one input image.
     expTimeArr = afwImage.ImageF(expfile).getArray()
     exphead = fits.getheader(expfile)
@@ -45,17 +59,19 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
     background_per_second = background_per_image/exptime_per_image
 
     fullexptime = np.percentile(expTimeArr,99)
-    print (background_per_second, fullexptime, exptime_per_image)
+    if debug:
+        print("(Background counts/sec, fullexptime, exptime_per_image)")
+        print(background_per_second, fullexptime, exptime_per_image)
     idx=range(int(0.2*len(maskArr[0,:])),int(0.8*len(maskArr[0,:])))
 
     photonArr = gain * \
-      (imArr+background_per_image) * (expTimeArr/exptime_per_image) 
+      (imArr+background_per_image) * (expTimeArr/exptime_per_image)
     ## Variance in ADU for the accumulated counts
     ##  (i.e., that has not been re-scaled to have the same normalization across the image)
-    varArr[:,:] = photonArr / gain**2  
+    varArr[:,:] = photonArr / gain**2
     ## Variance in ADU for the normalized image
     varArr /= (expTimeArr/exptime_per_image)**2
-    varArr[np.logical_not(np.isfinite(imArr))] = np.inf 
+    varArr[np.logical_not(np.isfinite(imArr))] = np.inf
 
     # Reject all of the locations with less than 20% of the effective exposure time
     idxs = np.where(expTimeArr < 0.2* fullexptime)
@@ -67,7 +83,7 @@ def makeLsstFile(imfile, expfile, lsstfile, interpolateNans=False):
     if interpolateNans:
         SAT_LEVEL=100000
         imArr[np.logical_not(np.isfinite(imArr))] = 2*SAT_LEVEL
-        isr.saturationCorrection(exp.getMaskedImage(), saturation=SAT_LEVEL, fwhm=2, growFootprints=False)
+        saturationCorrection(exp.getMaskedImage(), saturation=SAT_LEVEL, fwhm=2, growFootprints=False)
 #    import lsst.afw.display.ds9 as ds9
 #    ds9.mtv(exp, title="Foo")
 
@@ -106,4 +122,4 @@ if __name__=="__main__":
     files = sys.argv[1:]
     for f in files:
         makeLsstNamesAndFile(f, interpolateNans=interpolateNans)
- 
+

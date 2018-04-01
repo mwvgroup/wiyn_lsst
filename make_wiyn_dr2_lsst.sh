@@ -1,10 +1,7 @@
-#source /global/homes/w/wmwv/.bashrc.lsst
-source /global/homes/k/kap146/.bashrc.wiyn
-DR2BASE=/global/project/projectdirs/lsst/wmwv/test/DR2_images_rc1
-export PATH=$PATH:/global/homes/w/wmwv/local/bin
+source ~wmwv/.bashrc.wiyn
+# export PATH=$PATH:/global/homes/w/wmwv/local/bin
 
-setup lsst_apps
-setup -k -r /global/homes/w/wmwv/local/lsst/obs_file
+setup -k -r ~wmwv/local/lsst/obs_wiyn
 
 # Don't include .expmap.fits or previous .lsst.fits files
 #  Just the image stacks themselves, which end in YYYYMMDD.fits
