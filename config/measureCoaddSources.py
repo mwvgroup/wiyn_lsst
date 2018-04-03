@@ -16,10 +16,4 @@ for refObjLoader in (config.match.refObjLoader,):
     for fn, f in zip(filternames, filters):
         refObjLoader.filterMap[fn] = f
 
-# filterMapFile = os.path.join(base_dir, "ref_cats", "2MASS", "filterMap.py")
-# for refObjLoader in (config.calibrate.astromRefObjLoader,
-#                      config.calibrate.photoRefObjLoader,
-#                      config.charImage.refObjLoader,
-#                      ):
-#     refObjLoader.load(filterMapFile)
-# 
+config.doPropagateFlags = False
