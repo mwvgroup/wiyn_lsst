@@ -3,6 +3,7 @@
 WIYN=${DR1BASE}/tmp
 REPO=${WIYN}/test_dr1
 
+# Tract 0, LSQ13cwp
 makeDiscreteSkyMap.py "${REPO}" --output "${REPO}" \
     --id field='LSQ13cwp' seq=A filter=H night=20131111 expnum=521 \
     --config skyMap.projection="TAN" \
@@ -26,7 +27,7 @@ assembleCoadd.py "${REPO}" --output "${REPO}" \
     --selectId filter=J --id field='LSQ13cwp' filter=J tract=0 patch=0,0 \
     --clobber-versions
 
-###
+# Tract 1, PTF11mty
 makeDiscreteSkyMap.py "${REPO}" --output "${REPO}" \
     --id field='PTF11mty' seq=A filter=H night=20111025 expnum=218 \
     --config skyMap.projection="TAN" \
