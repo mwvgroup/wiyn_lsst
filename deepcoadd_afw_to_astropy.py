@@ -24,11 +24,12 @@ def run(field, tract):
     H_mag, H_mag_err = HCoaddCalib.getMagnitude(H_cat['base_PsfFlux_flux'], H_cat['base_PsfFlux_fluxSigma'])
     J_mag, J_mag_err = JCoaddCalib.getMagnitude(J_cat['base_PsfFlux_flux'], J_cat['base_PsfFlux_fluxSigma'])
 
-    refTable = butler.get('deepCoadd_ref', {'filter': 'H^J', 'tract': tract, 'patch': '0,0'})
-    isPrimary = refTable['detect_isPrimary']
+    ref_table = butler.get('deepCoadd_ref', {'filter': 'H^J', 'tract': tract, 'patch': '0,0'})
+    isPrimary = ref_table['detect_isPrimary']
 
     H_table = H_cat.asAstropy(copy=True)
     J_table = J_cat.asAstropy(copy=True)
+    ref_table = ref_table.asAstropy(copy=True)
 
     H_table['H_mag'] = H_mag
     J_table['J_mag'] = J_mag
@@ -39,9 +40,11 @@ def run(field, tract):
 
     H_table = H_table[isPrimary]
     J_table = J_table[isPrimary]
+    ref_table = ref_table[isPrimary]
 
     H_table.write('%s_H_cat.fits' % field, overwrite=True)
     J_table.write('%s_J_cat.fits' % field, overwrite=True)
+    ref_table.write('%s_ref_table.fits' % field, overwrite=True)
 
 
 if __name__ == "__main__":
