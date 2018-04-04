@@ -3,5 +3,8 @@
 WIYN=${DR1BASE}/tmp
 REPO=${WIYN}/test_dr1
 
-bash run_photometry.sh "${REPO}" LSQ13cwp
-bash run_photometry.sh "${REPO}" PTF11mty
+cut -f 1 -d ' ' dr1_coadd.list > dr1_field.list
+
+while read field; do
+    echo bash run_photometry.sh "${REPO}" "${field}"
+done < dr1_field.list
