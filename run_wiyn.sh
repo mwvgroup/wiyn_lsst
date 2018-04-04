@@ -8,7 +8,7 @@ REPO=${WIYN}/test_dr1
 #    --id field='iPTF13ebh' seq=A filter=H night=20131120 expnum=263 \
 #    --id field='iPTF13ebh' seq=A filter=H night=20131209 expnum=088 \
 #    --id field='iPTF13ebh' seq=A filter=H night=20131213 expnum=137 \
-processCcd.py "${REPO}" --output "${REPO}" \
+processCcd.py "${REPO}" -rerun processCcdOutputs \
     --id field='LSQ13cwp' seq=A filter=H night=20131111 expnum=521 \
     --id field='LSQ13cwp' seq=A filter=H night=20131120 expnum=335 \
     --id field='LSQ13cwp' seq=A filter=H night=20131209 expnum=312 \
