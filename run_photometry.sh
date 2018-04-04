@@ -1,10 +1,7 @@
 #!/bin/bash
 
-WIYN=${DR1BASE}/tmp
-REPO=${WIYN}/test_dr1
-
-# FIELD=PTF11mty
-FIELD=LSQ13cwp
+REPO=$1
+FIELD=$2
 
 # Should be able to replace all of this with multiBandDriver.py
 # But it was useful to go through step by step to get it all working.
