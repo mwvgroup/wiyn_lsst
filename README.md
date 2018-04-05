@@ -8,16 +8,29 @@ Requires the definition of the environment variable DR1BASE and the existence of
 2. Ingest files
 `sh ingest_wiyn_dr1_images.sh`
 3. processCcd files
-`sh run_wiyn.sh`
-4. Run subtractions
+`sh run_processCcd.sh`
+4. coadd files
+`sh run_all_coadds.sh`
+5. Photometry coadds
+`sh run_all_photometry.sh`
+
+6. Run subtractions
 `python sub_wiyn_dr1.py`
-5. Make coord files
+7. Make coord files
 `sh make_coord_files.sh`
-6. Run lightcurves on subtractions
+8. Run lightcurves on subtractions
 `python wiyn_forcedPhotExternalCatalog.py`
 
 Notes:
-1. Coord files are used in assemble catalogs, but not run_forced_photometry_per_object. should make consistent.
+1. Generate "dr1_dataid.list" after ingest step with
+ * sqlite registry.sqlite
+.separator ','
+.output dr1_dataid.csv
+select field, seq, filter, night, expnum from stack;
+ Then reprocess with
+cat dr1_dataid.csv | awk -F , '{printf "--id field=%s filter=%s seq=%s night=%s expnum=%s\n", $1, $2, $3, $4, $5}'  > dr1_dataid.list
+2. Generate "dr1_coadd.list" using
+cat dr1_dataid.csv | awk -F , '{print $2, $4, $5, $1}'  | uniq -f 3 | awk '{print $4, NR, $1, $2, $3}' > dr1_coadd.list
 
 ### Batch queue processing (SLURM)
 The simplest job would just be to run the above commands in a single-node, serial job.

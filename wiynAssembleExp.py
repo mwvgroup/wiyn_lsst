@@ -1,11 +1,11 @@
 from __future__ import division, print_function
 
-def makeLsstNamesAndFile(imfile, **kwargs):
+def makeLsstNamesAndFile(imfile, overwrite=False, **kwargs):
     """Wrapper around makeLsstFile.  Formats names of expmap and output files."""
     imbase = imfile.strip(".fits")
     expfile = "{}.expmap.fits".format(imbase)
     lsstfile = "{}.lsst.fits".format(imbase)
-    if os.path.exists(lsstfile):
+    if not overwrite and os.path.exists(lsstfile):
         return
     makeLsstFile(imfile, expfile, lsstfile, **kwargs)
 
@@ -118,8 +118,9 @@ def testloop():
 if __name__=="__main__":
     import os, sys
 
+    overwrite = False
     interpolateNans=True
     files = sys.argv[1:]
     for f in files:
-        makeLsstNamesAndFile(f, interpolateNans=interpolateNans)
+        makeLsstNamesAndFile(f, overwrite=overwrite, interpolateNans=interpolateNans)
 
