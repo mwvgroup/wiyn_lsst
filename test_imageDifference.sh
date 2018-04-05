@@ -1,5 +1,12 @@
 #!/bin/bash
 
-imageDifference.py ~/tmp/test_dr1 --id fileroot=SN2011gy_A_H_20111115  --templateId fileroot=SN2011gy_A_H_20121028 --output ~/tmp/test_dr1 --configfile diffimconfig.py --logdest wiyn_imageDifference.log --clobber-config --clobber-versions
-imageDifference.py ~/tmp/test_dr1 --id fileroot=SN2011gy_A_H_20111121  --templateId fileroot=SN2011gy_A_H_20121028 --output ~/tmp/test_dr1 --configfile diffimconfig.py --logdest wiyn_imageDifference.log --clobber-config --clobber-versions
-imageDifference.py ~/tmp/test_dr1 --id fileroot=SN2011gy_A_H_20120108  --templateId fileroot=SN2011gy_A_H_20121028 --output ~/tmp/test_dr1 --configfile diffimconfig.py --logdest wiyn_imageDifference.log --clobber-config --clobber-versions
+WIYN=${DR1BASE}/tmp
+REPO=${WIYN}/test_dr1
+
+imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
+    --id field=PTF11mty seq=A filter=J night=20111025 expnum=200 \
+    --id field=PTF11mty seq=A filter=J night=20111115 expnum=130 \
+   --templateId field=PTF11mty seq=A filter=J night=20121007 expnum=50 \
+   --configfile config/imageDifference.py \
+   --clobber-config \
+   --clobber-versions
