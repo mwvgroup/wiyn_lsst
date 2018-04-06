@@ -10,3 +10,6 @@ config.doDecorrelation=True
 
 from lsst.ip.diffim.getTemplate import GetCalexpAsTemplateTask
 config.getTemplate.retarget(GetCalexpAsTemplateTask)
+
+config.subtract['al'].kernel.active.spatialKernelOrder = 0
+config.subtract['al'].kernel['AL'].candidateResidualStdMax=2.0
