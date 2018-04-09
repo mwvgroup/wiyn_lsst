@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WIYN=${DR1BASE}/tmp
+WIYN=${DR1BASE}/repo
 REPO=${WIYN}/test_dr1
 
 #    @science_ids_dr2.list \

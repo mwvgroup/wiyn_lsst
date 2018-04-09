@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WIYN=${DR1BASE}/tmp
+WIYN=${DR1BASE}/repo
 REPO=${WIYN}/test_dr1
 
 cut -f 1 -d ' ' dr1_coadd.list > dr1_field.list

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WIYN=${HOME}/tmp
+WIYN=${HOME}/repo
 REPO=${WIYN}/test_dr1
 
 fileroot=SN2011gy_A_H_20111115
