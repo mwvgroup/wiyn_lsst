@@ -28,7 +28,7 @@ Notes:
 .output dr1_dataid.csv
 select field, seq, filter, night, expnum from stack;
  Then reprocess with
-cat dr1_dataid.csv | awk -F , '{printf "--id field=%s filter=%s seq=%s night=%s expnum=%s\n", $1, $2, $3, $4, $5}'  > dr1_dataid.list
+cat dr1_dataid.csv | awk -F , '{printf "--id field=%s seq=%s filter=%s night=%s\n", $1, $2, $3, $4}' > dr1_dataid.list
 2. Generate "dr1_coadd.list" using
 cat dr1_dataid.csv | awk -F , '{print $2, $4, $5, $1}'  | uniq -f 3 | awk '{print $4, NR, $1, $2, $3}' > dr1_coadd.list
 
