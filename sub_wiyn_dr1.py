@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import glob
 import os
 import sys
@@ -21,7 +23,8 @@ sn_with_dr1_templates = {
      'PTF11qpc':                   {'H': 'PTF11qpc_A_H_20120402.fits'}, 
     }
 
-repo_dir = os.path.join(os.getenv('SCRATCH'), 'tmp', 'test_dr1')
+# repo_dir = os.path.join(os.getenv('SCRATCH'), 'tmp', 'test_dr1')
+repo_dir = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
 
 def find_and_generate_lsst_files(sn):
     """Find the files for a given SN, generate LSST-style fits versions."""
