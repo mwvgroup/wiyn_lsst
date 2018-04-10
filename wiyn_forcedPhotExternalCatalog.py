@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
-from __future__ import print_function
+from __future__ import print_function, division
 
 from collections import OrderedDict
 
 import numpy as np
 
 from astropy.table import Table
+import astropy.units as u
 
 import lsst.afw.image as afwImage
 import lsst.afw.image.utils as afwImageUtils
@@ -69,7 +70,6 @@ def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
     butler = dafPersist.Butler(repo_dir)
 
     names_to_copy = ['objectId', 'coord_ra', 'coord_dec', 'parentObjectId',
-                     'base_RaDecCentroid_x', 'base_RaDecCentroid_y',
                      'base_PsfFlux_flux', 'base_PsfFlux_fluxSigma']
     # flux_zp25 is flux normalized to a zeropoint of 25.
     # This convention is useful and appropriate for transient sources
@@ -81,10 +81,17 @@ def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
     names = names_to_generate + names_to_copy
     dtype = (str, float,
              float, float,
+             float, float, int,
              float, float,
-             int, float, float, int,
-             float, float,
+             int,
              float, float)
+
+    units = (None, u.d,
+             u.mag, u.mag,
+             None, None,
+             None, u.rad, u.rad, None,
+             None, None)
+
     table = Table(names=names, dtype=dtype)
 
     if dataset == 'deepDiff_differenceExp':
@@ -104,6 +111,10 @@ def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
                 print("Unabled to extracted forced photometry from {}".format(dataId))
                 continue
             table.add_row(cols_for_new_row)
+
+    for n, unit in zip(names, units):
+        if unit is not None:
+            table[n].unit = unit
 
     return table
 
