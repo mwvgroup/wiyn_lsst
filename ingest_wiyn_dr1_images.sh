@@ -3,8 +3,7 @@
 # setup lsst_apps
 # setup -k -r ~wmwv/local/lsst/obs_wiyn
 
-TMP="${DR1BASE}"/tmp
-REPO="${TMP}"/test_dr1
+REPO="${DR1BASE}"/repo/test_dr1
 mkdir -p "${REPO}"
 echo "lsst.obs.wiyn.WhircMapper" > "${REPO}"/_mapper
 

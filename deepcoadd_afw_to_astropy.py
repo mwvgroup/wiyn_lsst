@@ -4,10 +4,10 @@ import lsst.daf.persistence as dafPersist
 
 # See https://pipelines.lsst.io/getting-started/multiband-analysis.html
 
-def run(field, tract):
-    dr1base = os.getenv("DR1BASE")
-    repo = os.path.join(dr1base, "tmp", "test_dr1")
+DR1BASE = os.getenv("DR1BASE")
+REPO = os.path.join(DR1BASE, 'repo', 'test_dr1')
 
+def read_cats(field, tract, repo=REPO):
     butler = dafPersist.Butler(repo)
 
     dId_H = {'field': field, 'tract': tract, 'patch': '0,0', 'filter': 'H'}
@@ -42,9 +42,15 @@ def run(field, tract):
     J_table = J_table[isPrimary]
     ref_table = ref_table[isPrimary]
 
-    H_table.write('%s_H_cat.fits' % field, overwrite=True)
-    J_table.write('%s_J_cat.fits' % field, overwrite=True)
-    ref_table.write('%s_ref_table.fits' % field, overwrite=True)
+    return J_table, H_table, ref_table
+
+
+def run(field, tract):
+    J_cat, H_cat, ref_cat = read_cats(field=field, tract=tract)
+
+    H_cat.write('%s_H_cat.fits' % field, overwrite=True)
+    J_cat.write('%s_J_cat.fits' % field, overwrite=True)
+    ref_cat.write('%s_ref_cat.fits' % field, overwrite=True)
 
 
 if __name__ == "__main__":

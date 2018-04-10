@@ -1,710 +1,710 @@
---id field=CSS121006:232854+085452 seq=A filter=H night=20121028 expnum=251
---id field=CSS121006:232854+085452 seq=A filter=H night=20121102 expnum=155
---id field=CSS121009:011101-172841 seq=A filter=H night=20121028 expnum=319
---id field=CSS121009:011101-172841 seq=A filter=H night=20121102 expnum=247
---id field=CSS121009:011101-172841 seq=A filter=J night=20121028 expnum=292
---id field=CSS121009:011101-172841 seq=A filter=J night=20121102 expnum=298
---id field=CSS121114:090202+101800 seq=A filter=H night=20121122 expnum=591
---id field=CSS121114:090202+101800 seq=A filter=H night=20121125 expnum=556
---id field=CSS121114:090202+101800 seq=A filter=H night=20121130 expnum=599
---id field=CSS121114:090202+101800 seq=A filter=J night=20121122 expnum=608
---id field=CSS121114:090202+101800 seq=A filter=J night=20121125 expnum=569
---id field=CSS121114:090202+101800 seq=A filter=J night=20121130 expnum=612
---id field=CSS130218:092354+385837 seq=A filter=H night=20130326 expnum=275
---id field=CSS130218:092354+385837 seq=A filter=H night=20130420 expnum=272
---id field=CSS130218:092354+385837 seq=A filter=H night=20130425 expnum=220
---id field=CSS130317:082848+293031 seq=A filter=H night=20130326 expnum=204
---id field=CSS130317:082848+293031 seq=A filter=H night=20130420 expnum=168
---id field=CSS130317:082848+293031 seq=A filter=H night=20130425 expnum=130
---id field=CSS130317:082848+293031 seq=A filter=J night=20130326 expnum=221
---id field=CSS130317:082848+293031 seq=A filter=J night=20130420 expnum=203
---id field=CSS130317:082848+293031 seq=A filter=J night=20130425 expnum=164
---id field=LSQ12fhs seq=A filter=H night=20121028 expnum=210
---id field=LSQ12fhs seq=A filter=H night=20121102 expnum=202
---id field=LSQ12fhs seq=A filter=H night=20121122 expnum=124
---id field=LSQ12fhs seq=A filter=H night=20121130 expnum=115
---id field=LSQ12fhs seq=A filter=J night=20121028 expnum=228
---id field=LSQ12fhs seq=A filter=J night=20121102 expnum=218
---id field=LSQ12fhs seq=A filter=J night=20121122 expnum=99
---id field=LSQ12fhs seq=A filter=J night=20121130 expnum=154
---id field=LSQ12fmx seq=A filter=H night=20121028 expnum=356
---id field=LSQ12fmx seq=A filter=H night=20121102 expnum=409
---id field=LSQ12fmx seq=A filter=H night=20121125 expnum=347
---id field=LSQ12fmx seq=A filter=H night=20121130 expnum=444
---id field=LSQ12fmx seq=A filter=J night=20121028 expnum=406
---id field=LSQ12fmx seq=A filter=J night=20121102 expnum=459
---id field=LSQ12fmx seq=A filter=J night=20121122 expnum=431
---id field=LSQ12fuk seq=A filter=H night=20121102 expnum=386
---id field=LSQ12fuk seq=A filter=H night=20121122 expnum=467
---id field=LSQ12fuk seq=A filter=H night=20121125 expnum=424
---id field=LSQ12fuk seq=A filter=H night=20121130 expnum=498
---id field=LSQ12fuk seq=A filter=H night=20131019 expnum=224
---id field=LSQ12fuk seq=A filter=J night=20121102 expnum=396
---id field=LSQ12fuk seq=A filter=J night=20121122 expnum=483
---id field=LSQ12fuk seq=A filter=J night=20121125 expnum=433
---id field=LSQ12fuk seq=A filter=J night=20121130 expnum=505
---id field=LSQ12fuk seq=A filter=J night=20131019 expnum=274
---id field=LSQ12gef seq=A filter=H night=20121122 expnum=286
---id field=LSQ12gef seq=A filter=H night=20121125 expnum=247
---id field=LSQ12gef seq=A filter=H night=20121130 expnum=317
---id field=LSQ12gef seq=A filter=J night=20121122 expnum=259
---id field=LSQ12gef seq=A filter=J night=20121125 expnum=234
---id field=LSQ13cmt seq=A filter=H night=20131015 expnum=314
---id field=LSQ13cmt seq=A filter=H night=20131018 expnum=4
---id field=LSQ13cmt seq=A filter=H night=20131020 expnum=392
---id field=LSQ13cmt seq=A filter=J night=20131015 expnum=339
---id field=LSQ13cmt seq=A filter=J night=20131020 expnum=417
---id field=LSQ13crf seq=A filter=H night=20131111 expnum=390
---id field=LSQ13crf seq=A filter=H night=20131209 expnum=212
---id field=LSQ13crf seq=A filter=H night=20131213 expnum=194
---id field=LSQ13crf seq=A filter=J night=20131111 expnum=431
---id field=LSQ13crf seq=A filter=J night=20131209 expnum=237
---id field=LSQ13cwp seq=A filter=H night=20131111 expnum=521
---id field=LSQ13cwp seq=A filter=H night=20131120 expnum=335
---id field=LSQ13cwp seq=A filter=H night=20131209 expnum=312
---id field=LSQ13cwp seq=A filter=H night=20131213 expnum=274
---id field=LSQ13cwp seq=A filter=J night=20131111 expnum=562
---id field=LSQ13cwp seq=A filter=J night=20131120 expnum=425
---id field=LSQ13cwp seq=A filter=J night=20131209 expnum=335
---id field=LSQ13cwp seq=A filter=J night=20131213 expnum=299
---id field=P161-D seq=A filter=H night=20121102 expnum=555
---id field=P161-D seq=A filter=H night=20121122 expnum=505
---id field=P161-D seq=A filter=H night=20121125 expnum=401
---id field=P161-D seq=A filter=H night=20121130 expnum=523
---id field=P161-D seq=A filter=H night=20130925 expnum=447
---id field=P161-D seq=A filter=H night=20130927 expnum=104
---id field=P161-D seq=A filter=H night=20131015 expnum=411
---id field=P161-D seq=A filter=H night=20131018 expnum=80
---id field=P161-D seq=A filter=H night=20131020 expnum=438
---id field=P161-D seq=A filter=H night=20131111 expnum=496
---id field=P161-D seq=A filter=H night=20131209 expnum=278
---id field=P161-D seq=A filter=H night=20131213 expnum=413
---id field=P161-D seq=A filter=J night=20121102 expnum=565
---id field=P161-D seq=A filter=J night=20121122 expnum=519
---id field=P161-D seq=A filter=J night=20121125 expnum=406
---id field=P161-D seq=A filter=J night=20121130 expnum=528
---id field=P161-D seq=A filter=J night=20130925 expnum=457
---id field=P161-D seq=A filter=J night=20130927 expnum=118
---id field=P161-D seq=A filter=J night=20131015 expnum=416
---id field=P161-D seq=A filter=J night=20131018 expnum=85
---id field=P161-D seq=A filter=J night=20131020 expnum=443
---id field=P161-D seq=A filter=J night=20131111 expnum=501
---id field=P161-D seq=A filter=J night=20131209 expnum=288
---id field=P161-D seq=A filter=J night=20131213 expnum=418
---id field=P161-D seq=A filter=KS night=20121122 expnum=528
---id field=P161-D seq=A filter=KS night=20121125 expnum=415
---id field=P161-D seq=A filter=KS night=20121130 expnum=537
---id field=P161-D seq=A filter=KS night=20130925 expnum=466
---id field=P161-D seq=A filter=KS night=20130927 expnum=127
---id field=P161-D seq=A filter=KS night=20131015 expnum=425
---id field=P161-D seq=A filter=KS night=20131018 expnum=94
---id field=P161-D seq=A filter=KS night=20131020 expnum=452
---id field=P161-D seq=A filter=KS night=20131111 expnum=510
---id field=P161-D seq=A filter=KS night=20131209 expnum=297
---id field=P161-D seq=A filter=KS night=20131213 expnum=427
---id field=P161-D seq=B filter=H night=20121125 expnum=499
---id field=P161-D seq=B filter=H night=20130925 expnum=526
---id field=P161-D seq=B filter=H night=20130927 expnum=188
---id field=P161-D seq=B filter=H night=20131015 expnum=531
---id field=P161-D seq=B filter=H night=20131018 expnum=169
---id field=P161-D seq=B filter=H night=20131020 expnum=498
---id field=P161-D seq=B filter=H night=20131111 expnum=671
---id field=P161-D seq=B filter=H night=20131209 expnum=349
---id field=P161-D seq=B filter=H night=20131213 expnum=527
---id field=P161-D seq=B filter=J night=20121125 expnum=508
---id field=P161-D seq=B filter=J night=20130925 expnum=536
---id field=P161-D seq=B filter=J night=20130927 expnum=206
---id field=P161-D seq=B filter=J night=20131015 expnum=541
---id field=P161-D seq=B filter=J night=20131018 expnum=178
---id field=P161-D seq=B filter=J night=20131020 expnum=507
---id field=P161-D seq=B filter=J night=20131111 expnum=687
---id field=P161-D seq=B filter=J night=20131209 expnum=358
---id field=P161-D seq=B filter=J night=20131213 expnum=536
---id field=P161-D seq=B filter=KS night=20121125 expnum=517
---id field=P161-D seq=B filter=KS night=20130925 expnum=545
---id field=P161-D seq=B filter=KS night=20130927 expnum=215
---id field=P161-D seq=B filter=KS night=20131015 expnum=550
---id field=P161-D seq=B filter=KS night=20131018 expnum=187
---id field=P161-D seq=B filter=KS night=20131020 expnum=516
---id field=P161-D seq=B filter=KS night=20131111 expnum=703
---id field=P161-D seq=B filter=KS night=20131209 expnum=367
---id field=P161-D seq=B filter=KS night=20131213 expnum=545
---id field=P161-D seq=C filter=H night=20121125 expnum=597
---id field=P161-D seq=C filter=H night=20130925 expnum=579
---id field=P161-D seq=C filter=H night=20130927 expnum=329
---id field=P161-D seq=C filter=H night=20131015 expnum=596
---id field=P161-D seq=C filter=H night=20131020 expnum=658
---id field=P161-D seq=C filter=J night=20121125 expnum=606
---id field=P161-D seq=C filter=J night=20130925 expnum=588
---id field=P161-D seq=C filter=J night=20130927 expnum=339
---id field=P161-D seq=C filter=J night=20131015 expnum=612
---id field=P161-D seq=C filter=J night=20131020 expnum=667
---id field=P161-D seq=C filter=KS night=20130925 expnum=597
---id field=P161-D seq=C filter=KS night=20130927 expnum=319
---id field=P161-D seq=C filter=KS night=20131015 expnum=628
---id field=P161-D seq=C filter=KS night=20131020 expnum=676
---id field=P212-C seq=A filter=H night=20130425 expnum=79
---id field=P212-C seq=A filter=H night=20130429 expnum=158
---id field=P212-C seq=A filter=H night=20130519 expnum=87
---id field=P212-C seq=A filter=J night=20130326 expnum=92
---id field=P212-C seq=A filter=J night=20130420 expnum=97
---id field=P212-C seq=A filter=J night=20130429 expnum=168
---id field=P212-C seq=A filter=J night=20130519 expnum=97
---id field=P212-C seq=A filter=KS night=20130326 expnum=101
---id field=P212-C seq=A filter=KS night=20130420 expnum=106
---id field=P212-C seq=B filter=H night=20130420 expnum=245
---id field=P212-C seq=B filter=H night=20130425 expnum=339
---id field=P212-C seq=B filter=H night=20130429 expnum=286
---id field=P212-C seq=B filter=J night=20130420 expnum=254
---id field=P212-C seq=B filter=J night=20130425 expnum=330
---id field=P212-C seq=B filter=J night=20130429 expnum=277
---id field=P212-C seq=B filter=KS night=20130420 expnum=263
---id field=P212-C seq=B filter=KS night=20130425 expnum=348
---id field=P212-C seq=B filter=KS night=20130429 expnum=295
---id field=P212-C seq=C filter=H night=20130420 expnum=317
---id field=P212-C seq=C filter=J night=20130420 expnum=326
---id field=P212-C seq=C filter=KS night=20130420 expnum=335
---id field=P330-E seq=A filter=H night=20130519 expnum=343
---id field=P330-E seq=A filter=H night=20130522 expnum=61
---id field=P330-E seq=A filter=H night=20130523 expnum=782
---id field=P330-E seq=A filter=H night=20130528 expnum=106
---id field=P330-E seq=A filter=H night=20130613 expnum=324
---id field=P330-E seq=A filter=J night=20130519 expnum=355
---id field=P330-E seq=A filter=J night=20130522 expnum=66
---id field=P330-E seq=A filter=J night=20130523 expnum=773
---id field=P330-E seq=A filter=J night=20130528 expnum=111
---id field=P330-E seq=A filter=J night=20130613 expnum=336
---id field=P330-E seq=A filter=KS night=20130519 expnum=364
---id field=P330-E seq=A filter=KS night=20130522 expnum=75
---id field=P330-E seq=A filter=KS night=20130523 expnum=791
---id field=P330-E seq=A filter=KS night=20130528 expnum=120
---id field=P330-E seq=A filter=KS night=20130613 expnum=345
---id field=P330-E seq=B filter=H night=20130522 expnum=135
---id field=P330-E seq=B filter=H night=20130528 expnum=491
---id field=P330-E seq=B filter=H night=20130617 expnum=329
---id field=P330-E seq=B filter=J night=20130522 expnum=154
---id field=P330-E seq=B filter=J night=20130528 expnum=502
---id field=P330-E seq=B filter=J night=20130617 expnum=340
---id field=P330-E seq=B filter=KS night=20130522 expnum=163
---id field=P330-E seq=B filter=KS night=20130528 expnum=511
---id field=P330-E seq=B filter=KS night=20130617 expnum=349
---id field=P525-E seq=A filter=H night=20121122 expnum=158
---id field=P525-E seq=A filter=H night=20121125 expnum=106
---id field=P525-E seq=A filter=H night=20121130 expnum=184
---id field=P525-E seq=A filter=H night=20130925 expnum=172
---id field=P525-E seq=A filter=H night=20130927 expnum=10
---id field=P525-E seq=A filter=H night=20131015 expnum=151
---id field=P525-E seq=A filter=H night=20131019 expnum=32
---id field=P525-E seq=A filter=H night=20131020 expnum=120
---id field=P525-E seq=A filter=H night=20131111 expnum=84
---id field=P525-E seq=A filter=H night=20131120 expnum=180
---id field=P525-E seq=A filter=H night=20131209 expnum=61
---id field=P525-E seq=A filter=H night=20131213 expnum=170
---id field=P525-E seq=A filter=J night=20121122 expnum=153
---id field=P525-E seq=A filter=J night=20121125 expnum=97
---id field=P525-E seq=A filter=J night=20121130 expnum=197
---id field=P525-E seq=A filter=J night=20130927 expnum=18
---id field=P525-E seq=A filter=J night=20131015 expnum=160
---id field=P525-E seq=A filter=J night=20131111 expnum=92
---id field=P525-E seq=A filter=J night=20131209 expnum=69
---id field=P525-E seq=A filter=KS night=20121122 expnum=167
---id field=P525-E seq=A filter=KS night=20121125 expnum=88
---id field=P525-E seq=A filter=KS night=20121130 expnum=201
---id field=P525-E seq=A filter=KS night=20130927 expnum=27
---id field=P525-E seq=A filter=KS night=20131015 expnum=169
---id field=P525-E seq=A filter=KS night=20131111 expnum=101
---id field=P525-E seq=A filter=KS night=20131209 expnum=78
---id field=P525-E seq=A filter=KS night=20131213 expnum=188
---id field=P525-E seq=B filter=H night=20121122 expnum=336
---id field=P525-E seq=B filter=H night=20121125 expnum=213
---id field=P525-E seq=B filter=H night=20121130 expnum=367
---id field=P525-E seq=B filter=H night=20130927 expnum=139
---id field=P525-E seq=B filter=H night=20131015 expnum=209
---id field=P525-E seq=B filter=H night=20131019 expnum=82
---id field=P525-E seq=B filter=H night=20131020 expnum=211
---id field=P525-E seq=B filter=H night=20131111 expnum=201
---id field=P525-E seq=B filter=H night=20131209 expnum=184
---id field=P525-E seq=B filter=H night=20131213 expnum=245
---id field=P525-E seq=B filter=J night=20121122 expnum=327
---id field=P525-E seq=B filter=J night=20121125 expnum=204
---id field=P525-E seq=B filter=J night=20121130 expnum=376
---id field=P525-E seq=B filter=J night=20130927 expnum=148
---id field=P525-E seq=B filter=J night=20131015 expnum=218
---id field=P525-E seq=B filter=J night=20131019 expnum=91
---id field=P525-E seq=B filter=J night=20131020 expnum=220
---id field=P525-E seq=B filter=J night=20131111 expnum=210
---id field=P525-E seq=B filter=J night=20131209 expnum=193
---id field=P525-E seq=B filter=J night=20131213 expnum=254
---id field=P525-E seq=B filter=KS night=20121122 expnum=345
---id field=P525-E seq=B filter=KS night=20121125 expnum=195
---id field=P525-E seq=B filter=KS night=20121130 expnum=385
---id field=P525-E seq=B filter=KS night=20130927 expnum=158
---id field=P525-E seq=B filter=KS night=20131015 expnum=227
---id field=P525-E seq=B filter=KS night=20131019 expnum=100
---id field=P525-E seq=B filter=KS night=20131020 expnum=229
---id field=P525-E seq=B filter=KS night=20131111 expnum=219
---id field=P525-E seq=B filter=KS night=20131209 expnum=202
---id field=P525-E seq=B filter=KS night=20131213 expnum=263
---id field=P525-E seq=C filter=H night=20121125 expnum=320
---id field=P525-E seq=C filter=H night=20130927 expnum=225
---id field=P525-E seq=C filter=H night=20131015 expnum=357
---id field=P525-E seq=C filter=H night=20131019 expnum=145
---id field=P525-E seq=C filter=H night=20131020 expnum=345
---id field=P525-E seq=C filter=H night=20131111 expnum=293
---id field=P525-E seq=C filter=J night=20121125 expnum=329
---id field=P525-E seq=C filter=J night=20130927 expnum=235
---id field=P525-E seq=C filter=J night=20131015 expnum=366
---id field=P525-E seq=C filter=J night=20131019 expnum=154
---id field=P525-E seq=C filter=J night=20131020 expnum=363
---id field=P525-E seq=C filter=J night=20131111 expnum=302
---id field=P525-E seq=C filter=KS night=20121125 expnum=338
---id field=P525-E seq=C filter=KS night=20130927 expnum=243
---id field=P525-E seq=C filter=KS night=20131015 expnum=375
---id field=P525-E seq=C filter=KS night=20131019 expnum=163
---id field=P525-E seq=C filter=KS night=20131020 expnum=381
---id field=P525-E seq=C filter=KS night=20131111 expnum=311
---id field=PS1-12bwh seq=A filter=H night=20121028 expnum=514
---id field=PS1-12bwh seq=A filter=H night=20121102 expnum=510
---id field=PS1-12bwh seq=A filter=H night=20121122 expnum=539
---id field=PS1-12bwh seq=A filter=H night=20121125 expnum=449
---id field=PS1-12bwh seq=A filter=H night=20121130 expnum=546
---id field=PS1-12bwh seq=A filter=J night=20121028 expnum=505
---id field=PS1-12bwh seq=A filter=J night=20121102 expnum=527
---id field=PS1-12bwh seq=A filter=J night=20121122 expnum=555
---id field=PS1-12bwh seq=A filter=J night=20121125 expnum=465
---id field=PS1-12bwh seq=A filter=J night=20121130 expnum=571
---id field=PS1-13dkh seq=A filter=H night=20131018 expnum=136
---id field=PS1-13dkh seq=A filter=H night=20131111 expnum=457
---id field=PS1-13dkh seq=A filter=H night=20131120 expnum=286
---id field=PS1-13dkh seq=A filter=H night=20131209 expnum=128
---id field=PS1-13dkh seq=A filter=J night=20131018 expnum=145
---id field=PS1-13dkh seq=A filter=J night=20131111 expnum=473
---id field=PS1-13dkh seq=A filter=J night=20131120 expnum=303
---id field=PS1-13dkh seq=A filter=J night=20131209 expnum=142
---id field=PSNJ07250042+2347030 seq=A filter=H night=20121028 expnum=542
---id field=PSNJ07250042+2347030 seq=A filter=H night=20121102 expnum=491
---id field=PSNJ07250042+2347030 seq=A filter=H night=20121122 expnum=573
---id field=PSNJ07250042+2347030 seq=A filter=H night=20121125 expnum=526
---id field=PSNJ07250042+2347030 seq=A filter=H night=20121130 expnum=628
---id field=PSNJ07250042+2347030 seq=A filter=H night=20131213 expnum=440
---id field=PSNJ07250042+2347030 seq=A filter=J night=20121028 expnum=533
---id field=PSNJ07250042+2347030 seq=A filter=J night=20121102 expnum=501
---id field=PSNJ07250042+2347030 seq=A filter=J night=20121122 expnum=582
---id field=PSNJ07250042+2347030 seq=A filter=J night=20121125 expnum=535
---id field=PSNJ07250042+2347030 seq=A filter=J night=20121130 expnum=644
---id field=PSNJ07250042+2347030 seq=A filter=J night=20131213 expnum=481
---id field=PTF11moy seq=A filter=H night=20111025 expnum=127
---id field=PTF11moy seq=A filter=J night=20111025 expnum=109
---id field=PTF11mty seq=A filter=H night=20111025 expnum=218
---id field=PTF11mty seq=A filter=H night=20111115 expnum=112
---id field=PTF11mty seq=A filter=H night=20120925 expnum=81
---id field=PTF11mty seq=A filter=J night=20111025 expnum=200
---id field=PTF11mty seq=A filter=J night=20111115 expnum=130
---id field=PTF11mty seq=A filter=J night=20121007 expnum=50
---id field=PTF11owc seq=A filter=H night=20111115 expnum=313
---id field=PTF11owc seq=A filter=H night=20111121 expnum=161
---id field=PTF11owc seq=A filter=H night=20111208 expnum=381
---id field=PTF11owc seq=A filter=H night=20120402 expnum=175
---id field=PTF11owc seq=A filter=H night=20121125 expnum=615
---id field=PTF11owc seq=A filter=J night=20111115 expnum=371
---id field=PTF11owc seq=A filter=J night=20111121 expnum=175
---id field=PTF11owc seq=A filter=J night=20111208 expnum=429
---id field=PTF11owc seq=A filter=J night=20120402 expnum=208
---id field=PTF11qmo seq=A filter=H night=20111208 expnum=477
---id field=PTF11qmo seq=A filter=H night=20120108 expnum=398
---id field=PTF11qmo seq=A filter=J night=20111208 expnum=495
---id field=PTF11qmo seq=A filter=J night=20120108 expnum=426
---id field=PTF11qpc seq=A filter=H night=20111208 expnum=554
---id field=PTF11qpc seq=A filter=H night=20120108 expnum=508
---id field=PTF11qpc seq=A filter=H night=20120402 expnum=388
---id field=PTF11qri seq=A filter=H night=20111208 expnum=514
---id field=PTF11qri seq=A filter=H night=20120108 expnum=453
---id field=PTF11qri seq=A filter=J night=20111208 expnum=532
---id field=PTF11qri seq=A filter=J night=20120108 expnum=481
---id field=PTF11qzq seq=A filter=H night=20111208 expnum=344
---id field=PTF11qzq seq=A filter=H night=20120108 expnum=324
---id field=PTF11qzq seq=A filter=H night=20121007 expnum=408
---id field=PTF11qzq seq=A filter=J night=20111208 expnum=363
---id field=PTF11qzq seq=A filter=J night=20120108 expnum=352
---id field=PTF11qzq seq=A filter=J night=20130925 expnum=475
---id field=PTF12iiq seq=A filter=H night=20120925 expnum=442
---id field=PTF12iiq seq=A filter=H night=20121001 expnum=418
---id field=PTF12iiq seq=A filter=H night=20121007 expnum=296
---id field=PTF12iiq seq=A filter=J night=20120925 expnum=459
---id field=PTF12iiq seq=A filter=J night=20121001 expnum=454
---id field=PTF12iiq seq=A filter=J night=20121007 expnum=315
---id field=PTF12ikt seq=A filter=H night=20120925 expnum=329
---id field=PTF12ikt seq=A filter=H night=20121001 expnum=308
---id field=PTF12ikt seq=A filter=H night=20121007 expnum=233
---id field=PTF12ikt seq=A filter=J night=20120925 expnum=356
---id field=PTF12ikt seq=A filter=J night=20121001 expnum=335
---id field=PTF12ikt seq=A filter=J night=20121007 expnum=260
---id field=PTF13asv seq=A filter=H night=20130522 expnum=84
---id field=PTF13asv seq=A filter=H night=20130528 expnum=405
---id field=PTF13asv seq=A filter=H night=20130613 expnum=354
---id field=PTF13asv seq=A filter=H night=20130617 expnum=358
---id field=PTF13asv seq=A filter=J night=20130522 expnum=113
---id field=PTF13asv seq=A filter=J night=20130528 expnum=433
---id field=PTF13asv seq=A filter=J night=20130613 expnum=381
---id field=PTF13asv seq=A filter=J night=20130617 expnum=375
---id field=PTF13ayw seq=A filter=H night=20130519 expnum=372
---id field=PTF13ayw seq=A filter=H night=20130528 expnum=336
---id field=PTF13ayw seq=A filter=H night=20130613 expnum=272
---id field=PTF13ayw seq=A filter=H night=20130617 expnum=285
---id field=PTF13ayw seq=A filter=J night=20130519 expnum=399
---id field=PTF13ayw seq=A filter=J night=20130528 expnum=392
---id field=PTF13ayw seq=A filter=J night=20130613 expnum=299
---id field=PTF13ayw seq=A filter=J night=20130617 expnum=304
---id field=PTF13dad seq=A filter=H night=20130925 expnum=344
---id field=PTF13dad seq=A filter=H night=20131015 expnum=436
---id field=PTF13dad seq=A filter=H night=20131020 expnum=527
---id field=PTF13dad seq=A filter=J night=20130925 expnum=395
---id field=PTF13dad seq=A filter=J night=20131015 expnum=487
---id field=PTF13dad seq=A filter=J night=20131020 expnum=577
---id field=PTF13ddg seq=A filter=H night=20130925 expnum=200
---id field=PTF13ddg seq=A filter=H night=20131015 expnum=237
---id field=PTF13ddg seq=A filter=H night=20131019 expnum=173
---id field=S791-C seq=A filter=H night=20130523 expnum=386
---id field=S791-C seq=A filter=H night=20130528 expnum=129
---id field=S791-C seq=A filter=H night=20130613 expnum=68
---id field=S791-C seq=A filter=H night=20130617 expnum=89
---id field=S791-C seq=A filter=J night=20130523 expnum=392
---id field=S791-C seq=A filter=J night=20130528 expnum=139
---id field=S791-C seq=A filter=J night=20130613 expnum=86
---id field=S791-C seq=A filter=J night=20130617 expnum=94
---id field=S791-C seq=A filter=KS night=20130523 expnum=401
---id field=S791-C seq=A filter=KS night=20130528 expnum=148
---id field=S791-C seq=A filter=KS night=20130613 expnum=95
---id field=S791-C seq=A filter=KS night=20130617 expnum=103
---id field=S791-C seq=B filter=H night=20130523 expnum=548
---id field=S791-C seq=B filter=H night=20130528 expnum=308
---id field=S791-C seq=B filter=J night=20130523 expnum=557
---id field=S791-C seq=B filter=J night=20130528 expnum=318
---id field=S791-C seq=B filter=KS night=20130523 expnum=566
---id field=S791-C seq=B filter=KS night=20130528 expnum=327
---id field=S840-F seq=A filter=H night=20131015 expnum=651
---id field=S840-F seq=A filter=J night=20131015 expnum=656
---id field=S840-F seq=A filter=KS night=20131015 expnum=665
---id field=SN2011fe seq=A filter=H night=20111025 expnum=82
---id field=SN2011fe seq=A filter=H night=20120402 expnum=451
---id field=SN2011fe seq=A filter=J night=20111025 expnum=97
---id field=SN2011fe seq=A filter=J night=20120402 expnum=460
---id field=SN2011fe seq=A filter=KS night=20111025 expnum=92
---id field=SN2011fs seq=A filter=H night=20111025 expnum=238
---id field=SN2011fs seq=A filter=H night=20111115 expnum=149
---id field=SN2011fs seq=A filter=H night=20111208 expnum=118
---id field=SN2011fs seq=A filter=H night=20120108 expnum=100
---id field=SN2011fs seq=A filter=J night=20111025 expnum=247
---id field=SN2011fs seq=A filter=J night=20111115 expnum=168
---id field=SN2011fs seq=A filter=J night=20111208 expnum=137
---id field=SN2011fs seq=A filter=J night=20120108 expnum=127
---id field=SN2011fs seq=A filter=KS night=20111025 expnum=256
---id field=SN2011gf seq=A filter=H night=20111025 expnum=179
---id field=SN2011gf seq=A filter=H night=20111115 expnum=78
---id field=SN2011gf seq=A filter=H night=20111208 expnum=88
---id field=SN2011gf seq=A filter=J night=20111025 expnum=165
---id field=SN2011gf seq=A filter=J night=20111115 expnum=92
---id field=SN2011gy seq=A filter=H night=20111115 expnum=323
---id field=SN2011gy seq=A filter=H night=20111121 expnum=119
---id field=SN2011gy seq=A filter=H night=20111208 expnum=307
---id field=SN2011gy seq=A filter=H night=20120108 expnum=287
---id field=SN2011gy seq=A filter=H night=20120402 expnum=93
---id field=SN2011gy seq=A filter=H night=20121028 expnum=457
---id field=SN2011gy seq=A filter=J night=20111115 expnum=342
---id field=SN2011gy seq=A filter=J night=20111121 expnum=137
---id field=SN2011gy seq=A filter=J night=20111208 expnum=326
---id field=SN2011gy seq=A filter=J night=20120108 expnum=306
---id field=SN2011gy seq=A filter=J night=20121028 expnum=432
---id field=SN2011ha seq=A filter=H night=20111115 expnum=273
---id field=SN2011ha seq=A filter=H night=20111121 expnum=95
---id field=SN2011ha seq=A filter=J night=20111115 expnum=290
---id field=SN2011hb seq=A filter=H night=20111115 expnum=197
---id field=SN2011hb seq=A filter=H night=20111208 expnum=196
---id field=SN2011hb seq=A filter=H night=20120108 expnum=158
---id field=SN2011hb seq=A filter=H night=20131020 expnum=239
---id field=SN2011hb seq=A filter=J night=20111115 expnum=215
---id field=SN2011hb seq=A filter=J night=20111208 expnum=214
---id field=SN2011hb seq=A filter=J night=20120108 expnum=177
---id field=SN2011hb seq=A filter=J night=20131020 expnum=289
---id field=SN2011hk seq=A filter=H night=20111115 expnum=234
---id field=SN2011hk seq=A filter=H night=20111208 expnum=271
---id field=SN2011hk seq=A filter=H night=20120108 expnum=237
---id field=SN2011hk seq=A filter=J night=20111115 expnum=252
---id field=SN2011hk seq=A filter=J night=20111208 expnum=289
---id field=SN2011hk seq=A filter=J night=20120108 expnum=260
---id field=SN2011ho seq=A filter=H night=20111121 expnum=215
---id field=SN2011ho seq=A filter=H night=20111208 expnum=400
---id field=SN2011ho seq=A filter=H night=20120108 expnum=546
---id field=SN2011ho seq=A filter=H night=20120402 expnum=262
---id field=SN2011hr seq=A filter=H night=20111121 expnum=196
---id field=SN2011hr seq=A filter=H night=20111208 expnum=457
---id field=SN2011hr seq=A filter=H night=20120108 expnum=379
---id field=SN2011hr seq=A filter=H night=20120402 expnum=135
---id field=SN2011hr seq=A filter=H night=20131213 expnum=555
---id field=SN2011hr seq=A filter=J night=20111121 expnum=205
---id field=SN2011hr seq=A filter=J night=20111208 expnum=466
---id field=SN2011hr seq=A filter=J night=20120108 expnum=389
---id field=SN2011hr seq=A filter=J night=20120402 expnum=153
---id field=SN2011io seq=A filter=H night=20111208 expnum=161
---id field=SN2011io seq=A filter=J night=20111208 expnum=175
---id field=SN2011iu seq=A filter=H night=20111208 expnum=234
---id field=SN2011iu seq=A filter=H night=20120108 expnum=195
---id field=SN2011iu seq=A filter=H night=20120925 expnum=259
---id field=SN2011iu seq=A filter=J night=20111208 expnum=252
---id field=SN2011iu seq=A filter=J night=20120108 expnum=214
---id field=SN2011iu seq=A filter=J night=20121001 expnum=241
---id field=SN2011iy seq=A filter=H night=20120402 expnum=334
---id field=SN2011iy seq=A filter=J night=20120402 expnum=352
---id field=SN2011jh seq=A filter=H night=20120402 expnum=302
---id field=SN2011jh seq=A filter=J night=20120402 expnum=320
---id field=SN2012bh seq=A filter=H night=20120402 expnum=244
---id field=SN2012bh seq=A filter=J night=20120402 expnum=253
---id field=SN2012bm seq=A filter=H night=20120402 expnum=437
---id field=SN2012bm seq=A filter=J night=20120402 expnum=442
---id field=SN2012bo seq=A filter=H night=20120402 expnum=374
---id field=SN2012bo seq=A filter=J night=20120402 expnum=379
---id field=SN2012bp seq=A filter=H night=20120402 expnum=473
---id field=SN2012bp seq=A filter=J night=20120402 expnum=479
---id field=SN2012cg seq=A filter=H night=20130425 expnum=247
---id field=SN2012cg seq=A filter=H night=20130523 expnum=505
---id field=SN2012cg seq=A filter=H night=20130528 expnum=233
---id field=SN2012cg seq=A filter=H night=20130613 expnum=177
---id field=SN2012cg seq=A filter=H night=20130617 expnum=180
---id field=SN2012cg seq=A filter=J night=20130425 expnum=260
---id field=SN2012cg seq=A filter=J night=20130523 expnum=531
---id field=SN2012cg seq=A filter=J night=20130528 expnum=274
---id field=SN2012cg seq=A filter=J night=20130617 expnum=206
---id field=SN2012em seq=A filter=H night=20120925 expnum=156
---id field=SN2012em seq=A filter=H night=20121001 expnum=69
---id field=SN2012em seq=A filter=H night=20121007 expnum=142
---id field=SN2012em seq=A filter=J night=20120925 expnum=184
---id field=SN2012em seq=A filter=J night=20121001 expnum=101
---id field=SN2012em seq=A filter=J night=20121007 expnum=169
---id field=SN2012et seq=A filter=H night=20120925 expnum=216
---id field=SN2012et seq=A filter=H night=20121001 expnum=167
---id field=SN2012et seq=A filter=H night=20121007 expnum=196
---id field=SN2012et seq=A filter=H night=20121028 expnum=122
---id field=SN2012et seq=A filter=H night=20121102 expnum=111
---id field=SN2012et seq=A filter=H night=20121122 expnum=204
---id field=SN2012et seq=A filter=H night=20121125 expnum=143
---id field=SN2012et seq=A filter=H night=20121130 expnum=267
---id field=SN2012et seq=A filter=J night=20120925 expnum=234
---id field=SN2012et seq=A filter=J night=20121001 expnum=181
---id field=SN2012et seq=A filter=J night=20121007 expnum=215
---id field=SN2012et seq=A filter=J night=20121028 expnum=104
---id field=SN2012et seq=A filter=J night=20121102 expnum=130
---id field=SN2012et seq=A filter=J night=20121122 expnum=179
---id field=SN2012fb seq=A filter=H night=20120925 expnum=391
---id field=SN2012fb seq=A filter=H night=20121001 expnum=372
---id field=SN2012fb seq=A filter=H night=20121007 expnum=352
---id field=SN2012fb seq=A filter=J night=20120925 expnum=409
---id field=SN2012fb seq=A filter=J night=20121001 expnum=399
---id field=SN2012fb seq=A filter=J night=20121007 expnum=379
---id field=SN2012fk seq=A filter=H night=20121102 expnum=353
---id field=SN2012fk seq=A filter=H night=20121122 expnum=372
---id field=SN2012fk seq=A filter=H night=20121125 expnum=288
---id field=SN2012fk seq=A filter=H night=20121130 expnum=394
---id field=SN2012fk seq=A filter=J night=20121102 expnum=370
---id field=SN2012fk seq=A filter=J night=20121122 expnum=354
---id field=SN2012fk seq=A filter=J night=20121125 expnum=304
---id field=SN2012fk seq=A filter=J night=20121130 expnum=419
---id field=SN2012fm seq=A filter=H night=20121028 expnum=493
---id field=SN2012fm seq=A filter=H night=20121102 expnum=536
---id field=SN2012fm seq=A filter=H night=20121122 expnum=624
---id field=SN2012fm seq=A filter=H night=20121125 expnum=481
---id field=SN2012fm seq=A filter=H night=20121130 expnum=660
---id field=SN2012fm seq=A filter=H night=20131018 expnum=197
---id field=SN2012fm seq=A filter=J night=20121028 expnum=484
---id field=SN2012fm seq=A filter=J night=20121102 expnum=546
---id field=SN2012fm seq=A filter=J night=20121122 expnum=633
---id field=SN2012fm seq=A filter=J night=20121125 expnum=490
---id field=SN2012fm seq=A filter=J night=20121130 expnum=669
---id field=SN2012fm seq=A filter=J night=20131018 expnum=222
---id field=SN2012fr seq=A filter=H night=20121102 expnum=332
---id field=SN2012fr seq=A filter=J night=20121102 expnum=344
---id field=SN2012gm seq=A filter=H night=20121122 expnum=241
---id field=SN2012gm seq=A filter=H night=20121125 expnum=172
---id field=SN2012gm seq=A filter=H night=20121130 expnum=244
---id field=SN2012gm seq=A filter=J night=20121122 expnum=232
---id field=SN2012gm seq=A filter=J night=20121125 expnum=177
---id field=SN2012gm seq=A filter=J night=20121130 expnum=249
---id field=SN2012gm seq=A filter=KS night=20121125 expnum=186
---id field=SN2012gm seq=A filter=KS night=20121130 expnum=258
---id field=SN2012go seq=A filter=H night=20121125 expnum=121
---id field=SN2012go seq=A filter=H night=20121130 expnum=207
---id field=SN2012go seq=A filter=J night=20121125 expnum=125
---id field=SN2012go seq=A filter=J night=20121130 expnum=223
---id field=SN2013ar seq=A filter=H night=20130326 expnum=110
---id field=SN2013ar seq=A filter=H night=20130420 expnum=115
---id field=SN2013ar seq=A filter=H night=20130429 expnum=75
---id field=SN2013ar seq=A filter=J night=20130326 expnum=152
---id field=SN2013ar seq=A filter=J night=20130420 expnum=141
---id field=SN2013ar seq=A filter=J night=20130429 expnum=117
---id field=SN2013be seq=A filter=H night=20130425 expnum=278
---id field=SN2013be seq=A filter=H night=20130429 expnum=186
---id field=SN2013be seq=A filter=H night=20130519 expnum=115
---id field=SN2013be seq=A filter=J night=20130425 expnum=303
---id field=SN2013be seq=A filter=J night=20130429 expnum=237
---id field=SN2013be seq=A filter=J night=20130519 expnum=157
---id field=SN2013bo seq=A filter=H night=20130420 expnum=398
---id field=SN2013bo seq=A filter=H night=20130425 expnum=359
---id field=SN2013bo seq=A filter=H night=20130429 expnum=308
---id field=SN2013bo seq=A filter=H night=20130522 expnum=5
---id field=SN2013bo seq=A filter=J night=20130420 expnum=415
---id field=SN2013bo seq=A filter=J night=20130425 expnum=387
---id field=SN2013bo seq=A filter=J night=20130429 expnum=326
---id field=SN2013bo seq=A filter=J night=20130522 expnum=31
---id field=SN2013bq seq=A filter=H night=20130420 expnum=368
---id field=SN2013bq seq=A filter=H night=20130425 expnum=400
---id field=SN2013bq seq=A filter=H night=20130523 expnum=575
---id field=SN2013bq seq=A filter=J night=20130420 expnum=375
---id field=SN2013bq seq=A filter=J night=20130425 expnum=430
---id field=SN2013bq seq=A filter=J night=20130429 expnum=341
---id field=SN2013bs seq=A filter=H night=20130420 expnum=457
---id field=SN2013bs seq=A filter=H night=20130425 expnum=492
---id field=SN2013bs seq=A filter=H night=20130429 expnum=450
---id field=SN2013bs seq=A filter=H night=20130522 expnum=172
---id field=SN2013bs seq=A filter=H night=20130528 expnum=458
---id field=SN2013bs seq=A filter=H night=20130613 expnum=405
---id field=SN2013bs seq=A filter=H night=20130617 expnum=420
---id field=SN2013bs seq=A filter=J night=20130420 expnum=478
---id field=SN2013bs seq=A filter=J night=20130425 expnum=497
---id field=SN2013bs seq=A filter=J night=20130522 expnum=182
---id field=SN2013bs seq=A filter=J night=20130528 expnum=475
---id field=SN2013bs seq=A filter=J night=20130613 expnum=422
---id field=SN2013bs seq=A filter=J night=20130617 expnum=447
---id field=SN2013bt seq=A filter=H night=20130420 expnum=424
---id field=SN2013bt seq=A filter=H night=20130425 expnum=462
---id field=SN2013bt seq=A filter=H night=20130429 expnum=382
---id field=SN2013bt seq=A filter=H night=20130519 expnum=249
---id field=SN2013bt seq=A filter=H night=20130523 expnum=638
---id field=SN2013bt seq=A filter=J night=20130420 expnum=441
---id field=SN2013bt seq=A filter=J night=20130425 expnum=453
---id field=SN2013bt seq=A filter=J night=20130429 expnum=399
---id field=SN2013bt seq=A filter=J night=20130519 expnum=275
---id field=SN2013bt seq=A filter=J night=20130523 expnum=664
---id field=SN2013cb seq=A filter=H night=20130519 expnum=210
---id field=SN2013cb seq=A filter=H night=20130523 expnum=451
---id field=SN2013cb seq=A filter=H night=20130528 expnum=185
---id field=SN2013cb seq=A filter=J night=20130519 expnum=232
---id field=SN2013cb seq=A filter=J night=20130523 expnum=481
---id field=SN2013ck seq=A filter=H night=20130519 expnum=300
---id field=SN2013ck seq=A filter=H night=20130523 expnum=702
---id field=SN2013ck seq=A filter=H night=20130613 expnum=234
---id field=SN2013ck seq=A filter=H night=20130617 expnum=240
---id field=SN2013ck seq=A filter=J night=20130519 expnum=326
---id field=SN2013ck seq=A filter=J night=20130523 expnum=752
---id field=SN2013ck seq=A filter=J night=20130613 expnum=247
---id field=SN2013ck seq=A filter=J night=20130617 expnum=260
---id field=SN2013cs seq=A filter=H night=20130523 expnum=417
---id field=SN2013cs seq=A filter=H night=20130528 expnum=157
---id field=SN2013cs seq=A filter=H night=20130613 expnum=104
---id field=SN2013cs seq=A filter=H night=20130617 expnum=113
---id field=SN2013cs seq=A filter=J night=20130523 expnum=407
---id field=SN2013cs seq=A filter=J night=20130528 expnum=167
---id field=SN2013cs seq=A filter=J night=20130613 expnum=114
---id field=SN2013cs seq=A filter=J night=20130617 expnum=123
---id field=SN2013cs seq=A filter=KS night=20130523 expnum=427
---id field=SN2013cs seq=A filter=KS night=20130528 expnum=176
---id field=SN2013da seq=A filter=H night=20130613 expnum=141
---id field=SN2013da seq=A filter=H night=20130617 expnum=142
---id field=SN2013da seq=A filter=J night=20130613 expnum=160
---id field=SN2013da seq=A filter=J night=20130617 expnum=152
---id field=SN2013da seq=A filter=KS night=20130613 expnum=171
---id field=SN2013da seq=A filter=KS night=20130617 expnum=161
---id field=SN2013fj seq=A filter=H night=20130925 expnum=97
---id field=SN2013fj seq=A filter=H night=20131015 expnum=84
---id field=SN2013fj seq=A filter=H night=20131020 expnum=145
---id field=SN2013fj seq=A filter=J night=20130925 expnum=116
---id field=SN2013fj seq=A filter=J night=20131015 expnum=101
---id field=SN2013fj seq=A filter=J night=20131020 expnum=161
---id field=SN2013fn seq=A filter=H night=20131015 expnum=117
---id field=SN2013fn seq=A filter=H night=20131020 expnum=79
---id field=SN2013fn seq=A filter=H night=20131111 expnum=108
---id field=SN2013fn seq=A filter=J night=20131015 expnum=127
---id field=SN2013fn seq=A filter=J night=20131020 expnum=89
---id field=SN2013fn seq=A filter=J night=20131111 expnum=124
---id field=SN2013fn seq=A filter=KS night=20131015 expnum=136
---id field=SN2013fn seq=A filter=KS night=20131020 expnum=98
---id field=SN2013fw seq=A filter=H night=20131111 expnum=141
---id field=SN2013fw seq=A filter=H night=20131120 expnum=221
---id field=SN2013fw seq=A filter=H night=20131209 expnum=25
---id field=SN2013fw seq=A filter=H night=20131213 expnum=101
---id field=SN2013fw seq=A filter=J night=20131111 expnum=150
---id field=SN2013fw seq=A filter=J night=20131120 expnum=230
---id field=SN2013fw seq=A filter=J night=20131209 expnum=30
---id field=SN2013fw seq=A filter=J night=20131213 expnum=110
---id field=SN2013fw seq=A filter=KS night=20131111 expnum=159
---id field=SN2013fw seq=A filter=KS night=20131120 expnum=239
---id field=SN2013fw seq=A filter=KS night=20131209 expnum=39
---id field=SN2013fw seq=A filter=KS night=20131213 expnum=119
---id field=SNhunt175 seq=A filter=H night=20130321 expnum=97
---id field=SNhunt175 seq=A filter=H night=20130420 expnum=483
---id field=SNhunt175 seq=A filter=H night=20130429 expnum=408
---id field=SNhunt175 seq=A filter=J night=20130420 expnum=500
---id field=SNhunt206 seq=A filter=H night=20130925 expnum=302
---id field=SNhunt206 seq=A filter=H night=20130927 expnum=255
---id field=SNhunt206 seq=A filter=H night=20131015 expnum=386
---id field=SNhunt206 seq=A filter=H night=20131020 expnum=462
---id field=SNhunt206 seq=A filter=H night=20131111 expnum=323
---id field=SNhunt206 seq=A filter=J night=20130925 expnum=328
---id field=SNhunt206 seq=A filter=J night=20130927 expnum=271
---id field=SNhunt206 seq=A filter=J night=20131015 expnum=395
---id field=SNhunt206 seq=A filter=J night=20131020 expnum=479
---id field=SNhunt206 seq=A filter=J night=20131111 expnum=348
---id field=iPTF13dge seq=A filter=H night=20130927 expnum=288
---id field=iPTF13dge seq=A filter=H night=20131015 expnum=566
---id field=iPTF13dge seq=A filter=H night=20131018 expnum=110
---id field=iPTF13dge seq=A filter=H night=20131020 expnum=629
---id field=iPTF13dge seq=A filter=H night=20131025 expnum=238
---id field=iPTF13dge seq=A filter=H night=20131111 expnum=603
---id field=iPTF13dge seq=A filter=H night=20131209 expnum=384
---id field=iPTF13dge seq=A filter=H night=20131213 expnum=341
---id field=iPTF13dge seq=A filter=J night=20130927 expnum=298
---id field=iPTF13dge seq=A filter=J night=20131015 expnum=575
---id field=iPTF13dge seq=A filter=J night=20131018 expnum=115
---id field=iPTF13dge seq=A filter=J night=20131020 expnum=638
---id field=iPTF13dge seq=A filter=J night=20131025 expnum=263
---id field=iPTF13dge seq=A filter=J night=20131111 expnum=630
---id field=iPTF13dge seq=A filter=J night=20131209 expnum=400
---id field=iPTF13dge seq=A filter=J night=20131213 expnum=357
---id field=iPTF13dge seq=A filter=KS night=20130927 expnum=308
---id field=iPTF13dge seq=A filter=KS night=20131015 expnum=584
---id field=iPTF13dge seq=A filter=KS night=20131018 expnum=124
---id field=iPTF13dge seq=A filter=KS night=20131020 expnum=647
---id field=iPTF13dge seq=A filter=KS night=20131025 expnum=247
---id field=iPTF13dge seq=A filter=KS night=20131209 expnum=417
---id field=iPTF13dge seq=A filter=KS night=20131213 expnum=382
---id field=iPTF13dkj seq=A filter=H night=20130925 expnum=139
---id field=iPTF13dkj seq=A filter=H night=20130927 expnum=33
---id field=iPTF13dkj seq=A filter=H night=20131015 expnum=175
---id field=iPTF13dkj seq=A filter=H night=20131019 expnum=55
---id field=iPTF13dkj seq=A filter=H night=20131025 expnum=15
---id field=iPTF13dkj seq=A filter=J night=20130925 expnum=156
---id field=iPTF13dkj seq=A filter=J night=20130927 expnum=50
---id field=iPTF13dkj seq=A filter=J night=20131015 expnum=191
---id field=iPTF13dkj seq=A filter=J night=20131019 expnum=65
---id field=iPTF13dkj seq=A filter=J night=20131025 expnum=20
---id field=iPTF13dkl seq=A filter=H night=20130927 expnum=76
---id field=iPTF13dkl seq=A filter=H night=20131018 expnum=33
---id field=iPTF13dkl seq=A filter=H night=20131020 expnum=177
---id field=iPTF13dkl seq=A filter=J night=20130927 expnum=85
---id field=iPTF13dkl seq=A filter=J night=20131018 expnum=51
---id field=iPTF13dkl seq=A filter=J night=20131020 expnum=196
---id field=iPTF13dkx seq=A filter=H night=20130927 expnum=169
---id field=iPTF13dkx seq=A filter=H night=20131015 expnum=292
---id field=iPTF13dkx seq=A filter=H night=20131019 expnum=114
---id field=iPTF13dkx seq=A filter=H night=20131111 expnum=241
---id field=iPTF13dkx seq=A filter=J night=20130927 expnum=180
---id field=iPTF13dkx seq=A filter=J night=20131015 expnum=297
---id field=iPTF13dkx seq=A filter=J night=20131019 expnum=119
---id field=iPTF13dkx seq=A filter=J night=20131111 expnum=254
---id field=iPTF13ebh seq=A filter=H night=20131120 expnum=263
---id field=iPTF13ebh seq=A filter=H night=20131209 expnum=88
---id field=iPTF13ebh seq=A filter=H night=20131213 expnum=137
---id field=iPTF13ebh seq=A filter=J night=20131120 expnum=268
---id field=iPTF13ebh seq=A filter=J night=20131209 expnum=97
---id field=iPTF13ebh seq=A filter=J night=20131213 expnum=146
---id field=iPTF13ebh seq=A filter=KS night=20131120 expnum=277
---id field=iPTF13ebh seq=A filter=KS night=20131209 expnum=106
---id field=iPTF13ebh seq=A filter=KS night=20131213 expnum=155
+--id field=CSS121006:232854+085452 seq=A filter=H night=20121028
+--id field=CSS121006:232854+085452 seq=A filter=H night=20121102
+--id field=CSS121009:011101-172841 seq=A filter=H night=20121028
+--id field=CSS121009:011101-172841 seq=A filter=H night=20121102
+--id field=CSS121009:011101-172841 seq=A filter=J night=20121028
+--id field=CSS121009:011101-172841 seq=A filter=J night=20121102
+--id field=CSS121114:090202+101800 seq=A filter=H night=20121122
+--id field=CSS121114:090202+101800 seq=A filter=H night=20121125
+--id field=CSS121114:090202+101800 seq=A filter=H night=20121130
+--id field=CSS121114:090202+101800 seq=A filter=J night=20121122
+--id field=CSS121114:090202+101800 seq=A filter=J night=20121125
+--id field=CSS121114:090202+101800 seq=A filter=J night=20121130
+--id field=CSS130218:092354+385837 seq=A filter=H night=20130326
+--id field=CSS130218:092354+385837 seq=A filter=H night=20130420
+--id field=CSS130218:092354+385837 seq=A filter=H night=20130425
+--id field=CSS130317:082848+293031 seq=A filter=H night=20130326
+--id field=CSS130317:082848+293031 seq=A filter=H night=20130420
+--id field=CSS130317:082848+293031 seq=A filter=H night=20130425
+--id field=CSS130317:082848+293031 seq=A filter=J night=20130326
+--id field=CSS130317:082848+293031 seq=A filter=J night=20130420
+--id field=CSS130317:082848+293031 seq=A filter=J night=20130425
+--id field=LSQ12fhs seq=A filter=H night=20121028
+--id field=LSQ12fhs seq=A filter=H night=20121102
+--id field=LSQ12fhs seq=A filter=H night=20121122
+--id field=LSQ12fhs seq=A filter=H night=20121130
+--id field=LSQ12fhs seq=A filter=J night=20121028
+--id field=LSQ12fhs seq=A filter=J night=20121102
+--id field=LSQ12fhs seq=A filter=J night=20121122
+--id field=LSQ12fhs seq=A filter=J night=20121130
+--id field=LSQ12fmx seq=A filter=H night=20121028
+--id field=LSQ12fmx seq=A filter=H night=20121102
+--id field=LSQ12fmx seq=A filter=H night=20121125
+--id field=LSQ12fmx seq=A filter=H night=20121130
+--id field=LSQ12fmx seq=A filter=J night=20121028
+--id field=LSQ12fmx seq=A filter=J night=20121102
+--id field=LSQ12fmx seq=A filter=J night=20121122
+--id field=LSQ12fuk seq=A filter=H night=20121102
+--id field=LSQ12fuk seq=A filter=H night=20121122
+--id field=LSQ12fuk seq=A filter=H night=20121125
+--id field=LSQ12fuk seq=A filter=H night=20121130
+--id field=LSQ12fuk seq=A filter=H night=20131019
+--id field=LSQ12fuk seq=A filter=J night=20121102
+--id field=LSQ12fuk seq=A filter=J night=20121122
+--id field=LSQ12fuk seq=A filter=J night=20121125
+--id field=LSQ12fuk seq=A filter=J night=20121130
+--id field=LSQ12fuk seq=A filter=J night=20131019
+--id field=LSQ12gef seq=A filter=H night=20121122
+--id field=LSQ12gef seq=A filter=H night=20121125
+--id field=LSQ12gef seq=A filter=H night=20121130
+--id field=LSQ12gef seq=A filter=J night=20121122
+--id field=LSQ12gef seq=A filter=J night=20121125
+--id field=LSQ13cmt seq=A filter=H night=20131015
+--id field=LSQ13cmt seq=A filter=H night=20131018
+--id field=LSQ13cmt seq=A filter=H night=20131020
+--id field=LSQ13cmt seq=A filter=J night=20131015
+--id field=LSQ13cmt seq=A filter=J night=20131020
+--id field=LSQ13crf seq=A filter=H night=20131111
+--id field=LSQ13crf seq=A filter=H night=20131209
+--id field=LSQ13crf seq=A filter=H night=20131213
+--id field=LSQ13crf seq=A filter=J night=20131111
+--id field=LSQ13crf seq=A filter=J night=20131209
+--id field=LSQ13cwp seq=A filter=H night=20131111
+--id field=LSQ13cwp seq=A filter=H night=20131120
+--id field=LSQ13cwp seq=A filter=H night=20131209
+--id field=LSQ13cwp seq=A filter=H night=20131213
+--id field=LSQ13cwp seq=A filter=J night=20131111
+--id field=LSQ13cwp seq=A filter=J night=20131120
+--id field=LSQ13cwp seq=A filter=J night=20131209
+--id field=LSQ13cwp seq=A filter=J night=20131213
+--id field=P161-D seq=A filter=H night=20121102
+--id field=P161-D seq=A filter=H night=20121122
+--id field=P161-D seq=A filter=H night=20121125
+--id field=P161-D seq=A filter=H night=20121130
+--id field=P161-D seq=A filter=H night=20130925
+--id field=P161-D seq=A filter=H night=20130927
+--id field=P161-D seq=A filter=H night=20131015
+--id field=P161-D seq=A filter=H night=20131018
+--id field=P161-D seq=A filter=H night=20131020
+--id field=P161-D seq=A filter=H night=20131111
+--id field=P161-D seq=A filter=H night=20131209
+--id field=P161-D seq=A filter=H night=20131213
+--id field=P161-D seq=A filter=J night=20121102
+--id field=P161-D seq=A filter=J night=20121122
+--id field=P161-D seq=A filter=J night=20121125
+--id field=P161-D seq=A filter=J night=20121130
+--id field=P161-D seq=A filter=J night=20130925
+--id field=P161-D seq=A filter=J night=20130927
+--id field=P161-D seq=A filter=J night=20131015
+--id field=P161-D seq=A filter=J night=20131018
+--id field=P161-D seq=A filter=J night=20131020
+--id field=P161-D seq=A filter=J night=20131111
+--id field=P161-D seq=A filter=J night=20131209
+--id field=P161-D seq=A filter=J night=20131213
+--id field=P161-D seq=A filter=KS night=20121122
+--id field=P161-D seq=A filter=KS night=20121125
+--id field=P161-D seq=A filter=KS night=20121130
+--id field=P161-D seq=A filter=KS night=20130925
+--id field=P161-D seq=A filter=KS night=20130927
+--id field=P161-D seq=A filter=KS night=20131015
+--id field=P161-D seq=A filter=KS night=20131018
+--id field=P161-D seq=A filter=KS night=20131020
+--id field=P161-D seq=A filter=KS night=20131111
+--id field=P161-D seq=A filter=KS night=20131209
+--id field=P161-D seq=A filter=KS night=20131213
+--id field=P161-D seq=B filter=H night=20121125
+--id field=P161-D seq=B filter=H night=20130925
+--id field=P161-D seq=B filter=H night=20130927
+--id field=P161-D seq=B filter=H night=20131015
+--id field=P161-D seq=B filter=H night=20131018
+--id field=P161-D seq=B filter=H night=20131020
+--id field=P161-D seq=B filter=H night=20131111
+--id field=P161-D seq=B filter=H night=20131209
+--id field=P161-D seq=B filter=H night=20131213
+--id field=P161-D seq=B filter=J night=20121125
+--id field=P161-D seq=B filter=J night=20130925
+--id field=P161-D seq=B filter=J night=20130927
+--id field=P161-D seq=B filter=J night=20131015
+--id field=P161-D seq=B filter=J night=20131018
+--id field=P161-D seq=B filter=J night=20131020
+--id field=P161-D seq=B filter=J night=20131111
+--id field=P161-D seq=B filter=J night=20131209
+--id field=P161-D seq=B filter=J night=20131213
+--id field=P161-D seq=B filter=KS night=20121125
+--id field=P161-D seq=B filter=KS night=20130925
+--id field=P161-D seq=B filter=KS night=20130927
+--id field=P161-D seq=B filter=KS night=20131015
+--id field=P161-D seq=B filter=KS night=20131018
+--id field=P161-D seq=B filter=KS night=20131020
+--id field=P161-D seq=B filter=KS night=20131111
+--id field=P161-D seq=B filter=KS night=20131209
+--id field=P161-D seq=B filter=KS night=20131213
+--id field=P161-D seq=C filter=H night=20121125
+--id field=P161-D seq=C filter=H night=20130925
+--id field=P161-D seq=C filter=H night=20130927
+--id field=P161-D seq=C filter=H night=20131015
+--id field=P161-D seq=C filter=H night=20131020
+--id field=P161-D seq=C filter=J night=20121125
+--id field=P161-D seq=C filter=J night=20130925
+--id field=P161-D seq=C filter=J night=20130927
+--id field=P161-D seq=C filter=J night=20131015
+--id field=P161-D seq=C filter=J night=20131020
+--id field=P161-D seq=C filter=KS night=20130925
+--id field=P161-D seq=C filter=KS night=20130927
+--id field=P161-D seq=C filter=KS night=20131015
+--id field=P161-D seq=C filter=KS night=20131020
+--id field=P212-C seq=A filter=H night=20130425
+--id field=P212-C seq=A filter=H night=20130429
+--id field=P212-C seq=A filter=H night=20130519
+--id field=P212-C seq=A filter=J night=20130326
+--id field=P212-C seq=A filter=J night=20130420
+--id field=P212-C seq=A filter=J night=20130429
+--id field=P212-C seq=A filter=J night=20130519
+--id field=P212-C seq=A filter=KS night=20130326
+--id field=P212-C seq=A filter=KS night=20130420
+--id field=P212-C seq=B filter=H night=20130420
+--id field=P212-C seq=B filter=H night=20130425
+--id field=P212-C seq=B filter=H night=20130429
+--id field=P212-C seq=B filter=J night=20130420
+--id field=P212-C seq=B filter=J night=20130425
+--id field=P212-C seq=B filter=J night=20130429
+--id field=P212-C seq=B filter=KS night=20130420
+--id field=P212-C seq=B filter=KS night=20130425
+--id field=P212-C seq=B filter=KS night=20130429
+--id field=P212-C seq=C filter=H night=20130420
+--id field=P212-C seq=C filter=J night=20130420
+--id field=P212-C seq=C filter=KS night=20130420
+--id field=P330-E seq=A filter=H night=20130519
+--id field=P330-E seq=A filter=H night=20130522
+--id field=P330-E seq=A filter=H night=20130523
+--id field=P330-E seq=A filter=H night=20130528
+--id field=P330-E seq=A filter=H night=20130613
+--id field=P330-E seq=A filter=J night=20130519
+--id field=P330-E seq=A filter=J night=20130522
+--id field=P330-E seq=A filter=J night=20130523
+--id field=P330-E seq=A filter=J night=20130528
+--id field=P330-E seq=A filter=J night=20130613
+--id field=P330-E seq=A filter=KS night=20130519
+--id field=P330-E seq=A filter=KS night=20130522
+--id field=P330-E seq=A filter=KS night=20130523
+--id field=P330-E seq=A filter=KS night=20130528
+--id field=P330-E seq=A filter=KS night=20130613
+--id field=P330-E seq=B filter=H night=20130522
+--id field=P330-E seq=B filter=H night=20130528
+--id field=P330-E seq=B filter=H night=20130617
+--id field=P330-E seq=B filter=J night=20130522
+--id field=P330-E seq=B filter=J night=20130528
+--id field=P330-E seq=B filter=J night=20130617
+--id field=P330-E seq=B filter=KS night=20130522
+--id field=P330-E seq=B filter=KS night=20130528
+--id field=P330-E seq=B filter=KS night=20130617
+--id field=P525-E seq=A filter=H night=20121122
+--id field=P525-E seq=A filter=H night=20121125
+--id field=P525-E seq=A filter=H night=20121130
+--id field=P525-E seq=A filter=H night=20130925
+--id field=P525-E seq=A filter=H night=20130927
+--id field=P525-E seq=A filter=H night=20131015
+--id field=P525-E seq=A filter=H night=20131019
+--id field=P525-E seq=A filter=H night=20131020
+--id field=P525-E seq=A filter=H night=20131111
+--id field=P525-E seq=A filter=H night=20131120
+--id field=P525-E seq=A filter=H night=20131209
+--id field=P525-E seq=A filter=H night=20131213
+--id field=P525-E seq=A filter=J night=20121122
+--id field=P525-E seq=A filter=J night=20121125
+--id field=P525-E seq=A filter=J night=20121130
+--id field=P525-E seq=A filter=J night=20130927
+--id field=P525-E seq=A filter=J night=20131015
+--id field=P525-E seq=A filter=J night=20131111
+--id field=P525-E seq=A filter=J night=20131209
+--id field=P525-E seq=A filter=KS night=20121122
+--id field=P525-E seq=A filter=KS night=20121125
+--id field=P525-E seq=A filter=KS night=20121130
+--id field=P525-E seq=A filter=KS night=20130927
+--id field=P525-E seq=A filter=KS night=20131015
+--id field=P525-E seq=A filter=KS night=20131111
+--id field=P525-E seq=A filter=KS night=20131209
+--id field=P525-E seq=A filter=KS night=20131213
+--id field=P525-E seq=B filter=H night=20121122
+--id field=P525-E seq=B filter=H night=20121125
+--id field=P525-E seq=B filter=H night=20121130
+--id field=P525-E seq=B filter=H night=20130927
+--id field=P525-E seq=B filter=H night=20131015
+--id field=P525-E seq=B filter=H night=20131019
+--id field=P525-E seq=B filter=H night=20131020
+--id field=P525-E seq=B filter=H night=20131111
+--id field=P525-E seq=B filter=H night=20131209
+--id field=P525-E seq=B filter=H night=20131213
+--id field=P525-E seq=B filter=J night=20121122
+--id field=P525-E seq=B filter=J night=20121125
+--id field=P525-E seq=B filter=J night=20121130
+--id field=P525-E seq=B filter=J night=20130927
+--id field=P525-E seq=B filter=J night=20131015
+--id field=P525-E seq=B filter=J night=20131019
+--id field=P525-E seq=B filter=J night=20131020
+--id field=P525-E seq=B filter=J night=20131111
+--id field=P525-E seq=B filter=J night=20131209
+--id field=P525-E seq=B filter=J night=20131213
+--id field=P525-E seq=B filter=KS night=20121122
+--id field=P525-E seq=B filter=KS night=20121125
+--id field=P525-E seq=B filter=KS night=20121130
+--id field=P525-E seq=B filter=KS night=20130927
+--id field=P525-E seq=B filter=KS night=20131015
+--id field=P525-E seq=B filter=KS night=20131019
+--id field=P525-E seq=B filter=KS night=20131020
+--id field=P525-E seq=B filter=KS night=20131111
+--id field=P525-E seq=B filter=KS night=20131209
+--id field=P525-E seq=B filter=KS night=20131213
+--id field=P525-E seq=C filter=H night=20121125
+--id field=P525-E seq=C filter=H night=20130927
+--id field=P525-E seq=C filter=H night=20131015
+--id field=P525-E seq=C filter=H night=20131019
+--id field=P525-E seq=C filter=H night=20131020
+--id field=P525-E seq=C filter=H night=20131111
+--id field=P525-E seq=C filter=J night=20121125
+--id field=P525-E seq=C filter=J night=20130927
+--id field=P525-E seq=C filter=J night=20131015
+--id field=P525-E seq=C filter=J night=20131019
+--id field=P525-E seq=C filter=J night=20131020
+--id field=P525-E seq=C filter=J night=20131111
+--id field=P525-E seq=C filter=KS night=20121125
+--id field=P525-E seq=C filter=KS night=20130927
+--id field=P525-E seq=C filter=KS night=20131015
+--id field=P525-E seq=C filter=KS night=20131019
+--id field=P525-E seq=C filter=KS night=20131020
+--id field=P525-E seq=C filter=KS night=20131111
+--id field=PS1-12bwh seq=A filter=H night=20121028
+--id field=PS1-12bwh seq=A filter=H night=20121102
+--id field=PS1-12bwh seq=A filter=H night=20121122
+--id field=PS1-12bwh seq=A filter=H night=20121125
+--id field=PS1-12bwh seq=A filter=H night=20121130
+--id field=PS1-12bwh seq=A filter=J night=20121028
+--id field=PS1-12bwh seq=A filter=J night=20121102
+--id field=PS1-12bwh seq=A filter=J night=20121122
+--id field=PS1-12bwh seq=A filter=J night=20121125
+--id field=PS1-12bwh seq=A filter=J night=20121130
+--id field=PS1-13dkh seq=A filter=H night=20131018
+--id field=PS1-13dkh seq=A filter=H night=20131111
+--id field=PS1-13dkh seq=A filter=H night=20131120
+--id field=PS1-13dkh seq=A filter=H night=20131209
+--id field=PS1-13dkh seq=A filter=J night=20131018
+--id field=PS1-13dkh seq=A filter=J night=20131111
+--id field=PS1-13dkh seq=A filter=J night=20131120
+--id field=PS1-13dkh seq=A filter=J night=20131209
+--id field=PSNJ07250042+2347030 seq=A filter=H night=20121028
+--id field=PSNJ07250042+2347030 seq=A filter=H night=20121102
+--id field=PSNJ07250042+2347030 seq=A filter=H night=20121122
+--id field=PSNJ07250042+2347030 seq=A filter=H night=20121125
+--id field=PSNJ07250042+2347030 seq=A filter=H night=20121130
+--id field=PSNJ07250042+2347030 seq=A filter=H night=20131213
+--id field=PSNJ07250042+2347030 seq=A filter=J night=20121028
+--id field=PSNJ07250042+2347030 seq=A filter=J night=20121102
+--id field=PSNJ07250042+2347030 seq=A filter=J night=20121122
+--id field=PSNJ07250042+2347030 seq=A filter=J night=20121125
+--id field=PSNJ07250042+2347030 seq=A filter=J night=20121130
+--id field=PSNJ07250042+2347030 seq=A filter=J night=20131213
+--id field=PTF11moy seq=A filter=H night=20111025
+--id field=PTF11moy seq=A filter=J night=20111025
+--id field=PTF11mty seq=A filter=H night=20111025
+--id field=PTF11mty seq=A filter=H night=20111115
+--id field=PTF11mty seq=A filter=H night=20120925
+--id field=PTF11mty seq=A filter=J night=20111025
+--id field=PTF11mty seq=A filter=J night=20111115
+--id field=PTF11mty seq=A filter=J night=20121007
+--id field=PTF11owc seq=A filter=H night=20111115
+--id field=PTF11owc seq=A filter=H night=20111121
+--id field=PTF11owc seq=A filter=H night=20111208
+--id field=PTF11owc seq=A filter=H night=20120402
+--id field=PTF11owc seq=A filter=H night=20121125
+--id field=PTF11owc seq=A filter=J night=20111115
+--id field=PTF11owc seq=A filter=J night=20111121
+--id field=PTF11owc seq=A filter=J night=20111208
+--id field=PTF11owc seq=A filter=J night=20120402
+--id field=PTF11qmo seq=A filter=H night=20111208
+--id field=PTF11qmo seq=A filter=H night=20120108
+--id field=PTF11qmo seq=A filter=J night=20111208
+--id field=PTF11qmo seq=A filter=J night=20120108
+--id field=PTF11qpc seq=A filter=H night=20111208
+--id field=PTF11qpc seq=A filter=H night=20120108
+--id field=PTF11qpc seq=A filter=H night=20120402
+--id field=PTF11qri seq=A filter=H night=20111208
+--id field=PTF11qri seq=A filter=H night=20120108
+--id field=PTF11qri seq=A filter=J night=20111208
+--id field=PTF11qri seq=A filter=J night=20120108
+--id field=PTF11qzq seq=A filter=H night=20111208
+--id field=PTF11qzq seq=A filter=H night=20120108
+--id field=PTF11qzq seq=A filter=H night=20121007
+--id field=PTF11qzq seq=A filter=J night=20111208
+--id field=PTF11qzq seq=A filter=J night=20120108
+--id field=PTF11qzq seq=A filter=J night=20130925
+--id field=PTF12iiq seq=A filter=H night=20120925
+--id field=PTF12iiq seq=A filter=H night=20121001
+--id field=PTF12iiq seq=A filter=H night=20121007
+--id field=PTF12iiq seq=A filter=J night=20120925
+--id field=PTF12iiq seq=A filter=J night=20121001
+--id field=PTF12iiq seq=A filter=J night=20121007
+--id field=PTF12ikt seq=A filter=H night=20120925
+--id field=PTF12ikt seq=A filter=H night=20121001
+--id field=PTF12ikt seq=A filter=H night=20121007
+--id field=PTF12ikt seq=A filter=J night=20120925
+--id field=PTF12ikt seq=A filter=J night=20121001
+--id field=PTF12ikt seq=A filter=J night=20121007
+--id field=PTF13asv seq=A filter=H night=20130522
+--id field=PTF13asv seq=A filter=H night=20130528
+--id field=PTF13asv seq=A filter=H night=20130613
+--id field=PTF13asv seq=A filter=H night=20130617
+--id field=PTF13asv seq=A filter=J night=20130522
+--id field=PTF13asv seq=A filter=J night=20130528
+--id field=PTF13asv seq=A filter=J night=20130613
+--id field=PTF13asv seq=A filter=J night=20130617
+--id field=PTF13ayw seq=A filter=H night=20130519
+--id field=PTF13ayw seq=A filter=H night=20130528
+--id field=PTF13ayw seq=A filter=H night=20130613
+--id field=PTF13ayw seq=A filter=H night=20130617
+--id field=PTF13ayw seq=A filter=J night=20130519
+--id field=PTF13ayw seq=A filter=J night=20130528
+--id field=PTF13ayw seq=A filter=J night=20130613
+--id field=PTF13ayw seq=A filter=J night=20130617
+--id field=PTF13dad seq=A filter=H night=20130925
+--id field=PTF13dad seq=A filter=H night=20131015
+--id field=PTF13dad seq=A filter=H night=20131020
+--id field=PTF13dad seq=A filter=J night=20130925
+--id field=PTF13dad seq=A filter=J night=20131015
+--id field=PTF13dad seq=A filter=J night=20131020
+--id field=PTF13ddg seq=A filter=H night=20130925
+--id field=PTF13ddg seq=A filter=H night=20131015
+--id field=PTF13ddg seq=A filter=H night=20131019
+--id field=S791-C seq=A filter=H night=20130523
+--id field=S791-C seq=A filter=H night=20130528
+--id field=S791-C seq=A filter=H night=20130613
+--id field=S791-C seq=A filter=H night=20130617
+--id field=S791-C seq=A filter=J night=20130523
+--id field=S791-C seq=A filter=J night=20130528
+--id field=S791-C seq=A filter=J night=20130613
+--id field=S791-C seq=A filter=J night=20130617
+--id field=S791-C seq=A filter=KS night=20130523
+--id field=S791-C seq=A filter=KS night=20130528
+--id field=S791-C seq=A filter=KS night=20130613
+--id field=S791-C seq=A filter=KS night=20130617
+--id field=S791-C seq=B filter=H night=20130523
+--id field=S791-C seq=B filter=H night=20130528
+--id field=S791-C seq=B filter=J night=20130523
+--id field=S791-C seq=B filter=J night=20130528
+--id field=S791-C seq=B filter=KS night=20130523
+--id field=S791-C seq=B filter=KS night=20130528
+--id field=S840-F seq=A filter=H night=20131015
+--id field=S840-F seq=A filter=J night=20131015
+--id field=S840-F seq=A filter=KS night=20131015
+--id field=SN2011fe seq=A filter=H night=20111025
+--id field=SN2011fe seq=A filter=H night=20120402
+--id field=SN2011fe seq=A filter=J night=20111025
+--id field=SN2011fe seq=A filter=J night=20120402
+--id field=SN2011fe seq=A filter=KS night=20111025
+--id field=SN2011fs seq=A filter=H night=20111025
+--id field=SN2011fs seq=A filter=H night=20111115
+--id field=SN2011fs seq=A filter=H night=20111208
+--id field=SN2011fs seq=A filter=H night=20120108
+--id field=SN2011fs seq=A filter=J night=20111025
+--id field=SN2011fs seq=A filter=J night=20111115
+--id field=SN2011fs seq=A filter=J night=20111208
+--id field=SN2011fs seq=A filter=J night=20120108
+--id field=SN2011fs seq=A filter=KS night=20111025
+--id field=SN2011gf seq=A filter=H night=20111025
+--id field=SN2011gf seq=A filter=H night=20111115
+--id field=SN2011gf seq=A filter=H night=20111208
+--id field=SN2011gf seq=A filter=J night=20111025
+--id field=SN2011gf seq=A filter=J night=20111115
+--id field=SN2011gy seq=A filter=H night=20111115
+--id field=SN2011gy seq=A filter=H night=20111121
+--id field=SN2011gy seq=A filter=H night=20111208
+--id field=SN2011gy seq=A filter=H night=20120108
+--id field=SN2011gy seq=A filter=H night=20120402
+--id field=SN2011gy seq=A filter=H night=20121028
+--id field=SN2011gy seq=A filter=J night=20111115
+--id field=SN2011gy seq=A filter=J night=20111121
+--id field=SN2011gy seq=A filter=J night=20111208
+--id field=SN2011gy seq=A filter=J night=20120108
+--id field=SN2011gy seq=A filter=J night=20121028
+--id field=SN2011ha seq=A filter=H night=20111115
+--id field=SN2011ha seq=A filter=H night=20111121
+--id field=SN2011ha seq=A filter=J night=20111115
+--id field=SN2011hb seq=A filter=H night=20111115
+--id field=SN2011hb seq=A filter=H night=20111208
+--id field=SN2011hb seq=A filter=H night=20120108
+--id field=SN2011hb seq=A filter=H night=20131020
+--id field=SN2011hb seq=A filter=J night=20111115
+--id field=SN2011hb seq=A filter=J night=20111208
+--id field=SN2011hb seq=A filter=J night=20120108
+--id field=SN2011hb seq=A filter=J night=20131020
+--id field=SN2011hk seq=A filter=H night=20111115
+--id field=SN2011hk seq=A filter=H night=20111208
+--id field=SN2011hk seq=A filter=H night=20120108
+--id field=SN2011hk seq=A filter=J night=20111115
+--id field=SN2011hk seq=A filter=J night=20111208
+--id field=SN2011hk seq=A filter=J night=20120108
+--id field=SN2011ho seq=A filter=H night=20111121
+--id field=SN2011ho seq=A filter=H night=20111208
+--id field=SN2011ho seq=A filter=H night=20120108
+--id field=SN2011ho seq=A filter=H night=20120402
+--id field=SN2011hr seq=A filter=H night=20111121
+--id field=SN2011hr seq=A filter=H night=20111208
+--id field=SN2011hr seq=A filter=H night=20120108
+--id field=SN2011hr seq=A filter=H night=20120402
+--id field=SN2011hr seq=A filter=H night=20131213
+--id field=SN2011hr seq=A filter=J night=20111121
+--id field=SN2011hr seq=A filter=J night=20111208
+--id field=SN2011hr seq=A filter=J night=20120108
+--id field=SN2011hr seq=A filter=J night=20120402
+--id field=SN2011io seq=A filter=H night=20111208
+--id field=SN2011io seq=A filter=J night=20111208
+--id field=SN2011iu seq=A filter=H night=20111208
+--id field=SN2011iu seq=A filter=H night=20120108
+--id field=SN2011iu seq=A filter=H night=20120925
+--id field=SN2011iu seq=A filter=J night=20111208
+--id field=SN2011iu seq=A filter=J night=20120108
+--id field=SN2011iu seq=A filter=J night=20121001
+--id field=SN2011iy seq=A filter=H night=20120402
+--id field=SN2011iy seq=A filter=J night=20120402
+--id field=SN2011jh seq=A filter=H night=20120402
+--id field=SN2011jh seq=A filter=J night=20120402
+--id field=SN2012bh seq=A filter=H night=20120402
+--id field=SN2012bh seq=A filter=J night=20120402
+--id field=SN2012bm seq=A filter=H night=20120402
+--id field=SN2012bm seq=A filter=J night=20120402
+--id field=SN2012bo seq=A filter=H night=20120402
+--id field=SN2012bo seq=A filter=J night=20120402
+--id field=SN2012bp seq=A filter=H night=20120402
+--id field=SN2012bp seq=A filter=J night=20120402
+--id field=SN2012cg seq=A filter=H night=20130425
+--id field=SN2012cg seq=A filter=H night=20130523
+--id field=SN2012cg seq=A filter=H night=20130528
+--id field=SN2012cg seq=A filter=H night=20130613
+--id field=SN2012cg seq=A filter=H night=20130617
+--id field=SN2012cg seq=A filter=J night=20130425
+--id field=SN2012cg seq=A filter=J night=20130523
+--id field=SN2012cg seq=A filter=J night=20130528
+--id field=SN2012cg seq=A filter=J night=20130617
+--id field=SN2012em seq=A filter=H night=20120925
+--id field=SN2012em seq=A filter=H night=20121001
+--id field=SN2012em seq=A filter=H night=20121007
+--id field=SN2012em seq=A filter=J night=20120925
+--id field=SN2012em seq=A filter=J night=20121001
+--id field=SN2012em seq=A filter=J night=20121007
+--id field=SN2012et seq=A filter=H night=20120925
+--id field=SN2012et seq=A filter=H night=20121001
+--id field=SN2012et seq=A filter=H night=20121007
+--id field=SN2012et seq=A filter=H night=20121028
+--id field=SN2012et seq=A filter=H night=20121102
+--id field=SN2012et seq=A filter=H night=20121122
+--id field=SN2012et seq=A filter=H night=20121125
+--id field=SN2012et seq=A filter=H night=20121130
+--id field=SN2012et seq=A filter=J night=20120925
+--id field=SN2012et seq=A filter=J night=20121001
+--id field=SN2012et seq=A filter=J night=20121007
+--id field=SN2012et seq=A filter=J night=20121028
+--id field=SN2012et seq=A filter=J night=20121102
+--id field=SN2012et seq=A filter=J night=20121122
+--id field=SN2012fb seq=A filter=H night=20120925
+--id field=SN2012fb seq=A filter=H night=20121001
+--id field=SN2012fb seq=A filter=H night=20121007
+--id field=SN2012fb seq=A filter=J night=20120925
+--id field=SN2012fb seq=A filter=J night=20121001
+--id field=SN2012fb seq=A filter=J night=20121007
+--id field=SN2012fk seq=A filter=H night=20121102
+--id field=SN2012fk seq=A filter=H night=20121122
+--id field=SN2012fk seq=A filter=H night=20121125
+--id field=SN2012fk seq=A filter=H night=20121130
+--id field=SN2012fk seq=A filter=J night=20121102
+--id field=SN2012fk seq=A filter=J night=20121122
+--id field=SN2012fk seq=A filter=J night=20121125
+--id field=SN2012fk seq=A filter=J night=20121130
+--id field=SN2012fm seq=A filter=H night=20121028
+--id field=SN2012fm seq=A filter=H night=20121102
+--id field=SN2012fm seq=A filter=H night=20121122
+--id field=SN2012fm seq=A filter=H night=20121125
+--id field=SN2012fm seq=A filter=H night=20121130
+--id field=SN2012fm seq=A filter=H night=20131018
+--id field=SN2012fm seq=A filter=J night=20121028
+--id field=SN2012fm seq=A filter=J night=20121102
+--id field=SN2012fm seq=A filter=J night=20121122
+--id field=SN2012fm seq=A filter=J night=20121125
+--id field=SN2012fm seq=A filter=J night=20121130
+--id field=SN2012fm seq=A filter=J night=20131018
+--id field=SN2012fr seq=A filter=H night=20121102
+--id field=SN2012fr seq=A filter=J night=20121102
+--id field=SN2012gm seq=A filter=H night=20121122
+--id field=SN2012gm seq=A filter=H night=20121125
+--id field=SN2012gm seq=A filter=H night=20121130
+--id field=SN2012gm seq=A filter=J night=20121122
+--id field=SN2012gm seq=A filter=J night=20121125
+--id field=SN2012gm seq=A filter=J night=20121130
+--id field=SN2012gm seq=A filter=KS night=20121125
+--id field=SN2012gm seq=A filter=KS night=20121130
+--id field=SN2012go seq=A filter=H night=20121125
+--id field=SN2012go seq=A filter=H night=20121130
+--id field=SN2012go seq=A filter=J night=20121125
+--id field=SN2012go seq=A filter=J night=20121130
+--id field=SN2013ar seq=A filter=H night=20130326
+--id field=SN2013ar seq=A filter=H night=20130420
+--id field=SN2013ar seq=A filter=H night=20130429
+--id field=SN2013ar seq=A filter=J night=20130326
+--id field=SN2013ar seq=A filter=J night=20130420
+--id field=SN2013ar seq=A filter=J night=20130429
+--id field=SN2013be seq=A filter=H night=20130425
+--id field=SN2013be seq=A filter=H night=20130429
+--id field=SN2013be seq=A filter=H night=20130519
+--id field=SN2013be seq=A filter=J night=20130425
+--id field=SN2013be seq=A filter=J night=20130429
+--id field=SN2013be seq=A filter=J night=20130519
+--id field=SN2013bo seq=A filter=H night=20130420
+--id field=SN2013bo seq=A filter=H night=20130425
+--id field=SN2013bo seq=A filter=H night=20130429
+--id field=SN2013bo seq=A filter=H night=20130522
+--id field=SN2013bo seq=A filter=J night=20130420
+--id field=SN2013bo seq=A filter=J night=20130425
+--id field=SN2013bo seq=A filter=J night=20130429
+--id field=SN2013bo seq=A filter=J night=20130522
+--id field=SN2013bq seq=A filter=H night=20130420
+--id field=SN2013bq seq=A filter=H night=20130425
+--id field=SN2013bq seq=A filter=H night=20130523
+--id field=SN2013bq seq=A filter=J night=20130420
+--id field=SN2013bq seq=A filter=J night=20130425
+--id field=SN2013bq seq=A filter=J night=20130429
+--id field=SN2013bs seq=A filter=H night=20130420
+--id field=SN2013bs seq=A filter=H night=20130425
+--id field=SN2013bs seq=A filter=H night=20130429
+--id field=SN2013bs seq=A filter=H night=20130522
+--id field=SN2013bs seq=A filter=H night=20130528
+--id field=SN2013bs seq=A filter=H night=20130613
+--id field=SN2013bs seq=A filter=H night=20130617
+--id field=SN2013bs seq=A filter=J night=20130420
+--id field=SN2013bs seq=A filter=J night=20130425
+--id field=SN2013bs seq=A filter=J night=20130522
+--id field=SN2013bs seq=A filter=J night=20130528
+--id field=SN2013bs seq=A filter=J night=20130613
+--id field=SN2013bs seq=A filter=J night=20130617
+--id field=SN2013bt seq=A filter=H night=20130420
+--id field=SN2013bt seq=A filter=H night=20130425
+--id field=SN2013bt seq=A filter=H night=20130429
+--id field=SN2013bt seq=A filter=H night=20130519
+--id field=SN2013bt seq=A filter=H night=20130523
+--id field=SN2013bt seq=A filter=J night=20130420
+--id field=SN2013bt seq=A filter=J night=20130425
+--id field=SN2013bt seq=A filter=J night=20130429
+--id field=SN2013bt seq=A filter=J night=20130519
+--id field=SN2013bt seq=A filter=J night=20130523
+--id field=SN2013cb seq=A filter=H night=20130519
+--id field=SN2013cb seq=A filter=H night=20130523
+--id field=SN2013cb seq=A filter=H night=20130528
+--id field=SN2013cb seq=A filter=J night=20130519
+--id field=SN2013cb seq=A filter=J night=20130523
+--id field=SN2013ck seq=A filter=H night=20130519
+--id field=SN2013ck seq=A filter=H night=20130523
+--id field=SN2013ck seq=A filter=H night=20130613
+--id field=SN2013ck seq=A filter=H night=20130617
+--id field=SN2013ck seq=A filter=J night=20130519
+--id field=SN2013ck seq=A filter=J night=20130523
+--id field=SN2013ck seq=A filter=J night=20130613
+--id field=SN2013ck seq=A filter=J night=20130617
+--id field=SN2013cs seq=A filter=H night=20130523
+--id field=SN2013cs seq=A filter=H night=20130528
+--id field=SN2013cs seq=A filter=H night=20130613
+--id field=SN2013cs seq=A filter=H night=20130617
+--id field=SN2013cs seq=A filter=J night=20130523
+--id field=SN2013cs seq=A filter=J night=20130528
+--id field=SN2013cs seq=A filter=J night=20130613
+--id field=SN2013cs seq=A filter=J night=20130617
+--id field=SN2013cs seq=A filter=KS night=20130523
+--id field=SN2013cs seq=A filter=KS night=20130528
+--id field=SN2013da seq=A filter=H night=20130613
+--id field=SN2013da seq=A filter=H night=20130617
+--id field=SN2013da seq=A filter=J night=20130613
+--id field=SN2013da seq=A filter=J night=20130617
+--id field=SN2013da seq=A filter=KS night=20130613
+--id field=SN2013da seq=A filter=KS night=20130617
+--id field=SN2013fj seq=A filter=H night=20130925
+--id field=SN2013fj seq=A filter=H night=20131015
+--id field=SN2013fj seq=A filter=H night=20131020
+--id field=SN2013fj seq=A filter=J night=20130925
+--id field=SN2013fj seq=A filter=J night=20131015
+--id field=SN2013fj seq=A filter=J night=20131020
+--id field=SN2013fn seq=A filter=H night=20131015
+--id field=SN2013fn seq=A filter=H night=20131020
+--id field=SN2013fn seq=A filter=H night=20131111
+--id field=SN2013fn seq=A filter=J night=20131015
+--id field=SN2013fn seq=A filter=J night=20131020
+--id field=SN2013fn seq=A filter=J night=20131111
+--id field=SN2013fn seq=A filter=KS night=20131015
+--id field=SN2013fn seq=A filter=KS night=20131020
+--id field=SN2013fw seq=A filter=H night=20131111
+--id field=SN2013fw seq=A filter=H night=20131120
+--id field=SN2013fw seq=A filter=H night=20131209
+--id field=SN2013fw seq=A filter=H night=20131213
+--id field=SN2013fw seq=A filter=J night=20131111
+--id field=SN2013fw seq=A filter=J night=20131120
+--id field=SN2013fw seq=A filter=J night=20131209
+--id field=SN2013fw seq=A filter=J night=20131213
+--id field=SN2013fw seq=A filter=KS night=20131111
+--id field=SN2013fw seq=A filter=KS night=20131120
+--id field=SN2013fw seq=A filter=KS night=20131209
+--id field=SN2013fw seq=A filter=KS night=20131213
+--id field=SNhunt175 seq=A filter=H night=20130321
+--id field=SNhunt175 seq=A filter=H night=20130420
+--id field=SNhunt175 seq=A filter=H night=20130429
+--id field=SNhunt175 seq=A filter=J night=20130420
+--id field=SNhunt206 seq=A filter=H night=20130925
+--id field=SNhunt206 seq=A filter=H night=20130927
+--id field=SNhunt206 seq=A filter=H night=20131015
+--id field=SNhunt206 seq=A filter=H night=20131020
+--id field=SNhunt206 seq=A filter=H night=20131111
+--id field=SNhunt206 seq=A filter=J night=20130925
+--id field=SNhunt206 seq=A filter=J night=20130927
+--id field=SNhunt206 seq=A filter=J night=20131015
+--id field=SNhunt206 seq=A filter=J night=20131020
+--id field=SNhunt206 seq=A filter=J night=20131111
+--id field=iPTF13dge seq=A filter=H night=20130927
+--id field=iPTF13dge seq=A filter=H night=20131015
+--id field=iPTF13dge seq=A filter=H night=20131018
+--id field=iPTF13dge seq=A filter=H night=20131020
+--id field=iPTF13dge seq=A filter=H night=20131025
+--id field=iPTF13dge seq=A filter=H night=20131111
+--id field=iPTF13dge seq=A filter=H night=20131209
+--id field=iPTF13dge seq=A filter=H night=20131213
+--id field=iPTF13dge seq=A filter=J night=20130927
+--id field=iPTF13dge seq=A filter=J night=20131015
+--id field=iPTF13dge seq=A filter=J night=20131018
+--id field=iPTF13dge seq=A filter=J night=20131020
+--id field=iPTF13dge seq=A filter=J night=20131025
+--id field=iPTF13dge seq=A filter=J night=20131111
+--id field=iPTF13dge seq=A filter=J night=20131209
+--id field=iPTF13dge seq=A filter=J night=20131213
+--id field=iPTF13dge seq=A filter=KS night=20130927
+--id field=iPTF13dge seq=A filter=KS night=20131015
+--id field=iPTF13dge seq=A filter=KS night=20131018
+--id field=iPTF13dge seq=A filter=KS night=20131020
+--id field=iPTF13dge seq=A filter=KS night=20131025
+--id field=iPTF13dge seq=A filter=KS night=20131209
+--id field=iPTF13dge seq=A filter=KS night=20131213
+--id field=iPTF13dkj seq=A filter=H night=20130925
+--id field=iPTF13dkj seq=A filter=H night=20130927
+--id field=iPTF13dkj seq=A filter=H night=20131015
+--id field=iPTF13dkj seq=A filter=H night=20131019
+--id field=iPTF13dkj seq=A filter=H night=20131025
+--id field=iPTF13dkj seq=A filter=J night=20130925
+--id field=iPTF13dkj seq=A filter=J night=20130927
+--id field=iPTF13dkj seq=A filter=J night=20131015
+--id field=iPTF13dkj seq=A filter=J night=20131019
+--id field=iPTF13dkj seq=A filter=J night=20131025
+--id field=iPTF13dkl seq=A filter=H night=20130927
+--id field=iPTF13dkl seq=A filter=H night=20131018
+--id field=iPTF13dkl seq=A filter=H night=20131020
+--id field=iPTF13dkl seq=A filter=J night=20130927
+--id field=iPTF13dkl seq=A filter=J night=20131018
+--id field=iPTF13dkl seq=A filter=J night=20131020
+--id field=iPTF13dkx seq=A filter=H night=20130927
+--id field=iPTF13dkx seq=A filter=H night=20131015
+--id field=iPTF13dkx seq=A filter=H night=20131019
+--id field=iPTF13dkx seq=A filter=H night=20131111
+--id field=iPTF13dkx seq=A filter=J night=20130927
+--id field=iPTF13dkx seq=A filter=J night=20131015
+--id field=iPTF13dkx seq=A filter=J night=20131019
+--id field=iPTF13dkx seq=A filter=J night=20131111
+--id field=iPTF13ebh seq=A filter=H night=20131120
+--id field=iPTF13ebh seq=A filter=H night=20131209
+--id field=iPTF13ebh seq=A filter=H night=20131213
+--id field=iPTF13ebh seq=A filter=J night=20131120
+--id field=iPTF13ebh seq=A filter=J night=20131209
+--id field=iPTF13ebh seq=A filter=J night=20131213
+--id field=iPTF13ebh seq=A filter=KS night=20131120
+--id field=iPTF13ebh seq=A filter=KS night=20131209
+--id field=iPTF13ebh seq=A filter=KS night=20131213
