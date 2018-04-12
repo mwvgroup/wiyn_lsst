@@ -30,7 +30,10 @@ select field, seq, filter, night, expnum from stack;
  Then reprocess with
 cat dr1_dataid.csv | awk -F , '{printf "--id field=%s seq=%s filter=%s night=%s\n", $1, $2, $3, $4}' > dr1_dataid.list
 2. Generate "dr1_coadd.list" using
-cat dr1_dataid.csv | awk -F , '{print $2, $4, $3, $1}' | grep ' H '  | sort -k 4 | uniq -f 3 | awk '{print $4, NR, $1, $2}' > dr1_coadd.list
+cat dr1_dataid.csv | awk -F , '{print $2, $4, $3, $1}' | grep ' H '  | sort -k 4 | uniq -f 3 | awk '{print $4, NR-1, $1, $2}' > dr1_coadd.list
+Generate "dr1_coadd.list" for images actually successfully processed to calexp stage:
+
+ls ${REPO}/rerun/processCcd/calexp/bkgd*| cut -d / -f 11 | sed -e 's/bkgd-\(.*\)_\([A-F]\)_\([JHKS]*\)_\([0-9]\{8\}\)_\([0-9][0-9]*\)\.fits/\2 \3 \4 \5 \1/' | sort -k 5 | uniq -f 4 | awk '{print $5, NR-1, $1, $2, $3}' > dr1_coadd_actual.list
 
 ### Batch queue processing (SLURM)
 The simplest job would just be to run the above commands in a single-node, serial job.
