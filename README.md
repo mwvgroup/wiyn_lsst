@@ -23,7 +23,7 @@ Requires the definition of the environment variable DR1BASE and the existence of
 
 Notes:
 1. Generate "dr1_dataid.list" after ingest step with
- * sqlite registry.sqlite
+ * sqlite3 registry.sqlite3
 .separator ','
 .output dr1_dataid.csv
 select field, seq, filter, night, expnum from stack;
