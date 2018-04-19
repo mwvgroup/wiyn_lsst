@@ -9,7 +9,7 @@ NIGHT=$6
 
 PATCH=0,0
 
-COADD_RERUN=coaddNew
+COADD_RERUN=coadd
 PROCESSCCD_RERUN=processCcd
 
 # We make coadds in both J, H by default.
