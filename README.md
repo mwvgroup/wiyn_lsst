@@ -13,7 +13,9 @@ Requires the definition of the environment variable DR1BASE and the existence of
 `sh run_make_all_skymaps.sh
 `sh run_all_coadds.sh`
 5. Photometry coadds
-`sh run_all_photometry.sh`
+`sh run_all_coadd_photometry.sh`
+
+   Forced photometry on stack calexp based on coadd catalog
 
 6. Run subtractions
 `python sub_wiyn_dr1.py`
