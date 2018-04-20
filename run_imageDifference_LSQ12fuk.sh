@@ -5,7 +5,7 @@ REPO=${WIYN}/test_dr1
 
 export OMP_NUM_THREADS=1
 
-imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
+imageDifference.py ${REPO} --rerun processCcd:imdiff \
     -j 4 \
     --id field=LSQ12fuk seq=A filter=H night=20121102 expnum=386 \
     --id field=LSQ12fuk seq=A filter=H night=20121122 expnum=467 \
@@ -18,7 +18,7 @@ imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
     --clobber-versions \
     --loglevel ip.diffim=DEBUG
 
-imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
+imageDifference.py ${REPO} --rerun processCcd:imdiff \
     -j 4 \
     --id field=LSQ12fuk seq=A filter=J night=20121102 expnum=396 \
     --id field=LSQ12fuk seq=A filter=J night=20121122 expnum=483 \

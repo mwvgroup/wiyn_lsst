@@ -3,7 +3,7 @@
 WIYN=${DR1BASE}/repo
 REPO=${WIYN}/test_dr1
 
-imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
+imageDifference.py ${REPO} --rerun processCcd:imdiff \
     -j 4 \
     --id field=SN2012fm seq=A filter=H night=20121028 expnum=493 \
     --id field=SN2012fm seq=A filter=H night=20121102 expnum=536 \
@@ -16,7 +16,7 @@ imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
     --clobber-versions \
     --loglevel ip.diffim=DEBUG
 
-imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
+imageDifference.py ${REPO} --rerun processCcd:imdiff \
     -j 4 \
     --id field=SN2012fm seq=A filter=H night=20121125 expnum=481 \
     --templateId field=SN2012fm seq=A filter=H night=20131018 expnum=197 \
@@ -26,7 +26,7 @@ imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
     --clobber-versions \
     --loglevel ip.diffim=DEBUG
 
-imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
+imageDifference.py ${REPO} --rerun processCcd:imdiff \
     -j 4 \
     --id field=SN2012fm seq=A filter=J night=20121028 expnum=484 \
     --id field=SN2012fm seq=A filter=J night=20121102 expnum=546 \

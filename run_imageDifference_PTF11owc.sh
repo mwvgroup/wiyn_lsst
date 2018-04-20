@@ -3,7 +3,7 @@
 WIYN=${DR1BASE}/repo
 REPO=${WIYN}/test_dr1
 
-imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
+imageDifference.py ${REPO} --rerun processCcd:imdiff \
     -j 4 \
     --id field=PTF11owc seq=A filter=H night=20111115 expnum=313 \
     --id field=PTF11owc seq=A filter=H night=20111121 expnum=161 \
@@ -16,7 +16,7 @@ imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
     --clobber-versions \
     --loglevel ip.diffim=DEBUG
 
-imageDifference.py ${REPO} --rerun processCcdOutputs:imdiff \
+imageDifference.py ${REPO} --rerun processCcd:imdiff \
     -j 4 \
     --id field=PTF11owc seq=A filter=J night=20111115 expnum=371 \
     --id field=PTF11owc seq=A filter=J night=20111121 expnum=175 \
