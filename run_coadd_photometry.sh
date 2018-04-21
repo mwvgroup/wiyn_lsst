@@ -2,7 +2,7 @@
 
 REPO=$1
 FIELD=$2
-TRACT=`grep ${FIELD} dr1_field_tract.list | cut -f 2 -d ' '`
+TRACT=`grep ${FIELD} dr1_coadd_actual.list | cut -f 2 -d ' '`
 
 COADD_RERUN=coadd
 COADDPHOT_RERUN=coaddPhot
