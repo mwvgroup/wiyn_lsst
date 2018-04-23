@@ -14,11 +14,11 @@ Requires the definition of the environment variable DR1BASE and the existence of
 `sh run_all_coadds.sh`
 5. Photometry coadds
 `sh run_all_photometry.sh`
+6. Run lightcurves on calexps based on coadd detections
+`. run_all_calexp_lightcurves.sh`
 
-6. Run subtractions
+7. Run subtractions
 `python sub_wiyn_dr1.py`
-7. Make coord files
-`sh make_coord_files.sh`
 8. Run lightcurves on subtractions
 `python wiyn_forcedPhotExternalCatalog.py`
 
