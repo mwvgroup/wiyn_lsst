@@ -6,6 +6,7 @@ import numpy as np
 
 from astropy.coordinates import SkyCoord
 from astropy.table import Table
+import astropy.units as u
 
 import lsst.afw.display as afwDisplay
 import lsst.afw.geom as afwGeom
@@ -30,19 +31,18 @@ def get_tract_for_field(field):
     return field_tract_dict[field]
 
 
-def get_RA_Dec_for_field(sn):
-    # Find PTF11mty based on RA, Dec: 21:34:05.20, +10:25:24.6 (J2000)
-    PTF11mty_RA, PTF11mty_Dec = 323.521667, 10.423500
-    return PTF11mty_RA, PTF11mty_Dec
+def get_RA_Dec_for_field(field, field_info_file='observed_target_info.dr1.txt'):
+    """Return RA, Dec in decimal degrees."""
+    target_info = Table.read(field_info_file, format='ascii.commented_header')
 
-    sn_info_file = path_to_info("observed_target_info.dr1.txt")
-    target_info = Table.read(sn_info_file, format='ascii.commented_header')
+    w, = np.where(target_info['Name'] == field)
+    field_info = target_info[w]
+ 
+    # Want scalars rather than 1-element lists
+    ra, dec = field_info['RA'][0], field_info['Dec'][0]
+    coord = SkyCoord(ra, dec, unit=(u.hour, u.deg))
 
-    w, = np.where(target_info['Name'] == sn)
-    sn_info = target_info[w]
-
-    coord = SkyCoord(sn_info['RA'], sn_info['Dec'], unit=(u.hour, u.deg))
-    return coord.ra, coord.dec
+    return coord.ra.to(u.deg).value, coord.dec.to(u.deg).value
 
 
 def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
