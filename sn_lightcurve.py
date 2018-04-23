@@ -30,7 +30,7 @@ def get_tract_for_field(field):
     return field_tract_dict[field]
 
 
-def get_RA_Dec_for_sn(sn):
+def get_RA_Dec_for_field(sn):
     # Find PTF11mty based on RA, Dec: 21:34:05.20, +10:25:24.6 (J2000)
     PTF11mty_RA, PTF11mty_Dec = 323.521667, 10.423500
     return PTF11mty_RA, PTF11mty_Dec
@@ -45,20 +45,24 @@ def get_RA_Dec_for_sn(sn):
     return coord.ra, coord.dec
 
 
-def get_dataIds_for_sn(sn):
-    dataIds_by_filter = {}
-    dataIds_by_filter['H'] = [
-        {'field': 'PTF11mty', 'seq': 'A', 'filter': 'H', 'night': 20111025, 'expnum': 218},
-        {'field': 'PTF11mty', 'seq': 'A', 'filter': 'H', 'night': 20111115, 'expnum': 112},
-        {'field': 'PTF11mty', 'seq': 'A', 'filter': 'H', 'night': 20120925, 'expnum': 81},
-        ]
-    dataIds_by_filter['J'] = [
-        {'field': 'PTF11mty', 'seq': 'A', 'filter': 'J', 'night': 20111025, 'expnum': 200},
-        {'field': 'PTF11mty', 'seq': 'A', 'filter': 'J', 'night': 20111115, 'expnum': 130},
-        {'field': 'PTF11mty', 'seq': 'A', 'filter': 'J', 'night': 20121007, 'expnum': 50},
-        ]
-    return dataIds_by_filter
+def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
+                          datasetType='forced_src'):
+    """Lookup available forced source in Butler."""
+    if tract is None:
+        tract = get_tract_from_field(field)
 
+    # 2018-04-10:  MWV: This presently doesn't pull the correct expnums for each.
+    searchDataId = {'field': field, 'seq': seq, 'tract': tract, 'patch': patch}
+    cat_dataRefs = butler.subset(datasetType='forced_src', dataId=searchDataId)
+    cat_dataIds = [cd.dataId for cd in cat_dataRefs]
+    filters = [dId['filter'] for dId in cat_dataIds]
+    uniq_filters = set(filters)
+    dataIds_by_filter = {}
+    for f in uniq_filters:
+        these_dataIds = [cd for cd in cat_dataIds if cd['filter'] == f]
+        dataIds_by_filter[f] = these_dataIds     
+
+    return dataIds_by_filter
 
 def run(field, tract=None):
     repo = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
@@ -81,7 +85,7 @@ def run(field, tract=None):
     dId = {'field': field, 'filter': 'H', 'tract': tract, 'patch': '0,0'}
     calexp = butler.get('deepCoadd', dataId=dId)
 
-    RA, Dec = get_RA_Dec_for_sn(field)
+    RA, Dec = get_RA_Dec_for_field(field)
 
     sn_coord = afwGeom.SpherePoint(RA, Dec, afwGeom.degrees)
 
@@ -96,13 +100,8 @@ def run(field, tract=None):
 
     print("Found match: Object %d at %f arcsecs" % (sn_idx, afwGeom.radToArcsec(distance[sn_idx])))
 
-
     # Read in the forced-src photometry files that were built off of this same reference table to extract a lightcurve
-
-    # 2018-04-10:  MWV: This presently doesn't pull the correct expnums for each.
-    cat_dataRefs = butler.subset(datasetType='forced_src', dataId=dId)
-
-    dataIds_by_filter = get_dataIds_for_sn(field)
+    dataIds_by_filter = get_dataIds_for_field(butler, field, tract)
 
     lc = assemble_catalogs_into_lightcurve(dataIds_by_filter, rerun, dataset='forced_src')
     lc_file = '{:s}.ecsv'.format(field)
@@ -154,5 +153,4 @@ if __name__=="__main__":
     field = sys.argv[1]
 
     field = 'PTF11mty'
-    tract = 23
     run(field)
