@@ -109,7 +109,7 @@ def make_lc(field, tract=None):
     return butler, lc, ref_table, sn_idx
 
 
-def plot_lc(lc, field):
+def plot_lc(lc, field, show=False):
     filters = ['J', 'H']
     colors = {'J': 'blue', 'H': 'green', 'KS': 'red'}
     for filt in filters:
@@ -127,7 +127,8 @@ def plot_lc(lc, field):
     plot_file = '{:s}_lc.pdf'.format(field)
 
     plt.savefig(plot_file)
-    plt.show()
+    if show:
+        plt.show()
 
 
 def show_cat(butler, lc, ref_table, sn_idx, field, tract=None):
@@ -157,13 +158,13 @@ def show_cat(butler, lc, ref_table, sn_idx, field, tract=None):
     display.dot("o", sn_ref[X], sn_ref[Y], size=20, ctype='green')
 
 
-def process_field(field):
+def process_field(field, doPlot=False, doShow=False):
         butler, lc, ref_table, sn_idx = make_lc(field)
 
-        doPlot = True
-        doShow = True
         if doPlot:
-            plot_lc(lc, field)
+            # We borrow the image version to show the plot
+            # if show=False they we would just generate a PDF.
+            plot_lc(lc, field, show=doShow)
         if doShow:
             show_cat(butler, lc, ref_table, sn_idx, field)
 
