@@ -16,7 +16,7 @@ from wiyn_forcedPhotExternalCatalog import assemble_catalogs_into_lightcurve
 repo = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
 rerun = os.path.join(repo, 'rerun', 'forcedPhot')
 
-field, tract = 'PTF11moy', 17
+field, tract = 'PTF11moy', 22
 
 J_cat, H_cat, ref_table = read_cats(field, tract=tract, repo=rerun)
 

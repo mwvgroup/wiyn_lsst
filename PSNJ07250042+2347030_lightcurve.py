@@ -16,7 +16,7 @@ from wiyn_forcedPhotExternalCatalog import assemble_catalogs_into_lightcurve
 repo = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
 rerun = os.path.join(repo, 'rerun', 'forcedPhot')
 
-field, tract = 'PSNJ07250042+2347030', 16
+field, tract = 'PSNJ07250042+2347030', 21
 
 J_cat, H_cat, ref_table = read_cats(field, tract=tract, repo=rerun)
 
@@ -29,7 +29,7 @@ ref_table = ref_table[good_color]
 
 butler = Butler(rerun)
 
-dId = {'field': field, 'filter': 'H', 'tract': 16, 'patch': '0,0'}
+dId = {'field': field, 'filter': 'H', 'tract': tract, 'patch': '0,0'}
 calexp = butler.get('deepCoadd', dataId=dId)
 
 
