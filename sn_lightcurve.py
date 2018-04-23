@@ -64,7 +64,7 @@ def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
 
     return dataIds_by_filter
 
-def run(field, tract=None):
+def make_lc(field, tract=None):
     repo = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
     rerun = os.path.join(repo, 'rerun', 'forcedPhot')
 
@@ -81,9 +81,6 @@ def run(field, tract=None):
     ref_table = ref_table[good_color]
 
     butler = Butler(rerun)
-
-    dId = {'field': field, 'filter': 'H', 'tract': tract, 'patch': '0,0'}
-    calexp = butler.get('deepCoadd', dataId=dId)
 
     RA, Dec = get_RA_Dec_for_field(field)
 
@@ -109,7 +106,10 @@ def run(field, tract=None):
 
     lc.pprint(max_width=-1)
 
-def plot(lc, field, ref_table):
+    return butler, lc, ref_table, sn_idx
+
+
+def plot_lc(lc, field):
     filters = ['J', 'H']
     colors = {'J': 'blue', 'H': 'green', 'KS': 'red'}
     for filt in filters:
@@ -128,6 +128,14 @@ def plot(lc, field, ref_table):
 
     plt.savefig(plot_file)
     plt.show()
+
+
+def show_cat(butler, lc, ref_table, sn_idx, field, tract=None):
+    if tract is None:
+        tract = get_tract_for_field(field)
+
+    dId = {'field': field, 'filter': 'H', 'tract': tract, 'patch': '0,0'}
+    calexp = butler.get('deepCoadd', dataId=dId)
 
     display = afwDisplay.getDisplay(backend='ds9')
 
@@ -149,8 +157,21 @@ def plot(lc, field, ref_table):
     display.dot("o", sn_ref[X], sn_ref[Y], size=20, ctype='green')
 
 
-if __name__=="__main__":
-    field = sys.argv[1]
+def process_field(field):
+        butler, lc, ref_table, sn_idx = make_lc(field)
 
-    field = 'PTF11mty'
-    run(field)
+        doPlot = True
+        doShow = True
+        if doPlot:
+            plot_lc(lc, field)
+        if doShow:
+            show_cat(butler, lc, ref_table, sn_idx, field)
+
+
+def parse_and_run(fields):
+    for field in fields:
+        process_field(field)
+
+
+if __name__=="__main__":
+    parse_and_run(sys.argv[1:])
