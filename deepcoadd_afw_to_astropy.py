@@ -7,13 +7,13 @@ import lsst.daf.persistence as dafPersist
 DR1BASE = os.getenv("DR1BASE")
 REPO = os.path.join(DR1BASE, 'repo', 'test_dr1')
 
-def read_cats(field, tract, repo=REPO):
+def read_cats(field, tract, repo=REPO, datasetType='deepCoadd_forced_src'):
     butler = dafPersist.Butler(repo)
 
     dId_H = {'field': field, 'tract': tract, 'patch': '0,0', 'filter': 'H'}
-    H_cat = butler.get('deepCoadd_forced_src', dId_H)
+    H_cat = butler.get(datasetType, dId_H)
     dId_J = {'field': field, 'tract': tract, 'patch': '0,0', 'filter': 'J'}
-    J_cat = butler.get('deepCoadd_forced_src', dId_J)
+    J_cat = butler.get(datasetType, dId_J)
 
     HCoaddCalib = butler.get('deepCoadd_calexp_calib', dId_H)
     JCoaddCalib = butler.get('deepCoadd_calexp_calib', dId_J)
