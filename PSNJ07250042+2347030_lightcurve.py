@@ -76,7 +76,7 @@ dataIds_by_filter['J'] = [
 
 lc = assemble_catalogs_into_lightcurve(dataIds_by_filter, rerun, dataset='forced_src')
 lc_file = '{:s}.ecsv'.format(field)
-lc.write(lc_file, overwrite=True)
+lc.write(lc_file, format='ascii.ecsv', overwrite=True)
 
 lc.pprint(max_width=-1)
 
