@@ -31,15 +31,15 @@ def get_tract_for_field(field):
     return field_tract_dict[field]
 
 
-def get_RA_Dec_for_field(field, field_info_file='observed_target_info.dr1.txt'):
+def get_RA_Dec_for_target(target, target_info_file='observed_target_info.dr1.txt'):
     """Return RA, Dec in decimal degrees."""
-    target_info = Table.read(field_info_file, format='ascii.commented_header')
+    target_info = Table.read(target_info_file, format='ascii.commented_header')
 
-    w, = np.where(target_info['Name'] == field)
-    field_info = target_info[w]
+    w, = np.where(target_info['Name'] == target)
+    target_info = target_info[w]
  
     # Want scalars rather than 1-element lists
-    ra, dec = field_info['RA'][0], field_info['Dec'][0]
+    ra, dec = target_info['RA'][0], target_info['Dec'][0]
     coord = SkyCoord(ra, dec, unit=(u.hour, u.deg))
 
     return coord.ra.to(u.deg).value, coord.dec.to(u.deg).value
@@ -82,20 +82,20 @@ def make_lc(field, tract=None):
 
     butler = Butler(rerun)
 
-    RA, Dec = get_RA_Dec_for_field(field)
+    RA, Dec = get_RA_Dec_for_target(field)
 
-    sn_coord = afwGeom.SpherePoint(RA, Dec, afwGeom.degrees)
+    target_coord = afwGeom.SpherePoint(RA, Dec, afwGeom.degrees)
 
     distList = []
     for s in ref_table:
         this_coord = afwGeom.SpherePoint(s['coord_ra'], s['coord_dec'], afwGeom.radians)
-        angSep = sn_coord.separation(this_coord)
+        angSep = target_coord.separation(this_coord)
         distList.append(angSep)
 
     distance = np.array(distList)
-    sn_idx = np.argmin(distance)
+    target_idx = np.argmin(distance)
 
-    print("Found match: Object %d at %f arcsecs" % (sn_idx, afwGeom.radToArcsec(distance[sn_idx])))
+    print("Found match: Object %d at %f arcsecs" % (target_idx, afwGeom.radToArcsec(distance[target_idx])))
 
     # Read in the forced-src photometry files that were built off of this same reference table to extract a lightcurve
     dataIds_by_filter = get_dataIds_for_field(butler, field, tract)
@@ -106,7 +106,7 @@ def make_lc(field, tract=None):
 
     lc.pprint(max_width=-1)
 
-    return butler, lc, ref_table, sn_idx
+    return butler, lc, ref_table, target_idx
 
 
 def plot_lc(lc, field, show=False):
@@ -131,7 +131,7 @@ def plot_lc(lc, field, show=False):
         plt.show()
 
 
-def show_cat(butler, lc, ref_table, sn_idx, field, tract=None):
+def show_cat(butler, lc, ref_table, target_idx, field, tract=None):
     if tract is None:
         tract = get_tract_for_field(field)
 
@@ -154,24 +154,24 @@ def show_cat(butler, lc, ref_table, sn_idx, field, tract=None):
         for s in ref_table:
             display.dot("o", s[X], s[Y], size=10, ctype='orange')
 
-    sn_ref = ref_table[sn_idx]
-    display.dot("o", sn_ref[X], sn_ref[Y], size=20, ctype='green')
+    target_ref = ref_table[target_idx]
+    display.dot("o", target_ref[X], target_ref[Y], size=20, ctype='green')
 
 
-def process_field(field, doPlot=False, doShow=False):
-        butler, lc, ref_table, sn_idx = make_lc(field)
+def process_target(target, doPlot=False, doShow=False):
+        butler, lc, ref_table, target_idx = make_lc(target)
 
         if doPlot:
             # We borrow the image version to show the plot
             # if show=False they we would just generate a PDF.
-            plot_lc(lc, field, show=doShow)
+            plot_lc(lc, target, show=doShow)
         if doShow:
-            show_cat(butler, lc, ref_table, sn_idx, field)
+            show_cat(butler, lc, ref_table, target_idx, target)
 
 
-def parse_and_run(fields):
-    for field in fields:
-        process_field(field)
+def parse_and_run(targets):
+    for target in targets:
+        process_target(target)
 
 
 if __name__=="__main__":
