@@ -159,7 +159,11 @@ def show_cat(butler, lc, ref_table, target_idx, field, tract=None):
 
 
 def process_target(target, doPlot=False, doShow=False):
-        butler, lc, ref_table, target_idx = make_lc(target)
+        try:
+            butler, lc, ref_table, target_idx = make_lc(target)
+        except Exception as e:
+            print("Could not generate a LC for '%s':" % target)
+            print(e)
 
         if doPlot:
             # We borrow the image version to show the plot
