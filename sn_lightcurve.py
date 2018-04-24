@@ -73,12 +73,13 @@ def make_lc(field, tract=None):
 
     J_cat, H_cat, ref_table = read_cats(field, tract=tract, repo=rerun)
 
-    snr_threshold = 5
-    good_color = (J_cat['J_SNR'] > snr_threshold) & (H_cat['H_SNR'] > snr_threshold)
+    if False:
+        snr_threshold = 5
+        good_color = (J_cat['J_SNR'] > snr_threshold) & (H_cat['H_SNR'] > snr_threshold)
 
-    J_cat = J_cat[good_color]
-    H_cat = H_cat[good_color]
-    ref_table = ref_table[good_color]
+        J_cat = J_cat[good_color]
+        H_cat = H_cat[good_color]
+        ref_table = ref_table[good_color]
 
     butler = Butler(rerun)
 
