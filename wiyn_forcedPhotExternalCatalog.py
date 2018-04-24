@@ -108,7 +108,7 @@ def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
                 cols_for_new_row = extract_photometry(butler, dataId, forced_dataset, f, source_row, names_to_copy)
             except Exception as e:
                 print(e)
-                print("Unabled to extracted forced photometry from {}".format(dataId))
+                print("Unable to extracted forced photometry from {}".format(dataId))
                 continue
             table.add_row(cols_for_new_row)
 
