@@ -71,7 +71,7 @@ def make_lc(field, tract=None):
     if tract is None:
         tract = get_tract_for_field(field)
 
-    J_cat, H_cat, ref_table = read_cats(field, tract=tract, repo=rerun)
+    ref_table, cats = read_cats(field, tract=tract, repo=rerun)
 
     if False:
         snr_threshold = 5
