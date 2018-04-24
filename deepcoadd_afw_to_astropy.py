@@ -15,7 +15,6 @@ def read_cats(field, tract, filters = ('J', 'H', 'KS'),
               repo=RERUN, datasetType='deepCoadd_forced_src'):
     """Return the coadd reference catalog and a list of the individual per-filter coadd catalogs."""
     butler = dafPersist.Butler(repo)
-    print("REPO: ", repo)
 
     ref_table = butler.get('deepCoadd_ref', {'filter': 'H^J', 'tract': tract, 'patch': '0,0'})
     ref_table = ref_table.asAstropy(copy=True)
