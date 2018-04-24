@@ -64,7 +64,7 @@ def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
 
     return dataIds_by_filter
 
-def make_lc(field, tract=None):
+def make_lc(field, tract=None, do_snr_cut=False):
     repo = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
     rerun = os.path.join(repo, 'rerun', 'forcedPhot')
 
@@ -73,13 +73,17 @@ def make_lc(field, tract=None):
 
     ref_table, cats = read_cats(field, tract=tract, repo=rerun)
 
-    if False:
+    if do_snr_cut:
         snr_threshold = 5
-        good_color = (J_cat['J_SNR'] > snr_threshold) & (H_cat['H_SNR'] > snr_threshold)
+        good = [True for i in range(len(ref_table))]
+        for cat in cats:
+            filt = cat.meta['filter']
+            these_good = cat['%s_SNR' % filt] > snr_threshold
+            good = good & these_good
 
-        J_cat = J_cat[good_color]
-        H_cat = H_cat[good_color]
-        ref_table = ref_table[good_color]
+        ref_table = ref_table[good]
+        for cat in cats:
+            cat = cat[good]
 
     butler = Butler(rerun)
 
