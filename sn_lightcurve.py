@@ -49,7 +49,7 @@ def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
                           datasetType='forced_src'):
     """Lookup available forced source in Butler."""
     if tract is None:
-        tract = get_tract_from_field(field)
+        tract = get_tract_for_field(field)
 
     # 2018-04-10:  MWV: This presently doesn't pull the correct expnums for each.
     searchDataId = {'field': field, 'seq': seq, 'tract': tract, 'patch': patch}
