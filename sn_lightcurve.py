@@ -193,7 +193,16 @@ def parse_and_run(targets, **kwargs):
         process_target(target, **kwargs)
 
 
-if __name__=='__main__':
-#    doPlot, doShow = True, True
-    doPlot, doShow = False, False
-    parse_and_run(sys.argv[1:], doPlot=doPlot, doShow=doShow)
+if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Convert ECSV files to Wstd')
+    parser.add_argument('infiles', metavar='N', type=str, nargs='+')
+    parser.add_argument('--doPlot', default=False, action='store_true',
+                        help='Plot the lightcurve.  If doShow is set also display.')
+    parser.add_argument('--doShow', default=False, action='store_true',
+                        help='Show the coadd, coadd catalog, and matched target object.')
+
+    args = parser.parse_args(sys.argv[1:])
+
+    parse_and_run(args.infiles, doPlot=args.doPlot, doShow=args.doShow)
