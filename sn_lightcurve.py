@@ -149,7 +149,7 @@ def make_lc(field, target=None, tract=None, do_snr_cut=False, verbose=True):
     dataIds_by_filter = get_dataIds_for_field(butler, field, tract)
 
     lc = assemble_catalogs_into_lightcurve(dataIds_by_filter, rerun, dataset='forced_src')
-    lc_file = '{:s}.ecsv'.format(field)
+    lc_file = '{:s}_{:s}.ecsv'.format(field, target)
     lc.write(lc_file, format='ascii.ecsv', overwrite=True)
 
     lc.pprint(max_width=-1)
