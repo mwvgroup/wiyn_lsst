@@ -65,9 +65,16 @@ def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
     return dataIds_by_filter
 
 
-def make_lc(field, tract=None, do_snr_cut=False):
+def make_lc(field, target=None, tract=None, do_snr_cut=False):
+    """Extract a lightcurve from the calexps for the given field, target.
+
+    If target is None, then field name is used as the target.
+    """
     repo = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
     rerun = os.path.join(repo, 'rerun', 'forcedPhot')
+
+    if target is None:
+        target = field
 
     if tract is None:
         tract = get_tract_for_field(field)
@@ -86,9 +93,7 @@ def make_lc(field, tract=None, do_snr_cut=False):
         for cat in cats:
             cat = cat[good]
 
-    butler = Butler(rerun)
-
-    RA, Dec = get_RA_Dec_for_target(field)
+    RA, Dec = get_RA_Dec_for_target(target)
 
     target_coord = afwGeom.SpherePoint(RA, Dec, afwGeom.degrees)
 
@@ -106,6 +111,7 @@ def make_lc(field, tract=None, do_snr_cut=False):
 
     # Extract a lightcurve by reading in the forced-src photometry files
     # that were built off of this same reference table.
+    butler = Butler(rerun)
     dataIds_by_filter = get_dataIds_for_field(butler, field, tract)
 
     lc = assemble_catalogs_into_lightcurve(dataIds_by_filter, rerun, dataset='forced_src')
