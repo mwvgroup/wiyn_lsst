@@ -31,7 +31,7 @@ def get_tract_for_field(field):
 
 
 def get_RA_Dec_for_target(target,
-                          sn_info_file='dr1_targets_2mass_stars.txt',
+                          sn_info_file='observed_target_info.dr1.txt',
                           twomass_info_file='2MASS_DR1_stars.txt'):
     """Return RA, Dec in decimal degrees for specified target."""
     sn_info = read_in_DR1_targets(sn_info_file)
@@ -56,7 +56,7 @@ def get_RA_Dec_for_target(target,
     return coord.ra.to(u.deg).value, coord.dec.to(u.deg).value
 
 
-def read_in_DR1_targets(file='dr1_targets_2mass_stars.txt'):
+def read_in_DR1_targets(file='observed_target_info.dr1.txt'):
     return Table.read(file, format='ascii.commented_header')
 
 
@@ -229,8 +229,8 @@ def parse_and_run(targets, **kwargs):
 if __name__ == '__main__':
     import argparse
 
-    parser = argparse.ArgumentParser(description='Convert ECSV files to Wstd')
-    parser.add_argument('infiles', metavar='N', type=str, nargs='+')
+    parser = argparse.ArgumentParser(description='Make lightcurve.')
+    parser.add_argument('field_names', metavar='N', type=str, nargs='+')
     parser.add_argument('--doPlot', default=False, action='store_true',
                         help='Plot the lightcurve.  If doShow is set also display.')
     parser.add_argument('--doShow', default=False, action='store_true',
@@ -238,4 +238,4 @@ if __name__ == '__main__':
 
     args = parser.parse_args(sys.argv[1:])
 
-    parse_and_run(args.infiles, doPlot=args.doPlot, doShow=args.doShow)
+    parse_and_run(args.field_names, doPlot=args.doPlot, doShow=args.doShow)
