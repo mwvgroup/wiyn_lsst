@@ -47,7 +47,7 @@ def get_RA_Dec_for_target(target,
         twomass_info = read_in_2MASS_data(twomass_info_file)
         number_only_twomass_id = target[-16:]
         w, = np.where(twomass_info['2MASSID'] == number_only_twomass_id)
-        target_info = sn_info[w]
+        target_info = twomass_info[w]
         # Want scalars rather than 1-element lists
         ra, dec = target_info['RA'][0], target_info['Dec'][0]
         # 2MASS catalog in decimal degrees
