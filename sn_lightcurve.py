@@ -230,8 +230,9 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser(description='Make lightcurve.')
-    parser.add_argument('field_names', type=str, nargs='+')
-    parser.add_argument('--target_names', type=str, nargs='+')
+    parser.add_argument('field', metavar='FIELD', type=str, nargs='+')
+    parser.add_argument('--target', type=str, nargs='+',
+                        help='Specify a different target name than the field name.  Must have some number of entries as field.')
     parser.add_argument('--doPlot', default=False, action='store_true',
                         help='Plot the lightcurve.  If doShow is set also display.')
     parser.add_argument('--doShow', default=False, action='store_true',
@@ -239,4 +240,4 @@ if __name__ == '__main__':
 
     args = parser.parse_args(sys.argv[1:])
 
-    parse_and_run(args.field_names, doPlot=args.doPlot, doShow=args.doShow)
+    parse_and_run(args.field, doPlot=args.doPlot, doShow=args.doShow)
