@@ -119,7 +119,7 @@ class rawLC:
 
 class Wstd:
     def __init__(self):
-        self.WstdLCsuffix = ".Wstd.dat"
+        self.WstdLCsuffix = "Wstd.dat"
 
     # Stores the SN-parameter contents of a header
     class WstdHeader:
