@@ -188,10 +188,12 @@ def process_target(target, doPlot=False, doShow=False):
             show_cat(butler, lc, ref_table, target_idx, target)
 
 
-def parse_and_run(targets):
+def parse_and_run(targets, **kwargs):
     for target in targets:
-        process_target(target)
+        process_target(target, **kwargs)
 
 
 if __name__=='__main__':
-    parse_and_run(sys.argv[1:])
+#    doPlot, doShow = True, True
+    doPlot, doShow = False, False
+    parse_and_run(sys.argv[1:], doPlot=doPlot, doShow=doShow)
