@@ -230,7 +230,8 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser(description='Make lightcurve.')
-    parser.add_argument('field_names', metavar='N', type=str, nargs='+')
+    parser.add_argument('field_names', type=str, nargs='+')
+    parser.add_argument('--target_names', type=str, nargs='+')
     parser.add_argument('--doPlot', default=False, action='store_true',
                         help='Plot the lightcurve.  If doShow is set also display.')
     parser.add_argument('--doShow', default=False, action='store_true',
