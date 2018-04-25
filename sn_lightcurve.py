@@ -1,7 +1,6 @@
 import os
 import sys
 
-import matplotlib.pyplot as plt
 import numpy as np
 
 from astropy.coordinates import SkyCoord
@@ -31,19 +30,51 @@ def get_tract_for_field(field):
     return field_tract_dict[field]
 
 
-def get_RA_Dec_for_target(target, target_info_file='observed_target_info.dr1.txt'):
-    """Return RA, Dec in decimal degrees."""
-    target_info = Table.read(target_info_file, format='ascii.commented_header')
+def get_RA_Dec_for_target(target,
+                          sn_info_file='dr1_targets_2mass_stars.txt',
+                          twomass_info_file='2MASS_DR1_stars.txt'):
+    """Return RA, Dec in decimal degrees for specified target."""
+    sn_info = read_in_DR1_targets(sn_info_file)
 
-    w, = np.where(target_info['Name'] == target)
-    target_info = target_info[w]
-
-    # Want scalars rather than 1-element lists
-    ra, dec = target_info['RA'][0], target_info['Dec'][0]
-    coord = SkyCoord(ra, dec, unit=(u.hour, u.deg))
+    w, = np.where(sn_info['Name'] == target)
+    if len(w) > 0:
+        target_info = sn_info[w]
+        # Want scalars rather than 1-element lists
+        ra, dec = target_info['RA'][0], target_info['Dec'][0]
+        # Target catalog in sexagesimal hours, degrees
+        coord = SkyCoord(ra, dec, unit=(u.hour, u.deg))
+    else:
+        twomass_info = read_in_2MASS_data(twomass_info_file)
+        number_only_twomass_id = target[-16:]
+        w, = np.where(twomass_info['2MASSID'] == number_only_twomass_id)
+        target_info = sn_info[w]
+        # Want scalars rather than 1-element lists
+        ra, dec = target_info['RA'][0], target_info['Dec'][0]
+        # 2MASS catalog in decimal degrees
+        coord = SkyCoord(ra, dec, unit=(u.deg, u.deg))
 
     return coord.ra.to(u.deg).value, coord.dec.to(u.deg).value
 
+
+def read_in_DR1_targets(file='dr1_targets_2mass_stars.txt'):
+    return Table.read(file, format='ascii.commented_header')
+
+
+def read_in_2MASS_data(filename, debug=False):
+    """Read in CSV file of catalog
+
+    #RA DEC 2MASSID Jmag eJmag Hmag eHmag Kmag eKmag
+    060.877901;-02.709703;04033069-0242349 ;13.922; 0.028;13.449; 0.032;13.303; 0.038
+    060.921678;-02.695895;04034120-0241452 ;14.831; 0.035;14.174; 0.037;13.975; 0.054
+    060.903753;-02.706162;04033690-0242221 ;15.905; 0.082;15.553; 0.114;15.226; 0.152
+    """
+    colnames = ('RA', 'Dec', '2MASSID',
+                'Jmag', 'eJmag', 'Hmag', 'eHmag', 'Kmag', 'eKmag')
+    data = Table.read(filename, format='csv', delimiter=';', data_start=1, names=colnames)
+    if debug:
+        print(data)
+
+    return data
 
 def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
                           datasetType='forced_src'):
@@ -124,6 +155,8 @@ def make_lc(field, target=None, tract=None, do_snr_cut=False):
 
 
 def plot_lc(lc, field, show=False):
+    import matplotlib.pyplot as plt
+
     filters = ['J', 'H']
     colors = {'J': 'blue', 'H': 'green', 'KS': 'red'}
     for filt in filters:
