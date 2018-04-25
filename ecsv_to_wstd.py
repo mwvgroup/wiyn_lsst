@@ -62,20 +62,33 @@ class convert_ab_vega:
       http://www.astronomy.ohio-state.edu/~martini/usefuldata.html
     Blanton and Roweis, 2007, AJ, 133, 734.
       http://adsabs.harvard.edu/abs/2007AJ....133..734B
+
+    >>> convert = convert_ab_vega()
+    >>> ab_mag, vega_mag = 10, 9.09
+    >>> print('%5.2f' % convert.ab_to_vega_mag(10, 'J'))
+     9.09
+    >>> print('%5.2f' % convert.vega_to_ab_mag(10, 'H'))
+    11.39
+    >>> ab_flux, vega_flux = 10**(-0.4*10), 0.00023120648
+    >>> print('%6.2g' % convert.ab_to_vega_flux(ab_flux, 'J'))
+    0.00023
+    >>> print('%6.8g' % convert.vega_to_ab_flux(vega_flux, 'J'))
+    0.0001
     """
     def __init__(self):
         self.mAB_minus_mVega = {'J': 0.91, 'H': 1.39, 'K': 1.85}
 
     def ab_to_vega_flux(self, ab_flux, filt):
         """Convert Vega flux to AB flux for given filter."""
-        return ab_flux * 10**(-0.4*self.mAB_minus_mVega[filt])
+        return ab_flux * 10**(+0.4*self.mAB_minus_mVega[filt])
 
     def vega_to_ab_flux(self, vega_flux, filt):
         """Convert AB flux to Vega flux for given filter."""
-        return vega_flux * 10**(+0.4*self.mAB_minus_mVega[filt])
+        return vega_flux * 10**(-0.4*self.mAB_minus_mVega[filt])
 
     def ab_to_vega_mag(self, ab_mag, filt):
-        """Convert AB magnitude to Vega Magnitude for given filter."""
+        """Convert AB magnitude to Vega Magnitude for given filter.
+        """
         return ab_mag - self.mAB_minus_mVega[filt]
 
     def vega_to_ab_mag(self, vega_mag, filt):
