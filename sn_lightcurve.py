@@ -96,7 +96,7 @@ def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
     return dataIds_by_filter
 
 
-def make_lc(field, target=None, tract=None, do_snr_cut=False):
+def make_lc(field, target=None, tract=None, do_snr_cut=False, verbose=True):
     """Extract a lightcurve from the calexps for the given field, target.
 
     If target is None, then field name is used as the target.
@@ -125,6 +125,9 @@ def make_lc(field, target=None, tract=None, do_snr_cut=False):
             cat = cat[good]
 
     RA, Dec = get_RA_Dec_for_target(target)
+    if verbose:
+        print("Making lightcurve for %s at (RA, Dec)=(%f, %f)" %
+              (target, RA, Dec))
 
     target_coord = afwGeom.SpherePoint(RA, Dec, afwGeom.degrees)
 
