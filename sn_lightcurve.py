@@ -37,7 +37,7 @@ def get_RA_Dec_for_target(target, target_info_file='observed_target_info.dr1.txt
 
     w, = np.where(target_info['Name'] == target)
     target_info = target_info[w]
- 
+
     # Want scalars rather than 1-element lists
     ra, dec = target_info['RA'][0], target_info['Dec'][0]
     coord = SkyCoord(ra, dec, unit=(u.hour, u.deg))
@@ -60,9 +60,10 @@ def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
     dataIds_by_filter = {}
     for f in uniq_filters:
         these_dataIds = [cd for cd in cat_dataIds if cd['filter'] == f]
-        dataIds_by_filter[f] = these_dataIds     
+        dataIds_by_filter[f] = these_dataIds
 
     return dataIds_by_filter
+
 
 def make_lc(field, tract=None, do_snr_cut=False):
     repo = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
@@ -100,9 +101,11 @@ def make_lc(field, tract=None, do_snr_cut=False):
     distance = np.array(distList)
     target_idx = np.argmin(distance)
 
-    print("Found match: Object %d at %f arcsecs" % (target_idx, afwGeom.radToArcsec(distance[target_idx])))
+    print('Found match: Object %d at %f arcsecs' %
+          (target_idx, afwGeom.radToArcsec(distance[target_idx])))
 
-    # Read in the forced-src photometry files that were built off of this same reference table to extract a lightcurve
+    # Extract a lightcurve by reading in the forced-src photometry files
+    # that were built off of this same reference table.
     dataIds_by_filter = get_dataIds_for_field(butler, field, tract)
 
     lc = assemble_catalogs_into_lightcurve(dataIds_by_filter, rerun, dataset='forced_src')
@@ -120,8 +123,9 @@ def plot_lc(lc, field, show=False):
     for filt in filters:
         wf, = np.where(lc['filter'] == filt)
         lc_filt = lc[wf]
-        plt.errorbar(lc_filt['mjd'], lc_filt['base_PsfFlux_mag'], lc_filt['base_PsfFlux_magSigma'], label=filt,
-                    marker='o', color=colors[filt], linestyle='none')
+        plt.errorbar(lc_filt['mjd'], lc_filt['base_PsfFlux_mag'], lc_filt['base_PsfFlux_magSigma'],
+                     label=filt,
+                     marker='o', color=colors[filt], linestyle='none')
 
     ylim = plt.ylim()
     plt.ylim(ylim[::-1])
@@ -148,7 +152,7 @@ def show_cat(butler, lc, ref_table, target_idx, field, tract=None):
     display.mtv(calexp)
 
     display.setMaskTransparency(80)
-    display.scale("asinh", -2, 25)
+    display.scale('asinh', -2, 25)
 
     X = 'slot_Centroid_x'
     Y = 'slot_Centroid_y'
@@ -157,17 +161,17 @@ def show_cat(butler, lc, ref_table, target_idx, field, tract=None):
 
     with display.Buffering():
         for s in ref_table:
-            display.dot("o", s[X], s[Y], size=10, ctype='orange')
+            display.dot('o', s[X], s[Y], size=10, ctype='orange')
 
     target_ref = ref_table[target_idx]
-    display.dot("o", target_ref[X], target_ref[Y], size=20, ctype='green')
+    display.dot('o', target_ref[X], target_ref[Y], size=20, ctype='green')
 
 
 def process_target(target, doPlot=False, doShow=False):
         try:
             butler, lc, ref_table, target_idx = make_lc(target)
         except Exception as e:
-            print("Could not generate a LC for '%s':" % target)
+            print('Could not generate a LC for "%s":' % target)
             print(e)
 
         if doPlot:
@@ -183,5 +187,5 @@ def parse_and_run(targets):
         process_target(target)
 
 
-if __name__=="__main__":
+if __name__=='__main__':
     parse_and_run(sys.argv[1:])
