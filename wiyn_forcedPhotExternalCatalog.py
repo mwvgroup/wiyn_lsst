@@ -33,7 +33,7 @@ def run_forced_photometry(dataId, coord_file, repo_dir, dataset='calexp',
     ForcedPhotExternalCatalogTask.parseAndRun(args=args)
 
 
-def extract_photometry(butler, dataId, forced_dataset, filt, source_row, names_to_copy,
+def extract_photometry(butler, dataId, forced_dataset, filt, object_id, names_to_copy,
                        phot_type='base_PsfFlux'):
     # Can grab filter, mjd from 'calexp_md' call on visit
     md = butler.get('calexp_md', dataId=dataId, immediate=True)
@@ -41,6 +41,9 @@ def extract_photometry(butler, dataId, forced_dataset, filt, source_row, names_t
 #        filt = md.get('FILTER')  # But that's not being set right now so we'll keep using f
 
     this_measurement = butler.get(forced_dataset, dataId)
+    source_row, = np.where(this_measurement['objectId'] == object_id)
+    if len(source_row) != 1:
+        return None
     # 'this_measurement' is a table, but we're only extracting the first entry from each column
     new_row = {n: this_measurement[n][source_row] for n in names_to_copy}
 #        new_row['filter'] = dataId['filter']
@@ -65,7 +68,7 @@ def extract_photometry(butler, dataId, forced_dataset, filt, source_row, names_t
     return new_row
 
 
-def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
+def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, object_id=0,
                                       phot_type='base_PsfFlux', dataset='calexp',
                                       debug=False):
     """Return Table with measurements."""
@@ -107,7 +110,7 @@ def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
     for f, dataIds in dataIds_by_filter.items():
         for dataId in dataIds:
             try:
-                new_row = extract_photometry(butler, dataId, forced_dataset, f, source_row,
+                new_row = extract_photometry(butler, dataId, forced_dataset, f, object_id,
                                              names_to_copy, phot_type=phot_type )
             except Exception as e:
                 print(e)

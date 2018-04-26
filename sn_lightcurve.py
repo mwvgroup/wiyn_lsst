@@ -76,6 +76,7 @@ def read_in_2MASS_data(filename, debug=False):
 
     return data
 
+
 def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
                           datasetType='forced_src'):
     """Lookup available forced source in Butler."""
