@@ -19,25 +19,27 @@ whirc_filter_lookup = {
 }
 
 
-def get_coord_redshift_for_target(target, target_info_file='observed_target_info.dr1.txt'):
-    """Return RA, Dec in decimal degrees."""
+def get_redshift_for_target(target, target_info_file='observed_target_info.dr1.txt'):
+    """Return redshift if known.  Else return None."""
     target_info = Table.read(target_info_file, format='ascii.commented_header')
 
     w, = np.where(target_info['Name'] == target)
-    target_info = target_info[w]
+    if len(w) < 1:
+        return None
 
-    # Want scalars rather than 1-element lists
-    ra, dec = target_info['RA'][0], target_info['Dec'][0]
-    coord = SkyCoord(ra, dec, unit=(u.hour, u.deg))
+    target_info = target_info[w]
 
     redshift = target_info['z']
 
-    return coord, redshift
+    return redshift
 
 
 def build_header(table, target):
     """Return a Wstd header from information in table"""
-    coord, redshift = get_coord_redshift_for_target(target)
+    redshift = get_redshift_for_target(target)
+    # Assume the coordinates of first row are correct:
+    col_ra, col_dec = table['coord_ra'], table['coord_dec']
+    coord = SkyCoord(col_ra[0], col_dec[0], unit=(col_ra.unit, col_dec.unit))
 
     utc = datetime.utcnow()
     time_stamp_str = "# Lightcurve generated at {} UTC".format(utc.isoformat())
