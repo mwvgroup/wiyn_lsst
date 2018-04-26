@@ -44,6 +44,7 @@ def extract_photometry(butler, dataId, forced_dataset, filt, object_id, names_to
     source_row, = np.where(this_measurement['objectId'] == object_id)
     if len(source_row) != 1:
         return None
+
     # 'this_measurement' is a table, but we're only extracting the first entry from each column
     new_row = {n: this_measurement[n][source_row] for n in names_to_copy}
 #        new_row['filter'] = dataId['filter']
@@ -115,6 +116,9 @@ def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, object_id=0,
             except Exception as e:
                 print(e)
                 print("Unable to extract forced photometry from {}".format(dataId))
+                continue
+
+            if new_row is None:
                 continue
             table.add_row(new_row)
 
