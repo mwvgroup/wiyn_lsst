@@ -33,7 +33,8 @@ def run_forced_photometry(dataId, coord_file, repo_dir, dataset='calexp',
     ForcedPhotExternalCatalogTask.parseAndRun(args=args)
 
 
-def extract_photometry(butler, dataId, forced_dataset, filt, source_row, names_to_copy):
+def extract_photometry(butler, dataId, forced_dataset, filt, source_row, names_to_copy,
+                       phot_type='base_PsfFlux'):
     # Can grab filter, mjd from 'calexp_md' call on visit
     md = butler.get('calexp_md', dataId=dataId, immediate=True)
     mjd = md.get('MJD-OBS')
@@ -41,43 +42,44 @@ def extract_photometry(butler, dataId, forced_dataset, filt, source_row, names_t
 
     this_measurement = butler.get(forced_dataset, dataId)
     # 'this_measurement' is a table, but we're only extracting the first entry from each column
-    cols_for_new_row = {n: this_measurement[n][source_row] for n in names_to_copy}
-#        cols_for_new_row['filter'] = dataId['filter']
-    cols_for_new_row['filter'] = filt
-    cols_for_new_row['mjd'] = mjd
+    new_row = {n: this_measurement[n][source_row] for n in names_to_copy}
+#        new_row['filter'] = dataId['filter']
+    new_row['filter'] = filt
+    new_row['mjd'] = mjd
 
     # Calibrate to magnitudes
     # The calibration information for the calexp
     # should still apply to the difference image
     calib = afwImage.Calib(md)
     with afwImageUtils.CalibNoThrow():
-        cols_for_new_row['base_PsfFlux_mag'], cols_for_new_row['base_PsfFlux_magSigma'] = \
-            calib.getMagnitude(cols_for_new_row['base_PsfFlux_flux'],
-                               cols_for_new_row['base_PsfFlux_fluxSigma'])
+        new_row['%s_mag' % phot_type], new_row['%s_magSigma' % phot_type] = \
+            calib.getMagnitude(new_row['%s_flux' % phot_type],
+                               new_row['%s_fluxSigma' % phot_type])
     flux_mag_0, flux_magSigma_0 = calib.getFluxMag0()
     flux_mag_25 = 10**(-0.4*25) * flux_mag_0
     flux_norm = 1/flux_mag_25
-    cols_for_new_row['base_PsfFlux_flux_zp25'] = \
-        flux_norm * cols_for_new_row['base_PsfFlux_flux']
-    cols_for_new_row['base_PsfFlux_fluxSigma_zp25'] = \
-        flux_norm * cols_for_new_row['base_PsfFlux_fluxSigma']
-    return cols_for_new_row
+    new_row['%s_flux_zp25' % phot_type] = \
+        flux_norm * new_row['%s_flux' % phot_type]
+    new_row['%s_fluxSigma_zp25' % phot_type] = \
+        flux_norm * new_row['%s_fluxSigma' % phot_type]
+    return new_row
 
 
-def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0, dataset='calexp',
+def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
+                                      phot_type='base_PsfFlux', dataset='calexp',
                                       debug=False):
     """Return Table with measurements."""
     butler = dafPersist.Butler(repo_dir)
 
     names_to_copy = ['objectId', 'coord_ra', 'coord_dec', 'parentObjectId',
-                     'base_PsfFlux_flux', 'base_PsfFlux_fluxSigma']
+                     '%s_flux' % phot_type, '%s_fluxSigma' % phot_type]
     # flux_zp25 is flux normalized to a zeropoint of 25.
     # This convention is useful and appropriate for transient sources
     # that are expected to be negative as well as positive
     # for a given lightcurve.
     names_to_generate = ['filter', 'mjd',
-                         'base_PsfFlux_mag', 'base_PsfFlux_magSigma',
-                         'base_PsfFlux_flux_zp25', 'base_PsfFlux_fluxSigma_zp25']
+                         '%s_mag' % phot_type, '%s_magSigma' % phot_type,
+                         '%s_flux_zp25' % phot_type, '%s_fluxSigma_zp25' % phot_type]
     names = names_to_generate + names_to_copy
     dtype = (str, float,
              float, float,
@@ -105,12 +107,13 @@ def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, source_row=0,
     for f, dataIds in dataIds_by_filter.items():
         for dataId in dataIds:
             try:
-                cols_for_new_row = extract_photometry(butler, dataId, forced_dataset, f, source_row, names_to_copy)
+                new_row = extract_photometry(butler, dataId, forced_dataset, f, source_row,
+                                             names_to_copy, phot_type=phot_type )
             except Exception as e:
                 print(e)
-                print("Unable to extracted forced photometry from {}".format(dataId))
+                print("Unable to extract forced photometry from {}".format(dataId))
                 continue
-            table.add_row(cols_for_new_row)
+            table.add_row(new_row)
 
     for n, unit in zip(names, units):
         if unit is not None:
