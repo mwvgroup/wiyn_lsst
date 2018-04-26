@@ -40,7 +40,7 @@ def extract_photometry(butler, dataId, forced_dataset, filt, object_id, names_to
     mjd = md.get('MJD-OBS')
 #        filt = md.get('FILTER')  # But that's not being set right now so we'll keep using f
 
-    this_measurement = butler.get(forced_dataset, dataId)
+    this_measurement = butler.get(forced_dataset, dataId).asAstropy()
     source_row, = np.where(this_measurement['objectId'] == object_id)
     if len(source_row) != 1:
         return None
