@@ -139,9 +139,10 @@ def make_lc(field, target=None, tract=None, do_snr_cut=False, verbose=True):
 
     distance = np.array(distList)
     target_idx = np.argmin(distance)
+    object_id = ref_table['objectid'][target_idx]
 
-    print('Found match: Object %d at %f arcsecs' %
-          (target_idx, afwGeom.radToArcsec(distance[target_idx])))
+    print('Found match: Row %d, Object %d at %f arcsecs' %
+          (target_idx, object_id, afwGeom.radToArcsec(distance[target_idx])))
 
     # Extract a lightcurve by reading in the forced-src photometry files
     # that were built off of this same reference table.
