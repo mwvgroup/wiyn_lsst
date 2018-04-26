@@ -138,8 +138,9 @@ def convert_ecsv_to_wstd(infile, outfile=None, in_system='AB', out_system='Vega'
     """
     table = Table.read(infile, format='ascii.ecsv')
     target = os.path.splitext(infile)[0]
+    field, target = str.split(target, '_')
     if outfile is None:
-        outfile = '%s.%s' % (target, Wstd().WstdLCsuffix)
+        outfile = '%s_%s.%s' % (field, target, Wstd().WstdLCsuffix)
 
     header = build_header(table, target)
     data = build_data(table, in_system=in_system, out_system=out_system)
