@@ -1,0 +1,48 @@
+#FIELD ID NIGHT
+SN2011io 2MASS23024227+0848225 20111208
+SN2012et 2MASS23424027+2706047 20121028
+SN2013bt 2MASS14211406+6134348 20130429
+# The -2152043 is not in 2MASS PSC.  Ext. source?
+# LSQ13cmt 2MASS01024265-2152043 20131015
+LSQ13cmt 2MASS01025011-2151228 20131015
+SNhunt206 2MASS01583809+0820382 20130927
+CSS121009:011101-172841 2MASS01105481-1728484 20121102
+PTF11owc 2MASS09161694+4938008 20111115
+# PTF13ayw 2MASS15393516+3207091 20130519
+PS1-12bwh 2MASS07092861+3906536 20121028
+SN2012fr  2MASS03333369-3607144 20121102
+LSQ12fuk  2MASS04581563-1617462 20121102
+LSQ12gef  2MASS01403113+1831584 20121125
+LSQ13cwp  2MASS04035391-0238401 20131213
+# Would like to use 20121125, but H-stack is bad
+SN2012go  2MASS22414990+3458008 20121130 
+SN2013bo  2MASS13173089+4244190 20130429
+PTF11qmo  2MASS10064651-0740348 20120108
+# H-band on 20130429 would be better, but currently calibration is per-night, not per-night+per-filter
+SNhunt175 2MASS15192067+2053326 20130420 
+### Problematic
+# WCS bad for every night.  No good star.
+SN2012fm  2MASS06552328+8405019 20131018 
+### Problematic
+# Hmm.. this is what the automatic method picks.  And it seems fine to me.  Maybe this is a bad zpt calibration in the first place.
+PTF13ayw  2MASS15393516+3207091 20130519 
+# Hmm.. also what the automatic method picks.
+SN2013bq  2MASS13041752+4354337 20130420 
+SN2013be  2MASS12362858+1144499 20130519
+### Problematic
+# But the first one seemed fine.  Check zpt.  Only two 2MASS objects in field.
+PS1-13dkh 2MASS03111139+1542476 20131018 
+### Problematic
+# 2012-01-08 is the photometric night, but H-band stack is off in WCS alignment.  2011-12-08 is the night where both stacks are OK..  But the original auto choice of 2MASS07192388+5413264 seemed good here.  Check offset.
+PTF11qzq 2MASS07192539+5413348 20111208 
+### Problematic
+# Same star as auto had picked.  Next night (but first photometric night, anyway).  So this should be the same as auto picked.
+iPTF13dkj 2MASS23084927+2003397 20131015
+# Not a photometric night, but the 2013-05-19 stacks aren't any good in the WCS or depth.
+SN2013cb 2MASS11350065+1608296 20130523
+CSS130218:092354+385837 2MASS09240185+3858360 20130425
+iPTF13dge 2MASS05033130+0133109 20131015
+iPTF13ebh 2MASS02215630+3316108 20131213
+# 2016-11-04  There are only 3 2MASS stars in field.  I'm explicitly picking one here.
+PTF12ikt 2MASS01143707+0015215 20120925
+PTF13asv 2MASS16225184+1857215 20130528
