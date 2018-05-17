@@ -52,7 +52,7 @@ def build_header(table, target):
         z_hel=redshift,
         lII=coord.galactic.l.to_string(unit=u.deg, decimal=True, precision=6),
         bII=coord.galactic.b.to_string(unit=u.deg, decimal=True, precision=6),
-        extraHeaderInfo=time_stamp_str) 
+        extraHeaderInfo=time_stamp_str)
 
     return header_str
 
@@ -150,7 +150,10 @@ def convert_ecsv_to_wstd(infile, outfile=None, in_system='AB', out_system='Vega'
 
 
 if __name__ == "__main__":
+    verbose = True
     in_system, out_system = 'AB', 'Vega'
     files_to_convert = sys.argv[1:]
     for infile in files_to_convert:
+        if verbose:
+            print("Converting %s" % infile)
         convert_ecsv_to_wstd(infile, in_system=in_system, out_system=out_system)
