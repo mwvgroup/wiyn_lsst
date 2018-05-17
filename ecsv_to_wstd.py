@@ -156,4 +156,7 @@ if __name__ == "__main__":
     for infile in files_to_convert:
         if verbose:
             print("Converting %s" % infile)
-        convert_ecsv_to_wstd(infile, in_system=in_system, out_system=out_system)
+        try:
+            convert_ecsv_to_wstd(infile, in_system=in_system, out_system=out_system)
+        except IndexError as e:
+            print("No rows found.  Skipping %s" % infile)
