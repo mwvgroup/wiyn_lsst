@@ -151,6 +151,9 @@ def make_lc(field, target=None, tract=None, do_snr_cut=False, verbose=True):
     dataIds_by_filter = get_dataIds_for_field(butler, field, tract)
 
     lc = assemble_catalogs_into_lightcurve(dataIds_by_filter, rerun, object_id, dataset='forced_src')
+    # Add coordinate information to lightcurve
+    lc.meta['RA'] = RA
+    lc.meta['Dec'] = Dec
     lc_file = '{:s}_{:s}.ecsv'.format(field, target)
     lc.write(lc_file, format='ascii.ecsv', overwrite=True)
 
