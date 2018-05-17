@@ -97,21 +97,26 @@ def get_dataIds_for_field(butler, field, tract=None, seq='A', patch='0,0',
     return dataIds_by_filter
 
 
-def make_lc(field, target=None, tract=None, do_snr_cut=False, verbose=True):
+def make_lc(field, target=None, tract=None, butler=None,
+            do_snr_cut=False, verbose=True):
     """Extract a lightcurve from the calexps for the given field, target.
 
     If target is None, then field name is used as the target.
-    """
-    repo = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
-    rerun = os.path.join(repo, 'rerun', 'forcedPhot')
 
+    if butler is None, then a new one is created.
+    """
     if target is None:
         target = field
 
     if tract is None:
         tract = get_tract_for_field(field)
 
-    ref_table, cats = read_cats(field, tract=tract, repo=rerun)
+    repo = os.path.join(os.getenv('DR1BASE'), 'repo', 'test_dr1')
+    rerun = os.path.join(repo, 'rerun', 'forcedPhot')
+    if butler is None:
+        butler = Butler(rerun)
+
+    ref_table, cats = read_cats(field, tract=tract, butler=butler)
 
     if do_snr_cut:
         snr_threshold = 5
@@ -147,10 +152,12 @@ def make_lc(field, target=None, tract=None, do_snr_cut=False, verbose=True):
 
     # Extract a lightcurve by reading in the forced-src photometry files
     # that were built off of this same reference table.
-    butler = Butler(rerun)
     dataIds_by_filter = get_dataIds_for_field(butler, field, tract)
 
-    lc = assemble_catalogs_into_lightcurve(dataIds_by_filter, rerun, object_id, dataset='forced_src')
+    lc = assemble_catalogs_into_lightcurve(dataIds_by_filter,
+                                           butler=butler,
+                                           object_id=object_id,
+                                           dataset='forced_src')
     # Add coordinate information to lightcurve
     lc.meta['RA'] = RA
     lc.meta['Dec'] = Dec

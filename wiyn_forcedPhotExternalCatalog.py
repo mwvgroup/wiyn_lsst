@@ -69,11 +69,13 @@ def extract_photometry(butler, dataId, forced_dataset, filt, object_id, names_to
     return new_row
 
 
-def assemble_catalogs_into_lightcurve(dataIds_by_filter, repo_dir, object_id=0,
+def assemble_catalogs_into_lightcurve(dataIds_by_filter,
+                                      repo_dir=None, butler=None, object_id=0,
                                       phot_type='base_PsfFlux', dataset='calexp',
                                       debug=False):
     """Return Table with measurements."""
-    butler = dafPersist.Butler(repo_dir)
+    if butler is None:
+        butler = dafPersist.Butler(repo_dir)
 
     names_to_copy = ['objectId', 'coord_ra', 'coord_dec', 'parentObjectId',
                      '%s_flux' % phot_type, '%s_fluxSigma' % phot_type]
