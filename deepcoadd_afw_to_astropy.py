@@ -12,9 +12,10 @@ REPO = os.path.join(DR1BASE, 'repo', 'test_dr1')
 RERUN = os.path.join(REPO, 'rerun', 'forcedPhot')
 
 def read_cats(field, tract, filters = ('J', 'H', 'KS'),
-              repo=RERUN, datasetType='deepCoadd_forced_src'):
+              repo=RERUN, butler=None, datasetType='deepCoadd_forced_src'):
     """Return the coadd reference catalog and a list of the individual per-filter coadd catalogs."""
-    butler = dafPersist.Butler(repo)
+    if butler is None:
+        butler = dafPersist.Butler(repo)
 
     ref_table = butler.get('deepCoadd_ref', {'filter': 'H^J', 'tract': tract, 'patch': '0,0'})
     ref_table = ref_table.asAstropy(copy=True)
