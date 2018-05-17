@@ -221,9 +221,10 @@ def show_cat(butler, lc, ref_table, target_idx, field, tract=None):
     display.dot('o', target_ref[X], target_ref[Y], size=20, ctype='green')
 
 
-def process_target(field, target, doPlot=False, doShow=False):
+def process_target(field, target, butler=None,
+                   doPlot=False, doShow=False):
         try:
-            butler, lc, ref_table, target_idx = make_lc(field, target)
+            butler, lc, ref_table, target_idx = make_lc(field, target, butler=butler)
         except Exception as e:
             print('Could not generate a LC for "%s":' % target)
             print(e)
@@ -235,13 +236,17 @@ def process_target(field, target, doPlot=False, doShow=False):
         if doShow:
             show_cat(butler, lc, ref_table, target_idx, target)
 
+        return butler
+
 
 def parse_and_run(fields, targets=None, **kwargs):
     if targets is None:
         targets = fields.copy()
 
+    butler = None
     for field, target in zip(fields, targets):
-        process_target(field, target, **kwargs)
+        butler = process_target(field, target, butler=butler,
+                                **kwargs)
 
 
 if __name__ == '__main__':
