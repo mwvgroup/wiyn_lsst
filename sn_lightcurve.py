@@ -255,7 +255,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Make lightcurve.')
     parser.add_argument('field', metavar='FIELD', type=str, nargs='+')
     parser.add_argument('--target', type=str, nargs='+',
-                        help='Specify a different target name than the field name.  Must have some number of entries as field.')
+                        help='Specify a different target name than the field name.  Must have same number of entries as field.')
     parser.add_argument('--doPlot', default=False, action='store_true',
                         help='Plot the lightcurve.  If doShow is set also display.')
     parser.add_argument('--doShow', default=False, action='store_true',
