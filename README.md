@@ -16,6 +16,7 @@ Requires the definition of the environment variable DR1BASE and the existence of
 `sh run_all_photometry.sh`
 6. Run lightcurves on calexps based on coadd detections
 `. run_all_calexp_lightcurves.sh`
+`. run_2mass_all_star_lightcurves.sh`
 
 7. Run subtractions
 `python sub_wiyn_dr1.py`
